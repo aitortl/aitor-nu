@@ -1,0 +1,2 @@
+{# Símbolo de marca (ligadura AT). Mientras no exista el SVG definitivo, hueco marcado: no se dibuja ni se aproxima. #}
+{% if sitio.simbolo | existe %}<img class="simbolo-svg" src="{{ sitio.simbolo }}" alt="" eleventy:ignore>{% else %}<span class="simbolo{{ ' grande' if grande }}" aria-hidden="true">AT</span>{% endif %}

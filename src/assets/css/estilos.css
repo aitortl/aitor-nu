@@ -153,3 +153,24 @@ footer h2{color:#9CC7C9;font-size:1.15rem;margin:0 0 1.2rem}
   .simple{columns:1}
   .ocasiones span{display:block;min-width:0}
 }
+
+/* ---------- Símbolo de marca ---------- */
+.simbolo-svg{width:28px;height:22px;display:block}
+.simbolo.grande{width:84px;height:66px;font-size:22px;color:var(--petroleo)}
+
+/* ---------- Carrusel (Mi historia) ---------- */
+.carrusel .pasos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;list-style:none;margin:0;padding:0;scrollbar-width:thin;scrollbar-color:var(--linea) transparent}
+.carrusel .pasos > li{flex:0 0 100%;scroll-snap-align:start}
+.carrusel figure{margin:0}
+.carrusel figcaption{font-size:.85rem;color:var(--pizarra);margin-top:.7rem;font-style:italic;font-family:var(--serif)}
+.carrusel .sin-foto{position:absolute;inset:0;display:grid;place-items:center}
+.carrusel .sin-foto .simbolo{position:static;inset:auto;opacity:1}
+.carrusel .sin-foto .simbolo-svg{position:static;width:40%;height:auto;object-fit:contain}
+.controles{display:none;align-items:center;gap:.9rem;margin-top:.9rem;font-size:.85rem;color:var(--pizarra)}
+.js .controles{display:flex}
+.js .carrusel .pasos{scrollbar-width:none}
+.js .carrusel .pasos::-webkit-scrollbar{display:none}
+.control{background:none;border:1px solid var(--linea);color:var(--profundo);font:600 .95rem/1 var(--sans);width:2.4rem;height:2.4rem;border-radius:2px;cursor:pointer}
+.control:hover{border-color:var(--petroleo)}
+.control:disabled{opacity:.4;cursor:default}
+@media (prefers-reduced-motion:no-preference){.carrusel .pasos{scroll-behavior:smooth}}

@@ -1,3 +1,4 @@
 # Eventos. Con fecha de hoy o futura salen en "Próximos eventos";
+# los pasados salen también en el carrusel de la portada (con su foto o con el símbolo de marca).
 # después pasan solos a "Eventos anteriores". Sin ninguno, el bloque no aparece.
 entradas: []

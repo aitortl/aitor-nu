@@ -338,6 +338,15 @@ content:
             description: "P. ej.: Ponente, Moderador, En representación del CODiNuPA."
           - name: enlace
             component: enlace
+          - name: foto
+            label: Foto
+            type: image
+            description: "Sale en el carrusel de la portada. Solo fotos propias o con permiso; nunca fotos de prensa sin autorización ni pacientes identificables. Sin foto, sale el símbolo de marca."
+            options: { media: imagenes }
+          - name: foto_alt
+            label: Descripción de la foto
+            type: string
+            description: "Qué se ve en la foto, para quien no puede verla. P. ej.: Aitor durante su ponencia en el congreso."
 
   - name: medios
     label: En los medios
@@ -379,6 +388,15 @@ content:
             pattern:
               regex: "^(https://web\\.archive\\.org/\\S+)?$"
               message: "Debe ser una dirección de web.archive.org"
+          - name: foto
+            label: Foto
+            type: image
+            description: "Sale en el carrusel de la portada. Solo fotos propias o con permiso; nunca fotos de prensa sin autorización ni pacientes identificables. Sin foto, sale el símbolo de marca."
+            options: { media: imagenes }
+          - name: foto_alt
+            label: Descripción de la foto
+            type: string
+            description: "Qué se ve en la foto, para quien no puede verla. P. ej.: Aitor durante su ponencia en el congreso."
 
   - name: docencia
     label: Docencia

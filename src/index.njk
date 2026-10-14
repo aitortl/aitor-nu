@@ -7,7 +7,7 @@ permalink: /
 <section class="portada" aria-label="Presentación">
   <div class="retrato">
     {% if inicio.retrato | existe %}
-    <img src="{{ inicio.retrato }}" alt="Retrato de {{ sitio.nombre }}">
+    <img src="{{ inicio.retrato }}" alt="Retrato de {{ sitio.nombre }}" loading="eager" fetchpriority="high" sizes="(max-width: 900px) 100vw, 50vw">
     {% else %}
     <div class="hueco" aria-hidden="true">
       <svg viewBox="0 0 200 240" fill="currentColor"><circle cx="100" cy="78" r="46"/><path d="M18 240c4-58 38-96 82-96s78 38 82 96z"/></svg>
@@ -35,15 +35,42 @@ permalink: /
     {% endfor %}
     {% if inicio.cierre %}<p class="cierre">{{ inicio.cierre | texto | safe }}</p>{% endif %}
   </div>
+  {% set fotos = eventos.entradas | carrusel(medios.entradas) %}
+  {% if fotos.length %}
+  {# Carrusel con eventos pasados y apariciones en medios, de lo más reciente a lo más antiguo. #}
+  <div class="foto2 carrusel" role="region" aria-roledescription="carrusel" aria-label="Eventos y apariciones en medios">
+    <ul class="pasos" tabindex="0" aria-label="Fotos; desplázate con las flechas">
+      {% for f in fotos %}
+      <li aria-roledescription="diapositiva" aria-label="{{ loop.index }} de {{ fotos.length }}">
+        <figure>
+          <div class="marco">
+            {% if f.foto %}<img src="{{ f.foto }}" alt="{{ f.alt or '' }}" sizes="(max-width: 900px) 420px, 25vw">
+            {% else %}<div class="sin-foto">{% set grande = true %}{% include "simbolo.njk" %}</div>{% endif %}
+          </div>
+          <figcaption>{{ [f.titulo, f.secundario, f.fecha | fecha] | compactar | join(" · ") }}</figcaption>
+        </figure>
+      </li>
+      {% endfor %}
+    </ul>
+    {% if fotos.length > 1 %}
+    <div class="controles">
+      <button class="control" type="button" data-anterior aria-label="Foto anterior">←</button>
+      <span class="cuenta" aria-live="polite">1 de {{ fotos.length }}</span>
+      <button class="control" type="button" data-siguiente aria-label="Foto siguiente">→</button>
+    </div>
+    {% endif %}
+  </div>
+  {% else %}
   <figure class="foto2">
     {% if inicio.foto_charla | existe %}
-    <div class="marco"><img src="{{ inicio.foto_charla }}" alt=""></div>
+    <div class="marco"><img src="{{ inicio.foto_charla }}" alt="" sizes="(max-width: 900px) 420px, 25vw"></div>
     {% if inicio.foto_charla_pie %}<figcaption>{{ inicio.foto_charla_pie }}</figcaption>{% endif %}
     {% else %}
     <div class="marco"><span>Segunda foto: en una charla, un congreso o un aula</span></div>
     <figcaption>Pie de foto con el evento y el año</figcaption>
     {% endif %}
   </figure>
+  {% endif %}
 </section>
 
 <section class="ahora" aria-labelledby="t-ahora">

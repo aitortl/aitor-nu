@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import yaml from "js-yaml";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 const ENTRADA = "src";
 
@@ -59,6 +60,26 @@ function fechaComunicacion(c) {
   return fechas.sort().pop() || "";
 }
 
+function existe(ruta) {
+  if (!ruta) return false;
+  return fs.existsSync(path.join(ENTRADA, decodeURI(String(ruta)).replace(/^\//, "")));
+}
+
+// Fotos de eventos pasados y de apariciones en medios, de la más reciente a la más antigua.
+// Las entradas sin foto se incluyen igualmente: en su lugar se muestra el símbolo de marca.
+function carrusel(eventos, medios) {
+  const hoy = hoyEnMadrid();
+  const diapositivas = [
+    ...(eventos || [])
+      .filter((e) => clave(e.fecha) && clave(e.fecha) < hoy)
+      .map((e) => ({ fecha: e.fecha, foto: e.foto, alt: e.foto_alt, titulo: e.nombre, secundario: e.lugar })),
+    ...(medios || []).map((m) => ({ fecha: m.fecha, foto: m.foto, alt: m.foto_alt, titulo: m.titular, secundario: m.medio })),
+  ];
+  return diapositivas
+    .map((d) => ({ ...d, foto: existe(d.foto) ? d.foto : "" }))
+    .sort((x, y) => (clave(x.fecha) < clave(y.fecha) ? 1 : clave(x.fecha) > clave(y.fecha) ? -1 : 0));
+}
+
 function hoyEnMadrid() {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Madrid" }).format(new Date());
 }
@@ -66,8 +87,17 @@ function hoyEnMadrid() {
 export default function (eleventyConfig) {
   eleventyConfig.addDataExtension("yml,yaml", (contenido) => yaml.load(contenido));
 
+  // Las fotos de src/img se reducen y convierten a WebP y JPEG al construir;
+  // los originales no se publican.
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ["webp", "jpeg"],
+    widths: [480, 960, 1600],
+    urlPath: "/img/",
+    outputDir: "./_site/img/",
+    defaultAttributes: { loading: "lazy", decoding: "async" },
+  });
+
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/img": "img" });
   eleventyConfig.addPassthroughCopy({ "src/documentos": "documentos" });
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
 
@@ -142,10 +172,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("capitalizar", (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : ""));
 
   // Material que Aitor aún tiene que aportar: si el archivo no está, se muestra el hueco.
-  eleventyConfig.addFilter("existe", (ruta) => {
-    if (!ruta) return false;
-    return fs.existsSync(path.join(ENTRADA, decodeURI(String(ruta)).replace(/^\//, "")));
-  });
+  eleventyConfig.addFilter("existe", existe);
+  eleventyConfig.addFilter("carrusel", carrusel);
 
   return {
     dir: { input: ENTRADA, includes: "_includes", data: "_data", output: "_site" },

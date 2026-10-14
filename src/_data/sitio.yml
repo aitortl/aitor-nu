@@ -9,3 +9,4 @@ ciudad: Oviedo, Asturias
 linkedin: https://www.linkedin.com/in/aitortl
 orcid: 0000-0002-8152-4214
 dialnet: https://dialnet.unirioja.es/servlet/autor?codigo=7227733
+simbolo: /assets/marca/simbolo.svg   # SVG de la ligadura AT; mientras no exista se muestra el hueco
