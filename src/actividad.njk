@@ -1,0 +1,49 @@
+---
+layout: base.njk
+titulo: Actividad
+descripcion: Ponencias, pósteres y comunicaciones a congresos de Aitor Trabanco LLano, además de eventos y apariciones en medios.
+permalink: /actividad/
+---
+{% import "listas.njk" as l %}
+<header class="cabecera">
+  <h1>Actividad</h1>
+  <p class="lede">Ponencias, pósteres y comunicaciones a congresos, además de las noticias y los eventos en los que participo.</p>
+</header>
+
+{% set proximos = eventos.entradas | proximos %}
+{% if proximos.length %}
+<section class="bloque">
+  <h2>Próximos eventos</h2>
+  <ul class="lista">
+    {% for e in proximos %}{{ l.evento(e) }}{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if comunicaciones.entradas.length %}
+<section class="bloque">
+  <h2>Comunicaciones a congresos</h2>
+  <ul class="lista">
+    {% for c in comunicaciones.entradas | ordenarComunicaciones %}{{ l.comunicacion(c) }}{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% set anteriores = eventos.entradas | pasados %}
+{% if anteriores.length %}
+<section class="bloque">
+  <h2>Eventos anteriores</h2>
+  <ul class="lista">
+    {% for e in anteriores %}{{ l.evento(e) }}{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if medios.entradas.length %}
+<section class="bloque">
+  <h2>En los medios</h2>
+  <ul class="lista">
+    {% for m in medios.entradas | ordenarPorFecha %}{{ l.medio(m) }}{% endfor %}
+  </ul>
+</section>
+{% endif %}

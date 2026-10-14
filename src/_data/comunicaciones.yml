@@ -1,0 +1,66 @@
+# Comunicaciones a congresos. tipo: ponencia · póster · comunicación
+# Un mismo trabajo presentado en varios foros va en una sola entrada con "ocasiones".
+# En "nota", el texto entre asteriscos (*Revista*) sale en cursiva.
+entradas:
+  - titulo: Impacto económico del Dietista-Nutricionista en la sanidad
+    descripcion: Trabajo de fin de grado presentado en cinco foros, como ponencia y como póster.
+    firma: 1
+    detalle: ""
+    ocasiones:
+      - fecha: "2021-11"
+        tipo: póster
+        evento: XIX Congreso Latinoamericano de Nutrición (SLAN)
+        nota: Resumen publicado en *Archivos Latinoamericanos de Nutrición*, 71 (Supl. 1).
+        enlace: https://www.alanrevista.org/ediciones/2021/suplemento-1/art-180
+        enlace_texto: Ver el resumen
+      - fecha: "2021-05"
+        tipo: póster
+        evento: VII Congreso Nacional de la Sociedad Española de Enfermería y Ciencias de la Salud
+        nota: ""
+        enlace: ""
+        enlace_texto: ""
+      - fecha: "2020-11"
+        tipo: ponencia
+        evento: III Congreso de Alimentación, Nutrición y Dietética
+        nota: Resumen publicado en la *Revista Española de Nutrición Humana y Dietética*.
+        enlace: https://www.renhyd.org/renhyd/article/view/1213
+        enlace_texto: Ver el resumen
+      - fecha: "2019-06"
+        tipo: ponencia
+        evento: II Jornada Nacional del Profesorado del Grado en Nutrición Humana y Dietética
+        nota: ""
+        enlace: ""
+        enlace_texto: ""
+      - fecha: "2018-10"
+        tipo: ponencia
+        evento: I Congreso de Estudiantes de la UPV/EHU
+        nota: 2.º Premio.
+        enlace: ""
+        enlace_texto: ""
+  - titulo: Dieta y Microbiota
+    fecha: "2021-11"
+    tipo: póster
+    evento: XIX Congreso Latinoamericano de Nutrición (SLAN)
+    nota: Resumen publicado en *Archivos Latinoamericanos de Nutrición*, 71 (Supl. 1).
+    firma: 1
+    detalle: "Origen: Trabajo Fin de Máster"
+    enlace: https://www.alanrevista.org/ediciones/2021/suplemento-1/art-376/
+    enlace_texto: Ver el resumen
+  - titulo: Bases dietético-nutricionales para los Centros de Menores de la AMAS
+    fecha: "2020-11"
+    tipo: comunicación
+    evento: IV Congreso Virtual de la FESNAD
+    nota: ""
+    firma: 3
+    detalle: ""
+    enlace: ""
+    enlace_texto: ""
+  - titulo: "Data consumption on fruit juices: findings from the ANIBES Study"
+    fecha: "2019-06"
+    tipo: póster
+    evento: XXVIII Reunión de la Sociedad Española de Nutrición
+    nota: ""
+    firma: 2
+    detalle: ""
+    enlace: ""
+    enlace_texto: ""

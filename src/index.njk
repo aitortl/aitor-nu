@@ -1,0 +1,67 @@
+---
+layout: base.njk
+permalink: /
+---
+{% set actuales = trayectoria.entradas | enCurso %}
+{% set cv = inicio.cv if (inicio.cv | existe) else "" %}
+<section class="portada" aria-label="Presentación">
+  <div class="retrato">
+    {% if inicio.retrato | existe %}
+    <img src="{{ inicio.retrato }}" alt="Retrato de {{ sitio.nombre }}">
+    {% else %}
+    <div class="hueco" aria-hidden="true">
+      <svg viewBox="0 0 200 240" fill="currentColor"><circle cx="100" cy="78" r="46"/><path d="M18 240c4-58 38-96 82-96s78 38 82 96z"/></svg>
+      <p>Aquí irá tu retrato</p>
+    </div>
+    {% endif %}
+  </div>
+  <div class="texto-portada">
+    <h1 class="nombre">{% for parte in sitio.nombre_partes %}<span class="l{{ loop.index }}">{{ parte }}</span>{% endfor %}</h1>
+    <p class="profesion">{{ sitio.profesion }}</p>
+    <p class="lema">{{ sitio.lema }}</p>
+    <div class="acciones">
+      <a class="boton" href="mailto:{{ sitio.correo }}">Escríbeme</a>
+      {% if cv %}<a class="enlace-cv" href="{{ cv }}" download>Descargar CV (PDF)</a>{% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="historia" aria-labelledby="t-historia">
+  <h2 id="t-historia">Mi historia</h2>
+  <p class="cita">{{ inicio.cita }}</p>
+  <div class="relato">
+    {% for parrafo in inicio.parrafos %}
+    <p>{{ parrafo | texto | safe }}</p>
+    {% endfor %}
+    {% if inicio.cierre %}<p class="cierre">{{ inicio.cierre | texto | safe }}</p>{% endif %}
+  </div>
+  <figure class="foto2">
+    {% if inicio.foto_charla | existe %}
+    <div class="marco"><img src="{{ inicio.foto_charla }}" alt=""></div>
+    {% if inicio.foto_charla_pie %}<figcaption>{{ inicio.foto_charla_pie }}</figcaption>{% endif %}
+    {% else %}
+    <div class="marco"><span>Segunda foto: en una charla, un congreso o un aula</span></div>
+    <figcaption>Pie de foto con el evento y el año</figcaption>
+    {% endif %}
+  </figure>
+</section>
+
+<section class="ahora" aria-labelledby="t-ahora">
+  <h2 id="t-ahora">Dónde estoy ahora</h2>
+  {% for t in actuales %}{% if t.portada and t.portada.mostrar and t.portada.principal %}
+  <div class="principal">
+    <h3>{{ t.portada.nombre or t.entidad }}</h3>
+    <div class="datos">
+      {% if t.puesto %}<p class="cargo">{{ t.puesto }}</p>{% endif %}
+      {% if t.portada.texto %}<p>{{ t.portada.texto }}</p>{% endif %}
+      <p class="desde">{{ t.inicio | desdeLargo }}</p>
+    </div>
+  </div>
+  {% endif %}{% endfor %}
+  {# Los demás puestos actuales, del más antiguo al más reciente, como en el prototipo. #}
+  <ul class="otros">
+    {% for t in actuales | reverse %}{% if t.portada and t.portada.mostrar and not t.portada.principal %}
+    <li><h3>{{ t.portada.nombre or t.entidad }}</h3>{% if t.puesto %}<p>{{ t.puesto }}</p>{% endif %}<p class="desde">{{ t.inicio | desdeLargo }}</p></li>
+    {% endif %}{% endfor %}
+  </ul>
+</section>

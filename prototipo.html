@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aitor Trabanco LLano · Dietista-Nutricionista</title>
+<meta name="description" content="Dietista-Nutricionista. Clínica e investigación con mirada didáctica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --petroleo:#0E5B62; --profundo:#0A4247; --agua:#E4F0F0; --pizarra:#334247;
+  --papel:#FBFDFD; --tinta:#1E2A2C; --blanco:#FFFFFF; --linea:#D3E3E4;
+  --serif:"Lora", Georgia, "Times New Roman", serif;
+  --sans:"Source Sans 3", Calibri, Arial, sans-serif;
+  --lado:clamp(1.25rem, 5vw, 4.5rem);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--sans);font-size:1.0625rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--petroleo);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--profundo)}
+
+/* ---------- Navegación ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem var(--lado);border-bottom:1px solid transparent;color:var(--profundo);transition:background .3s,border-color .3s}
+.nav.solida{background:rgba(251,253,253,.94);border-bottom-color:var(--linea);backdrop-filter:saturate(1.2) blur(6px)}
+.marca{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:var(--serif);font-weight:500;font-size:1.05rem;opacity:0;transform:translateY(-4px);transition:opacity .3s,transform .3s}
+.nav.solida .marca,body:not(.es-inicio) .marca{opacity:1;transform:none}
+.simbolo{width:28px;height:22px;border:1px dashed currentColor;border-radius:3px;display:inline-grid;place-items:center;font:600 9px/1 var(--sans)}
+.enlaces{display:flex;gap:clamp(.9rem,2vw,1.9rem);list-style:none;margin:0;padding:0;font-size:.95rem}
+.enlaces a{text-decoration:none;position:relative;padding:.2rem 0}
+.enlaces a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.enlaces a:hover::after,.enlaces a.activo::after{transform:scaleX(1)}
+.btn-menu{display:none;background:none;border:1px solid currentColor;color:inherit;font:600 .85rem var(--sans);padding:.45rem .9rem;border-radius:2px;cursor:pointer}
+
+/* ---------- Portada ---------- */
+.portada{position:relative;min-height:100svh;display:grid;align-items:end;padding:0 var(--lado) clamp(2.5rem,7vh,5rem);overflow:hidden}
+.retrato{position:absolute;top:0;right:0;bottom:0;width:50%;background:#D5E6E6;overflow:hidden}
+.retrato::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,var(--papel) 0%,rgba(251,253,253,.85) 14%,rgba(251,253,253,0) 42%)}
+.retrato img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;object-position:62% 22%}
+.hueco{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding-left:14%}
+.hueco svg{width:78%;max-width:560px;height:auto;color:var(--petroleo);opacity:.14;display:block}
+.hueco p{position:absolute;right:1.25rem;top:5.2rem;margin:0;font-size:.8rem;color:var(--profundo);opacity:.75;z-index:3}
+.texto-portada{position:relative;z-index:2}
+.nombre{font-size:clamp(3.4rem,11.2vw,10.8rem);line-height:.9;letter-spacing:-.015em;margin:0 0 1.6rem}
+.nombre span{display:block}
+.nombre .l2{padding-left:.45em}
+.nombre .l3{padding-left:1.1em}
+.profesion{margin:0;font-weight:600;font-size:clamp(1.05rem,1.4vw,1.25rem);color:var(--petroleo)}
+.lema{margin:.2rem 0 2rem;font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,1.6vw,1.4rem);color:var(--pizarra);max-width:44ch}
+.acciones{display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem}
+.boton{display:inline-block;background:var(--petroleo);color:var(--blanco);text-decoration:none;font-weight:600;font-size:.98rem;padding:.85rem 1.6rem;border-radius:2px;transition:background .2s}
+.boton:hover{background:var(--profundo)}
+.enlace-cv{font-weight:600;font-size:.98rem;color:var(--profundo);text-decoration:none;border-bottom:1px solid var(--petroleo);padding-bottom:2px}
+@media (prefers-reduced-motion:no-preference){
+  .es-inicio .retrato{animation:revela 1.1s cubic-bezier(.7,0,.2,1) both}
+  .es-inicio .nombre span{animation:sube .9s cubic-bezier(.2,.7,.2,1) both}
+  .es-inicio .nombre .l1{animation-delay:.35s}.es-inicio .nombre .l2{animation-delay:.47s}.es-inicio .nombre .l3{animation-delay:.59s}
+  .es-inicio .profesion,.es-inicio .lema,.es-inicio .acciones{animation:aparece .8s ease both;animation-delay:.95s}
+}
+@keyframes revela{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes sube{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
+@keyframes aparece{from{opacity:0}to{opacity:1}}
+
+/* ---------- Mi historia ---------- */
+.historia{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0 1.5rem;padding:clamp(5rem,12vh,9rem) var(--lado)}
+.historia h2{grid-column:1 / span 3;font-size:1.15rem;color:var(--petroleo);margin:.6rem 0 0;position:sticky;top:6rem;align-self:start}
+.cita{grid-column:4 / span 9;margin:0 0 3.5rem;font-family:var(--serif);font-style:italic;font-size:clamp(1.8rem,3.4vw,3rem);line-height:1.22;color:var(--profundo);max-width:24ch}
+.relato{grid-column:4 / span 5;max-width:62ch}
+.relato p{margin:0 0 1.35em}
+.relato p.cierre{margin-top:2.2em;padding-top:1.6em;border-top:1px solid var(--linea);font-family:var(--serif);font-size:1.22rem;color:var(--profundo)}
+.foto2{grid-column:10 / span 3;align-self:start;position:sticky;top:7rem;margin:0}
+.foto2 .marco{position:relative;aspect-ratio:4/5;background:var(--agua);overflow:hidden}
+.foto2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.foto2 .marco span{position:absolute;inset:auto 1rem 1rem 1rem;font-size:.8rem;color:var(--profundo);opacity:.75}
+.foto2 figcaption{font-size:.85rem;color:var(--pizarra);margin-top:.7rem;font-style:italic;font-family:var(--serif)}
+
+/* ---------- Dónde estoy ahora ---------- */
+.ahora{background:var(--agua);padding:clamp(4.5rem,11vh,8rem) var(--lado)}
+.ahora h2{font-size:1.15rem;color:var(--petroleo);margin:0 0 2.5rem}
+.principal{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(14,91,98,.25)}
+.principal h3{grid-column:1 / span 7;font-size:clamp(2rem,4.2vw,3.6rem);line-height:1.05;margin:0}
+.principal .datos{grid-column:9 / span 4;align-self:end;font-size:1rem;color:var(--pizarra)}
+.principal .datos p{margin:0 0 .35rem}
+.principal .cargo{font-weight:600;color:var(--profundo)}
+.desde{color:var(--petroleo)}
+.otros{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding:2.5rem 0 0;list-style:none;margin:0}
+.otros li h3{font-size:1.35rem;line-height:1.25;margin:0 0 .5rem}
+.otros li p{margin:0;font-size:.98rem;color:var(--pizarra)}
+
+/* ---------- Páginas interiores ---------- */
+.pagina{display:none}
+.pagina.visible{display:block}
+.cabecera{padding:calc(clamp(4rem,10vh,7rem) + 3.5rem) var(--lado) clamp(2.5rem,6vh,4rem);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0 1.5rem;border-bottom:1px solid var(--linea)}
+.cabecera h1{grid-column:1 / span 7;font-size:clamp(2.6rem,6vw,5rem);line-height:1;margin:0}
+.cabecera .lede{grid-column:8 / span 5;align-self:end;margin:1rem 0 0;color:var(--pizarra);max-width:46ch}
+.bloque{padding:clamp(3rem,7vh,5rem) var(--lado);border-bottom:1px solid var(--linea)}
+.bloque:last-of-type{border-bottom:0}
+.bloque > h2{font-size:1.15rem;color:var(--petroleo);margin:0 0 2.2rem}
+.lista{list-style:none;margin:0;padding:0}
+.lista > li{display:grid;grid-template-columns:minmax(0,2.6fr) minmax(0,7fr) minmax(0,2.4fr);gap:.4rem 1.5rem;padding:1.5rem 0;border-top:1px solid var(--linea)}
+.lista > li:first-child{border-top:0;padding-top:0}
+.periodo{font-family:var(--serif);font-size:1.25rem;line-height:1.3;color:var(--petroleo)}
+.cuerpo h3{font-size:1.3rem;line-height:1.3;margin:0 0 .25rem}
+.cuerpo p{margin:0;color:var(--pizarra);font-size:1rem}
+.cuerpo .meta{margin-top:.5rem;font-size:.92rem;color:var(--petroleo)}
+.cuerpo cite{font-style:italic}
+.fuente{align-self:start;font-size:.92rem}
+.fuente a{text-decoration:none;border-bottom:1px solid var(--petroleo);color:var(--profundo)}
+.aviso{display:inline-block;background:var(--agua);color:var(--profundo);font-size:.82rem;padding:.15rem .5rem;border-radius:2px}
+.nota{max-width:70ch;color:var(--pizarra);font-size:.95rem;margin:0 0 2rem}
+.simple{columns:2;column-gap:3rem;list-style:none;margin:0;padding:0;max-width:72ch}
+.simple li{break-inside:avoid;padding:.45rem 0;color:var(--pizarra)}
+.vacio{border:1px dashed var(--linea);padding:2rem;max-width:62ch;color:var(--pizarra)}
+.ocasiones{list-style:none;margin:1rem 0 0;padding:0 0 0 1.1rem;border-left:2px solid var(--agua)}
+.ocasiones li{padding:.4rem 0;font-size:.97rem;color:var(--pizarra)}
+.ocasiones span{display:inline-block;min-width:6.2em;font-family:var(--serif);color:var(--petroleo)}
+.ocasiones a{color:var(--profundo);text-decoration:none;border-bottom:1px solid var(--petroleo);white-space:nowrap}
+.vacio strong{display:block;font-family:var(--serif);font-weight:500;color:var(--profundo);font-size:1.2rem;margin-bottom:.4rem}
+
+/* ---------- Contacto ---------- */
+footer{background:var(--profundo);color:var(--blanco);padding:clamp(4.5rem,11vh,8rem) var(--lado) 2rem}
+footer h2{color:#9CC7C9;font-size:1.15rem;margin:0 0 1.2rem}
+.correo{display:inline-block;font-family:var(--serif);font-size:clamp(2rem,5.4vw,4.4rem);line-height:1.1;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+.correo:hover{border-bottom-color:var(--blanco)}
+.redes{display:flex;flex-wrap:wrap;gap:1rem 2.2rem;list-style:none;margin:2.6rem 0 5rem;padding:0;font-weight:600}
+.redes a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.85rem;color:#B9D3D4;border-top:1px solid rgba(255,255,255,.15);padding-top:1.5rem}
+.legal a{text-decoration:none}
+
+/* ---------- Móvil ---------- */
+@media (max-width:900px){
+  .enlaces{display:none}
+  .btn-menu{display:inline-block}
+  .nav.abierta{background:var(--papel)}
+  .nav.abierta .enlaces{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--papel);padding:1.2rem var(--lado) 1.6rem;border-bottom:1px solid var(--linea);gap:1rem;font-size:1.1rem}
+  .portada{display:block;padding-top:0}
+  .retrato{position:relative;width:auto;height:62svh;margin:0 calc(var(--lado) * -1)}
+  .retrato::before{background:linear-gradient(0deg,var(--papel) 0%,rgba(251,253,253,.85) 12%,rgba(251,253,253,0) 38%)}
+  .hueco{padding-left:0}
+  .hueco p{top:4.6rem;right:1.25rem}
+  .texto-portada{margin-top:-4.2rem}
+  .nombre{font-size:clamp(3rem,16vw,5.4rem)}
+  .historia h2,.cita,.relato,.foto2{grid-column:1 / -1}
+  .historia h2{position:static;margin-bottom:1.5rem}
+  .foto2{position:static;margin-top:2rem;max-width:420px}
+  .principal h3,.principal .datos{grid-column:1 / -1}
+  .otros{grid-template-columns:1fr}
+  .cabecera h1,.cabecera .lede{grid-column:1 / -1}
+  .lista > li{grid-template-columns:1fr}
+  .periodo{font-size:1.05rem}
+  .simple{columns:1}
+  .ocasiones span{display:block;min-width:0}
+}
+</style>
+</head>
+<body class="es-inicio">
+
+<nav class="nav" id="nav" aria-label="Principal">
+  <a class="marca" href="#inicio"><span class="simbolo">AT</span><span>Aitor Trabanco LLano</span></a>
+  <button class="btn-menu" id="btnMenu" aria-expanded="false">Menú</button>
+  <ul class="enlaces" id="enlaces">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#trayectoria">Trayectoria</a></li>
+    <li><a href="#publicaciones">Publicaciones</a></li>
+    <li><a href="#actividad">Actividad</a></li>
+    <li><a href="#docencia">Docencia</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ============ INICIO ============ -->
+<div class="pagina visible" id="inicio">
+  <section class="portada" aria-label="Presentación">
+    <div class="retrato">
+      <div class="hueco" aria-hidden="true">
+        <svg viewBox="0 0 200 240" fill="currentColor"><circle cx="100" cy="78" r="46"/><path d="M18 240c4-58 38-96 82-96s78 38 82 96z"/></svg>
+        <p>Aquí irá tu retrato</p>
+      </div>
+      <img src="retrato.jpg" alt="Retrato de Aitor Trabanco LLano" onerror="this.remove()">
+    </div>
+    <div class="texto-portada">
+      <h1 class="nombre"><span class="l1">Aitor</span><span class="l2">Trabanco</span><span class="l3">LLano</span></h1>
+      <p class="profesion">Dietista-Nutricionista</p>
+      <p class="lema">Clínica e investigación con mirada didáctica</p>
+      <div class="acciones">
+        <a class="boton" href="mailto:contacto@aitor.nu">Escríbeme</a>
+        <a class="enlace-cv" href="cv-aitor-trabanco-llano.pdf" download>Descargar CV (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="historia" aria-labelledby="t-historia">
+    <h2 id="t-historia">Mi historia</h2>
+    <p class="cita">Traslado la evidencia de forma clara a pacientes, alumnado y equipos.</p>
+    <div class="relato">
+      <p>Soy dietista-nutricionista y trabajo en el ámbito clínico y en la investigación, siempre con una mirada didáctica.</p>
+      <p>Atiendo consulta hospitalaria en el Hospital Universitario de Cabueñes (FINBA), dentro del grupo de investigación en Endocrinología, Nutrición, Diabetes y Obesidad (ENDO) del Instituto de Investigación Sanitaria del Principado de Asturias (ISPA). Trabajo con pacientes de obesidad y de oncohematología —sobre todo mieloma múltiple—, con valoración morfofuncional del estado nutricional y cribado nutricional, en un equipo multidisciplinar junto a endocrinología, hematología y enfermería.</p>
+      <p>La investigación, la docencia y la divulgación forman parte de mi trayectoria desde 2018. Participé como miembro del equipo investigador en proyectos de I+D+i de la Fundación Española de la Nutrición, soy coautor de un capítulo en la obra de Dietoterapia dirigida por la SEEN (Editorial Médica Panamericana) y de varias guías de alimentación divulgativas. La práctica clínica la compagino con estas áreas desde 2021.</p>
+      <p>Soy, además, Secretario de la Junta de Gobierno del Colegio Profesional de Dietistas-Nutricionistas del Principado de Asturias (CODiNuPA).</p>
+      <p class="cierre">Lo que más me motiva es la promoción de la salud y la salud pública: las intervenciones nutricionales pensadas para tener impacto en la población, más allá de la consulta individual. Es la dirección en la que quiero seguir creciendo.</p>
+    </div>
+    <figure class="foto2">
+      <div class="marco"><span>Segunda foto: en una charla, un congreso o un aula</span><img src="foto-charla.jpg" alt="" onerror="this.remove()"></div>
+      <figcaption>Pie de foto con el evento y el año</figcaption>
+    </figure>
+  </section>
+
+  <section class="ahora" aria-labelledby="t-ahora">
+    <h2 id="t-ahora">Dónde estoy ahora</h2>
+    <div class="principal">
+      <h3>Hospital Universitario de Cabueñes</h3>
+      <div class="datos">
+        <p class="cargo">Dietista-Nutricionista, Técnico de Apoyo a la Investigación</p>
+        <p>FINBA. Servicios de Endocrinología y Nutrición, y de Hematología. Grupo ENDO del ISPA.</p>
+        <p class="desde">Desde abril de 2024</p>
+      </div>
+    </div>
+    <ul class="otros">
+      <li><h3>NutriMed Clinical Nutrition</h3><p>Dietista-Nutricionista</p><p class="desde">Desde agosto de 2021</p></li>
+      <li><h3>CODiNuPA</h3><p>Secretario de la Junta de Gobierno</p><p class="desde">Desde enero de 2024</p></li>
+      <li><h3>Femxa y Fórmate</h3><p>Docencia online en nutrición (FPE)</p><p class="desde">Desde abril de 2024</p></li>
+    </ul>
+  </section>
+</div>
+
+<!-- ============ TRAYECTORIA ============ -->
+<div class="pagina" id="trayectoria">
+  <header class="cabecera">
+    <h1>Trayectoria</h1>
+    <p class="lede">Dónde he trabajado y qué he estudiado, con las fechas tal como figuran en mi currículum.</p>
+  </header>
+
+  <section class="bloque">
+    <h2>Ahora</h2>
+    <ul class="lista">
+      <li>
+        <div class="periodo">Desde abr. 2024</div>
+        <div class="cuerpo">
+          <h3>FINBA — Hospital Universitario de Cabueñes</h3>
+          <p>Dietista-Nutricionista (Técnico de Apoyo a la Investigación). Servicios de Endocrinología y Nutrición, y de Hematología; grupo ENDO del ISPA.</p>
+          <p class="meta">Consulta en obesidad y en oncohematología. Valoración morfofuncional, cribado nutricional y educación nutricional, en equipo multidisciplinar.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">Desde abr. 2024</div>
+        <div class="cuerpo">
+          <h3>Femxa y Fórmate</h3>
+          <p>Docente online de nutrición, alimentación y hábitos saludables en formación profesional para el empleo.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">Desde ene. 2024</div>
+        <div class="cuerpo">
+          <h3>CODiNuPA</h3>
+          <p>Secretario de la Junta de Gobierno del Colegio Profesional de Dietistas-Nutricionistas del Principado de Asturias.</p>
+          <p class="meta">Miembro del Grupo de Trabajo de Comunicación desde 2021.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">Desde ago. 2021</div>
+        <div class="cuerpo">
+          <h3>NutriMed Clinical Nutrition</h3>
+          <p>Dietista-Nutricionista. Valoración morfofuncional, cribado nutricional, prevención y tratamiento de la malnutrición, diseño de menús adaptados y seguimiento de pacientes con soporte nutricional.</p>
+          <p class="meta">Antes Adventia Pharma: misma etapa, cambió el nombre de la empresa.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="bloque">
+    <h2>Antes</h2>
+    <ul class="lista">
+      <li>
+        <div class="periodo">2024</div>
+        <div class="cuerpo">
+          <h3>Dicampus</h3>
+          <p>Docente online de nutrición y alimentación (abr.–may. 2024).</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">2023</div>
+        <div class="cuerpo">
+          <h3>Servicio Navarro de Salud — Osasunbidea</h3>
+          <p>Técnico Especialista en Dietética (sep.–oct. 2023) y Educador Sanitario (jul. 2023).</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">2018 – 2022</div>
+        <div class="cuerpo">
+          <h3>Fundación Española de la Nutrición</h3>
+          <p>Dietista-Nutricionista en el área de investigación, en varios contratos a lo largo de esos años.</p>
+          <p class="meta">Proyectos de investigación y estudios científicos, libros, informes y guías; comunicaciones a congresos; docencia especializada y divulgación.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">2021</div>
+        <div class="cuerpo">
+          <h3>Galeno Consulting y Clínica Claudia Rosete</h3>
+          <p>Diseño de menús adaptados a población mayor (jun.–sep.) y valoración nutricional en consulta de pediatría (may.–jul.).</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">2019</div>
+        <div class="cuerpo">
+          <h3>Hospital General Universitario Gregorio Marañón</h3>
+          <p>Prácticas del Máster (may.–jul. 2019).</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">2014</div>
+        <div class="cuerpo">
+          <h3>Association RéPPOP Aquitaine y EPADH Bon Secours</h3>
+          <p>Prácticas del Técnico Superior en Dietética en Francia, con beca Erasmus+.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="bloque">
+    <h2>Formación</h2>
+    <ul class="lista">
+      <li>
+        <div class="periodo">2019</div>
+        <div class="cuerpo">
+          <h3>Máster en Condicionantes Genéticos, Nutricionales y Ambientales del Crecimiento y el Desarrollo</h3>
+          <p>Universidad de Santiago de Compostela. Sobresaliente.</p>
+          <p class="meta">Trabajo Fin de Máster: <cite>Dieta y Microbiota</cite>, origen del póster presentado en el SLAN 2021.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">2018</div>
+        <div class="cuerpo">
+          <h3>Graduado en Nutrición Humana y Dietética</h3>
+          <p>Universidad del País Vasco (UPV/EHU). Notable, con Matrícula de Honor en Nutrición Humana.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">2023</div>
+        <div class="cuerpo">
+          <h3>Certificado de Profesionalidad en Docencia de la Formación Profesional para el Empleo</h3>
+          <p>Servicio Público de Empleo Estatal.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">2014</div>
+        <div class="cuerpo">
+          <h3>Técnico Superior en Dietética</h3>
+          <p>IES Francisco de Vitoria, Vitoria-Gasteiz. Prácticas Erasmus+ en Francia.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">2012</div>
+        <div class="cuerpo">
+          <h3>Técnico en Cocina y Gastronomía</h3>
+          <p>IES Leopoldo Alas Clarín, Oviedo.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="bloque">
+    <h2>Reconocimientos, idiomas y herramientas</h2>
+    <ul class="simple">
+      <li>2.º Premio del I Congreso de Estudiantes de la UPV/EHU (2018), por el Trabajo Fin de Grado.</li>
+      <li>Matrícula de Honor en Nutrición Humana, UPV/EHU (2015).</li>
+      <li>Beca Erasmus+ para prácticas en Francia (2014).</li>
+      <li>Castellano nativo. Francés B1, respaldado por la estancia Erasmus+.</li>
+      <li>Cribado y valoración con GLIM, MUST y MNA.</li>
+      <li>Bioimpedancia Tanita y dinamometría.</li>
+      <li>Historia clínica electrónica Selene.</li>
+      <li>Dietowin, Dietopro y valoración dietética VD-FEN 2.1.</li>
+    </ul>
+  </section>
+</div>
+
+<!-- ============ PUBLICACIONES ============ -->
+<div class="pagina" id="publicaciones">
+  <header class="cabecera">
+    <h1>Publicaciones</h1>
+    <p class="lede">Cada referencia indica mi posición de firma y enlaza con la fuente original, para que cualquiera pueda comprobarla.</p>
+  </header>
+
+  <section class="bloque">
+    <h2>Capítulo de libro</h2>
+    <ul class="lista">
+      <li>
+        <div class="periodo"><span class="aviso">Año pendiente</span></div>
+        <div class="cuerpo">
+          <h3>Dietoterapia en la dislipemia</h3>
+          <p>Riestra Fernández M, Trabanco LLano A. En: Botella Romero F, López-Gómez JJ, Luengo Pérez LM, directores. <cite>Dietoterapia. Bases científicas y aplicación clínica</cite>. Madrid: Editorial Médica Panamericana. Obra dirigida por la SEEN. ISBN 978-84-1106-391-3.</p>
+          <p class="meta">2.º autor</p>
+        </div>
+        <div class="fuente"><a href="https://dialnet.unirioja.es/servlet/articulo?codigo=10644170">Ver en Dialnet</a></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="bloque">
+    <h2>Resumen de ponencia</h2>
+    <ul class="lista">
+      <li>
+        <div class="periodo">2020</div>
+        <div class="cuerpo">
+          <h3>Impacto económico del Dietista-Nutricionista en la sanidad</h3>
+          <p>Trabanco LLano A. <cite>Revista Española de Nutrición Humana y Dietética</cite>; 24 (Supl. 1).</p>
+          <p class="meta">1.<sup>er</sup> autor · <span class="aviso">Páginas pendientes</span></p>
+        </div>
+        <div class="fuente"><a href="https://www.renhyd.org/renhyd/article/view/1213">Ver en la revista</a></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="bloque">
+    <h2>Documentos divulgativos y guías</h2>
+    <p class="nota">Documentos técnicos y divulgativos elaborados con la Fundación Española de la Nutrición para distintas entidades. No son artículos en revista indexada.</p>
+    <ul class="lista">
+      <li>
+        <div class="periodo">2021</div>
+        <div class="cuerpo">
+          <h3>Dossier EsNuPI AEP: principales hallazgos</h3>
+          <p>Asociación Española de Pediatría, Comité de Nutrición y Lactancia Materna. Resultados del Estudio EsNuPI sobre alimentación infantil en España.</p>
+          <p class="meta">2.º autor · <span class="aviso">Autoría pendiente de comprobar</span></p>
+        </div>
+        <div class="fuente"><a href="https://www.aeped.es/publicaciones/protocolos/dossier-esnupi-aep-principales-hallazgos">Ver en la AEP</a></div>
+      </li>
+      <li>
+        <div class="periodo">2020</div>
+        <div class="cuerpo">
+          <h3>Guía de Alimentación Saludable para Personas Mayores</h3>
+          <p>Fundación Española de la Nutrición y Junta de Andalucía.</p>
+          <p class="meta">1.<sup>er</sup> autor</p>
+        </div>
+        <div class="fuente"><a href="https://www.juntadeandalucia.es/organismos/inclusionsocialjuventudfamiliaseigualdad/servicios/publicaciones/detalle/80353.html">Ver en la Junta de Andalucía</a></div>
+      </li>
+      <li>
+        <div class="periodo"><span class="aviso">Año pendiente</span></div>
+        <div class="cuerpo">
+          <h3>Importancia de los lácteos para una adecuada hidratación</h3>
+          <p>Fundación Española de la Nutrición e Interprofesional Láctea (INLAC).</p>
+          <p class="meta">1.<sup>er</sup> autor</p>
+        </div>
+        <div class="fuente"><a href="https://www.fen.org.es/publicacion/Gu%C3%ADa-la-importancia-de-los-l%C3%A1cteos-para-una-adecuada-hidrataci%C3%B3n">Ver en la FEN</a></div>
+      </li>
+      <li>
+        <div class="periodo">2019</div>
+        <div class="cuerpo">
+          <h3>Tu Elección Saludable: Guía de Alimentación</h3>
+          <p>Fundación Española de la Nutrición y Serunión.</p>
+          <p class="meta">4.º autor</p>
+        </div>
+        <div class="fuente"><a href="https://fen.org.es/publicacion/tu-eleccion-saludable">Ver en la FEN</a></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="bloque">
+    <h2>Proyectos de investigación</h2>
+    <p class="nota">Participación como miembro del equipo investigador en proyectos de I+D+i de la Fundación Española de la Nutrición, entre 2018 y 2021.</p>
+    <ul class="simple">
+      <li>NUTRIFEN y EDUGASTRO, proyectos propios de la FEN.</li>
+      <li>Bases dietéticas en residencias infantiles, para la Agencia Madrileña de Atención Social.</li>
+      <li>Menús en centros docentes públicos y en escuelas infantiles, para la Consejería de Educación de la Comunidad de Madrid.</li>
+      <li>Protocolo de bases dietético-nutricionales del servicio de restauración, para el IMSERSO.</li>
+      <li>Guías de menús saludables para varias comunidades autónomas, con FICYE.</li>
+      <li>Guía sobre leche y productos lácteos para una adecuada hidratación, con INLAC.</li>
+      <li>Revisión bibliográfica sobre consumo y propiedades nutricionales de los zumos, con Asozumos.</li>
+      <li>Día Nacional del Desayuno: organización, infografías y valoración nutricional.</li>
+    </ul>
+  </section>
+
+  <section class="bloque">
+    <h2>Perfiles</h2>
+    <ul class="simple">
+      <li><a href="https://orcid.org/0000-0002-8152-4214">ORCID 0000-0002-8152-4214</a></li>
+      <li><a href="https://dialnet.unirioja.es/servlet/autor?codigo=7227733">Perfil de autor en Dialnet</a></li>
+    </ul>
+  </section>
+</div>
+
+<!-- ============ ACTIVIDAD ============ -->
+<div class="pagina" id="actividad">
+  <header class="cabecera">
+    <h1>Actividad</h1>
+    <p class="lede">Ponencias, pósteres y comunicaciones a congresos, además de las noticias y los eventos en los que participo.</p>
+  </header>
+
+  <section class="bloque">
+    <h2>Próximos eventos</h2>
+    <div class="vacio"><strong>Sin eventos anunciados</strong>Este apartado solo aparece cuando hay alguna fecha confirmada; en cuanto pasa, el evento se mueve solo a la lista de abajo.</div>
+  </section>
+
+  <section class="bloque">
+    <h2>Comunicaciones a congresos</h2>
+    <ul class="lista">
+      <li>
+        <div class="periodo">2018 – 2021</div>
+        <div class="cuerpo">
+          <h3>Impacto económico del Dietista-Nutricionista en la sanidad</h3>
+          <p>Trabajo de fin de grado presentado en cinco foros, como ponencia y como póster.</p>
+          <ul class="ocasiones">
+            <li><span>nov. 2021</span> Póster — XIX Congreso Latinoamericano de Nutrición (SLAN). Resumen publicado en <cite>Archivos Latinoamericanos de Nutrición</cite>, 71 (Supl. 1). <a href="https://www.alanrevista.org/ediciones/2021/suplemento-1/art-180">Ver el resumen</a></li>
+            <li><span>may. 2021</span> Póster — VII Congreso Nacional de la Sociedad Española de Enfermería y Ciencias de la Salud.</li>
+            <li><span>nov. 2020</span> Ponencia — III Congreso de Alimentación, Nutrición y Dietética. Resumen publicado en la <cite>Revista Española de Nutrición Humana y Dietética</cite>. <a href="https://www.renhyd.org/renhyd/article/view/1213">Ver el resumen</a></li>
+            <li><span>jun. 2019</span> Ponencia — II Jornada Nacional del Profesorado del Grado en Nutrición Humana y Dietética.</li>
+            <li><span>oct. 2018</span> Ponencia — I Congreso de Estudiantes de la UPV/EHU. 2.º Premio.</li>
+          </ul>
+          <p class="meta">1.<sup>er</sup> autor</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">nov. 2021</div>
+        <div class="cuerpo">
+          <h3>Dieta y Microbiota</h3>
+          <p>Póster — XIX Congreso Latinoamericano de Nutrición (SLAN). Resumen publicado en <cite>Archivos Latinoamericanos de Nutrición</cite>, 71 (Supl. 1).</p>
+          <p class="meta">1.<sup>er</sup> autor · Origen: Trabajo Fin de Máster</p>
+        </div>
+        <div class="fuente"><a href="https://www.alanrevista.org/ediciones/2021/suplemento-1/art-376/">Ver el resumen</a></div>
+      </li>
+      <li>
+        <div class="periodo">nov. 2020</div>
+        <div class="cuerpo">
+          <h3>Bases dietético-nutricionales para los Centros de Menores de la AMAS</h3>
+          <p>Comunicación — IV Congreso Virtual de la FESNAD.</p>
+          <p class="meta">3.<sup>er</sup> autor</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">jun. 2019</div>
+        <div class="cuerpo">
+          <h3>Data consumption on fruit juices: findings from the ANIBES Study</h3>
+          <p>Póster — XXVIII Reunión de la Sociedad Española de Nutrición.</p>
+          <p class="meta">2.º autor</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="bloque">
+    <h2>En los medios</h2>
+    <div class="vacio"><strong>Por recopilar</strong>Aquí irán las noticias y las apariciones en prensa, cada una con el medio, la fecha y el enlace al original.</div>
+  </section>
+</div>
+
+<!-- ============ DOCENCIA ============ -->
+<div class="pagina" id="docencia">
+  <header class="cabecera">
+    <h1>Docencia</h1>
+    <p class="lede">Formación para el empleo, extensión universitaria y tutorización de prácticas, desde 2018.</p>
+  </header>
+
+  <section class="bloque">
+    <h2>Actividad docente</h2>
+    <ul class="lista">
+      <li>
+        <div class="periodo">Desde 2024</div>
+        <div class="cuerpo">
+          <h3>Nutrición, alimentación y hábitos saludables</h3>
+          <p>Femxa y Fórmate. Formación profesional para el empleo en modalidad online.</p>
+          <p class="meta">Diseño de contenidos y materiales, planificación didáctica, impartición, tutorización y evaluación del alumnado.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">2024</div>
+        <div class="cuerpo">
+          <h3>Nutrición y alimentación</h3>
+          <p>Dicampus. Formación profesional para el empleo en modalidad online.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">abr. – jun. 2021<br><span class="meta">375 horas</span></div>
+        <div class="cuerpo">
+          <h3>Tutor de prácticas del Grado en Nutrición Humana y Dietética</h3>
+          <p>Universidad del País Vasco (UPV/EHU).</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">mar. 2021</div>
+        <div class="cuerpo">
+          <h3>Tecnología culinaria y nutrición · Mitos y errores en la alimentación</h3>
+          <p>VII Curso de Extensión Universitaria, Universidad Alfonso X el Sabio.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">ene. 2020</div>
+        <div class="cuerpo">
+          <h3>Tecnología culinaria y nutrición · Mitos y errores en la alimentación</h3>
+          <p>VI Curso de Extensión Universitaria, Universidad Alfonso X el Sabio.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">mar. 2019<br><span class="meta">10 horas</span></div>
+        <div class="cuerpo">
+          <h3>Bases Dietéticas y Nutricionales en Centros de Menores</h3>
+          <p>Agencia Madrileña de Atención Social.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+      <li>
+        <div class="periodo">2018 – 2021</div>
+        <div class="cuerpo">
+          <h3>Docencia especializada en másteres y cursos</h3>
+          <p>Fundación Española de la Nutrición.</p>
+        </div>
+        <div class="fuente"></div>
+      </li>
+    </ul>
+  </section>
+</div>
+
+</main>
+
+<footer id="contacto">
+  <h2>Contacto</h2>
+  <a class="correo" href="mailto:contacto@aitor.nu">contacto@aitor.nu</a>
+  <ul class="redes">
+    <li><a href="https://www.linkedin.com/in/aitortl">LinkedIn</a></li>
+    <li><a href="https://orcid.org/0000-0002-8152-4214">ORCID</a></li>
+    <li><a href="cv-aitor-trabanco-llano.pdf" download>Descargar CV (PDF)</a></li>
+  </ul>
+  <div class="legal">
+    <span>© 2026 Aitor Trabanco LLano. Oviedo, Asturias.</span>
+    <span><a href="#">Aviso legal</a> &nbsp; <a href="#">Privacidad</a></span>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav'), btn=document.getElementById('btnMenu');
+const paginas=[...document.querySelectorAll('.pagina')];
+const enlaces=[...document.querySelectorAll('.enlaces a')];
+
+function mostrar(id){
+  if(id==='contacto'){document.getElementById('contacto').scrollIntoView({behavior:'smooth'});return}
+  const destino=document.getElementById(id)||paginas[0];
+  paginas.forEach(p=>p.classList.toggle('visible',p===destino));
+  document.body.classList.toggle('es-inicio',destino.id==='inicio');
+  enlaces.forEach(a=>a.classList.toggle('activo',a.getAttribute('href')==='#'+destino.id));
+  window.scrollTo(0,0);
+  actualizarNav();
+}
+function actualizarNav(){
+  const enInicio=document.body.classList.contains('es-inicio');
+  nav.classList.toggle('solida',!enInicio||window.scrollY>60);
+}
+window.addEventListener('scroll',actualizarNav,{passive:true});
+window.addEventListener('hashchange',()=>mostrar(location.hash.slice(1)||'inicio'));
+btn.addEventListener('click',()=>{const a=nav.classList.toggle('abierta');btn.setAttribute('aria-expanded',a)});
+enlaces.forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('abierta');btn.setAttribute('aria-expanded',false)}));
+mostrar(location.hash.slice(1)||'inicio');
+</script>
+</body>
+</html>

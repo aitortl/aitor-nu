@@ -1,0 +1,18 @@
+---
+layout: base.njk
+titulo: Docencia
+descripcion: "Actividad docente de Aitor Trabanco LLano: formación para el empleo, extensión universitaria y tutorización de prácticas."
+permalink: /docencia/
+---
+{% import "listas.njk" as l %}
+<header class="cabecera">
+  <h1>Docencia</h1>
+  <p class="lede">Formación para el empleo, extensión universitaria y tutorización de prácticas, desde 2018.</p>
+</header>
+
+<section class="bloque">
+  <h2>Actividad docente</h2>
+  <ul class="lista">
+    {% for d in docencia.entradas | ordenarPeriodos %}{{ l.docencia(d) }}{% endfor %}
+  </ul>
+</section>

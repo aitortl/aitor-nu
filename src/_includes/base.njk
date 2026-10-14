@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add("js")</script>
+<title>{% if titulo %}{{ titulo }} · {% endif %}{{ sitio.nombre }} · {{ sitio.profesion }}</title>
+<meta name="description" content="{{ descripcion or (sitio.profesion + '. ' + sitio.lema + '.') }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+<meta property="og:type" content="{{ 'profile' if page.url == '/' else 'website' }}">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="{{ sitio.nombre }}">
+<meta property="og:title" content="{% if titulo %}{{ titulo }} · {% endif %}{{ sitio.nombre }}">
+<meta property="og:description" content="{{ descripcion or (sitio.profesion + '. ' + sitio.lema + '.') }}">
+<meta property="og:url" content="{{ sitio.url }}{{ page.url }}">
+<link rel="preload" href="/assets/fuentes/lora-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fuentes/source-sans-3-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/estilos.css">
+{% if page.url == "/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ sitio.nombre }}",
+  "jobTitle": "{{ sitio.profesion }}",
+  "description": "{{ sitio.profesion }}. {{ sitio.lema }}.",
+  "url": "{{ sitio.url }}/",
+  "email": "mailto:{{ sitio.correo }}",
+  "sameAs": [
+    "https://orcid.org/{{ sitio.orcid }}",
+    "{{ sitio.linkedin }}",
+    "{{ sitio.dialnet }}"
+  ]
+}
+</script>
+{% endif %}
+</head>
+<body{% if page.url == "/" %} class="es-inicio"{% endif %}>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+{% set menu = [
+  ["/", "Inicio"],
+  ["/trayectoria/", "Trayectoria"],
+  ["/publicaciones/", "Publicaciones"],
+  ["/actividad/", "Actividad"],
+  ["/docencia/", "Docencia"]
+] %}
+<nav class="nav" id="nav" aria-label="Principal">
+  {# Símbolo de marca pendiente: hueco marcado hasta tener el SVG definitivo de la ligadura AT. #}
+  <a class="marca" href="/"><span class="simbolo" aria-hidden="true">AT</span><span>{{ sitio.nombre }}</span></a>
+  <button class="btn-menu" id="btnMenu" type="button" aria-expanded="false" aria-controls="enlaces">Menú</button>
+  <ul class="enlaces" id="enlaces">
+    {% for item in menu %}
+    <li><a href="{{ item[0] }}"{% if page.url == item[0] %} aria-current="page"{% endif %}>{{ item[1] }}</a></li>
+    {% endfor %}
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<main id="contenido" tabindex="-1">
+{{ content | safe }}
+</main>
+
+{% set cv = inicio.cv if (inicio.cv | existe) else "" %}
+<footer id="contacto">
+  <h2>Contacto</h2>
+  <a class="correo" href="mailto:{{ sitio.correo }}">{{ sitio.correo }}</a>
+  <ul class="redes">
+    <li><a href="{{ sitio.linkedin }}">LinkedIn</a></li>
+    <li><a href="https://orcid.org/{{ sitio.orcid }}">ORCID</a></li>
+    {% if cv %}<li><a href="{{ cv }}" download>Descargar CV (PDF)</a></li>{% endif %}
+  </ul>
+  <div class="legal">
+    <span>© {{ construccion.anio }} {{ sitio.nombre }}. {{ sitio.ciudad }}.</span>
+    <span><a href="/aviso-legal/">Aviso legal</a> &nbsp; <a href="/privacidad/">Privacidad</a></span>
+  </div>
+</footer>
+
+<script src="/assets/js/nav.js" defer></script>
+</body>
+</html>

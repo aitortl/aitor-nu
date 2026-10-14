@@ -1,0 +1,51 @@
+# Actividad docente. Sin fecha de fin = en curso.
+entradas:
+  - titulo: Nutrición, alimentación y hábitos saludables
+    entidad: Femxa y Fórmate
+    inicio: "2024"
+    fin: ""
+    horas:
+    descripcion: Formación profesional para el empleo en modalidad online.
+    detalle: Diseño de contenidos y materiales, planificación didáctica, impartición, tutorización y evaluación del alumnado.
+  - titulo: Nutrición y alimentación
+    entidad: Dicampus
+    inicio: "2024"
+    fin: "2024"
+    horas:
+    descripcion: Formación profesional para el empleo en modalidad online.
+    detalle: ""
+  - titulo: Tutor de prácticas del Grado en Nutrición Humana y Dietética
+    entidad: Universidad del País Vasco (UPV/EHU)
+    inicio: "2021-04"
+    fin: "2021-06"
+    horas: 375
+    descripcion: ""
+    detalle: ""
+  - titulo: Tecnología culinaria y nutrición · Mitos y errores en la alimentación
+    entidad: Universidad Alfonso X el Sabio
+    inicio: "2021-03"
+    fin: "2021-03"
+    horas:
+    descripcion: VII Curso de Extensión Universitaria.
+    detalle: ""
+  - titulo: Tecnología culinaria y nutrición · Mitos y errores en la alimentación
+    entidad: Universidad Alfonso X el Sabio
+    inicio: "2020-01"
+    fin: "2020-01"
+    horas:
+    descripcion: VI Curso de Extensión Universitaria.
+    detalle: ""
+  - titulo: Bases Dietéticas y Nutricionales en Centros de Menores
+    entidad: Agencia Madrileña de Atención Social
+    inicio: "2019-03"
+    fin: "2019-03"
+    horas: 10
+    descripcion: ""
+    detalle: ""
+  - titulo: Docencia especializada en másteres y cursos
+    entidad: Fundación Española de la Nutrición
+    inicio: "2018"
+    fin: "2021"
+    horas:
+    descripcion: ""
+    detalle: ""

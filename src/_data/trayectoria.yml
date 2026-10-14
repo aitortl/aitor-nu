@@ -1,0 +1,83 @@
+# Experiencia profesional. Sin fecha de fin = puesto actual ("Ahora").
+# Fechas: AAAA, AAAA-MM o AAAA-MM-DD; se muestran con esa misma precisión.
+entradas:
+  - entidad: FINBA — Hospital Universitario de Cabueñes
+    puesto: Dietista-Nutricionista, Técnico de Apoyo a la Investigación
+    inicio: "2024-04"
+    fin: ""
+    descripcion: Dietista-Nutricionista (Técnico de Apoyo a la Investigación). Servicios de Endocrinología y Nutrición, y de Hematología; grupo ENDO del ISPA.
+    detalle: Consulta en obesidad y en oncohematología. Valoración morfofuncional, cribado nutricional y educación nutricional, en equipo multidisciplinar.
+    portada:
+      mostrar: true
+      principal: true
+      nombre: Hospital Universitario de Cabueñes
+      texto: FINBA. Servicios de Endocrinología y Nutrición, y de Hematología. Grupo ENDO del ISPA.
+  - entidad: Femxa y Fórmate
+    puesto: Docencia online en nutrición (FPE)
+    inicio: "2024-04"
+    fin: ""
+    descripcion: Docente online de nutrición, alimentación y hábitos saludables en formación profesional para el empleo.
+    detalle: ""
+    portada:
+      mostrar: true
+      principal: false
+      nombre: ""
+      texto: ""
+  - entidad: CODiNuPA
+    puesto: Secretario de la Junta de Gobierno
+    inicio: "2024-01"
+    fin: ""
+    descripcion: Secretario de la Junta de Gobierno del Colegio Profesional de Dietistas-Nutricionistas del Principado de Asturias.
+    detalle: Miembro del Grupo de Trabajo de Comunicación desde 2021.
+    portada:
+      mostrar: true
+      principal: false
+      nombre: ""
+      texto: ""
+  - entidad: NutriMed Clinical Nutrition
+    puesto: Dietista-Nutricionista
+    inicio: "2021-08"
+    fin: ""
+    descripcion: Dietista-Nutricionista. Valoración morfofuncional, cribado nutricional, prevención y tratamiento de la malnutrición, diseño de menús adaptados y seguimiento de pacientes con soporte nutricional.
+    detalle: "Antes Adventia Pharma: misma etapa, cambió el nombre de la empresa."
+    portada:
+      mostrar: true
+      principal: false
+      nombre: ""
+      texto: ""
+  - entidad: Dicampus
+    puesto: ""
+    inicio: "2024"
+    fin: "2024"
+    descripcion: Docente online de nutrición y alimentación (abr.–may. 2024).
+    detalle: ""
+  - entidad: Servicio Navarro de Salud — Osasunbidea
+    puesto: ""
+    inicio: "2023"
+    fin: "2023"
+    descripcion: Técnico Especialista en Dietética (sep.–oct. 2023) y Educador Sanitario (jul. 2023).
+    detalle: ""
+  - entidad: Fundación Española de la Nutrición
+    puesto: ""
+    inicio: "2018"
+    fin: "2022"
+    descripcion: Dietista-Nutricionista en el área de investigación, en varios contratos a lo largo de esos años.
+    detalle: Proyectos de investigación y estudios científicos, libros, informes y guías; comunicaciones a congresos; docencia especializada y divulgación.
+  - entidad: Galeno Consulting y Clínica Claudia Rosete
+    puesto: ""
+    inicio: "2021"
+    fin: "2021"
+    descripcion: Diseño de menús adaptados a población mayor (jun.–sep.) y valoración nutricional en consulta de pediatría (may.–jul.).
+    detalle: ""
+  - entidad: Hospital General Universitario Gregorio Marañón
+    puesto: ""
+    inicio: "2019"
+    fin: "2019"
+    descripcion: Prácticas del Máster (may.–jul. 2019).
+    detalle: ""
+  - entidad: Association RéPPOP Aquitaine y EPADH Bon Secours
+    puesto: ""
+    inicio: "2014"
+    fin: "2014"
+    descripcion: Prácticas del Técnico Superior en Dietética en Francia, con beca Erasmus+.
+    detalle: ""

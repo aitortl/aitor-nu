@@ -1,0 +1,52 @@
+# tipo: capitulo · resumen · guia · dossier
+# firma: posición de firma (1, 2, 3...). Sin enlace si no hay fuente pública.
+# En "publicacion", el texto entre asteriscos (*Título*) sale en cursiva.
+entradas:
+  - titulo: Dietoterapia en la dislipemia
+    autores: Riestra Fernández M, Trabanco LLano A
+    publicacion: "En: Botella Romero F, López-Gómez JJ, Luengo Pérez LM, directores. *Dietoterapia. Bases científicas y aplicación clínica*. Madrid: Editorial Médica Panamericana. Obra dirigida por la SEEN. ISBN 978-84-1106-391-3."
+    anio: ""
+    tipo: capitulo
+    firma: 2
+    enlace: https://dialnet.unirioja.es/servlet/articulo?codigo=10644170
+    enlace_texto: Ver en Dialnet
+  - titulo: Impacto económico del Dietista-Nutricionista en la sanidad
+    autores: Trabanco LLano A
+    publicacion: "*Revista Española de Nutrición Humana y Dietética*; 24 (Supl. 1)."
+    anio: "2020"
+    tipo: resumen
+    firma: 1
+    enlace: https://www.renhyd.org/renhyd/article/view/1213
+    enlace_texto: Ver en la revista
+  - titulo: "Dossier EsNuPI AEP: principales hallazgos"
+    autores: ""
+    publicacion: Asociación Española de Pediatría, Comité de Nutrición y Lactancia Materna. Resultados del Estudio EsNuPI sobre alimentación infantil en España.
+    anio: "2021"
+    tipo: dossier
+    firma:
+    enlace: https://www.aeped.es/publicaciones/protocolos/dossier-esnupi-aep-principales-hallazgos
+    enlace_texto: Ver en la AEP
+  - titulo: Guía de Alimentación Saludable para Personas Mayores
+    autores: ""
+    publicacion: Fundación Española de la Nutrición y Junta de Andalucía.
+    anio: "2020"
+    tipo: guia
+    firma: 1
+    enlace: https://www.juntadeandalucia.es/organismos/inclusionsocialjuventudfamiliaseigualdad/servicios/publicaciones/detalle/80353.html
+    enlace_texto: Ver en la Junta de Andalucía
+  - titulo: Importancia de los lácteos para una adecuada hidratación
+    autores: ""
+    publicacion: Fundación Española de la Nutrición e Interprofesional Láctea (INLAC).
+    anio: ""
+    tipo: guia
+    firma: 1
+    enlace: https://www.fen.org.es/publicacion/Gu%C3%ADa-la-importancia-de-los-l%C3%A1cteos-para-una-adecuada-hidrataci%C3%B3n
+    enlace_texto: Ver en la FEN
+  - titulo: "Tu Elección Saludable: Guía de Alimentación"
+    autores: ""
+    publicacion: Fundación Española de la Nutrición y Serunión.
+    anio: "2019"
+    tipo: guia
+    firma: 4
+    enlace: https://fen.org.es/publicacion/tu-eleccion-saludable
+    enlace_texto: Ver en la FEN

@@ -1,0 +1,12 @@
+# Textos y fotos de la portada. "Dónde estoy ahora" se genera desde trayectoria.yml.
+retrato: /img/retrato.jpg
+foto_charla: /img/foto-charla.jpg
+foto_charla_pie: ""
+cv: ""
+cita: Traslado la evidencia de forma clara a pacientes, alumnado y equipos.
+parrafos:
+  - Soy dietista-nutricionista y trabajo en el ámbito clínico y en la investigación, siempre con una mirada didáctica.
+  - Atiendo consulta hospitalaria en el Hospital Universitario de Cabueñes (FINBA), dentro del grupo de investigación en Endocrinología, Nutrición, Diabetes y Obesidad (ENDO) del Instituto de Investigación Sanitaria del Principado de Asturias (ISPA). Trabajo con pacientes de obesidad y de oncohematología —sobre todo mieloma múltiple—, con valoración morfofuncional del estado nutricional y cribado nutricional, en un equipo multidisciplinar junto a endocrinología, hematología y enfermería.
+  - La investigación, la docencia y la divulgación forman parte de mi trayectoria desde 2018. Participé como miembro del equipo investigador en proyectos de I+D+i de la Fundación Española de la Nutrición, soy coautor de un capítulo en la obra de Dietoterapia dirigida por la SEEN (Editorial Médica Panamericana) y de varias guías de alimentación divulgativas. La práctica clínica la compagino con estas áreas desde 2021.
+  - Soy, además, Secretario de la Junta de Gobierno del Colegio Profesional de Dietistas-Nutricionistas del Principado de Asturias (CODiNuPA).
+cierre: "Lo que más me motiva es la promoción de la salud y la salud pública: las intervenciones nutricionales pensadas para tener impacto en la población, más allá de la consulta individual. Es la dirección en la que quiero seguir creciendo."

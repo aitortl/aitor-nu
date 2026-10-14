@@ -1,0 +1,60 @@
+---
+layout: base.njk
+titulo: Publicaciones
+descripcion: Capítulo de libro, resúmenes, guías y proyectos de investigación de Aitor Trabanco LLano, con posición de firma y enlace a la fuente.
+permalink: /publicaciones/
+---
+{% import "listas.njk" as l %}
+<header class="cabecera">
+  <h1>Publicaciones</h1>
+  <p class="lede">Cada referencia indica mi posición de firma y enlaza con la fuente original, para que cualquiera pueda comprobarla.</p>
+</header>
+
+{% set capitulos = publicaciones.entradas | deTipo("capitulo") | ordenarPorFecha("anio") %}
+{% if capitulos.length %}
+<section class="bloque">
+  <h2>Capítulo{% if capitulos.length > 1 %}s{% endif %} de libro</h2>
+  <ul class="lista">
+    {% for p in capitulos %}{{ l.publicacion(p) }}{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% set resumenes = publicaciones.entradas | deTipo("resumen") | ordenarPorFecha("anio") %}
+{% if resumenes.length %}
+<section class="bloque">
+  <h2>Resumen{% if resumenes.length > 1 %}es{% endif %} de ponencia</h2>
+  <ul class="lista">
+    {% for p in resumenes %}{{ l.publicacion(p) }}{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% set guias = publicaciones.entradas | deTipo("guia", "dossier") | ordenarPorFecha("anio") %}
+{% if guias.length %}
+<section class="bloque">
+  <h2>Documentos divulgativos y guías</h2>
+  <p class="nota">Documentos técnicos y divulgativos elaborados con la Fundación Española de la Nutrición para distintas entidades. No son artículos en revista indexada.</p>
+  <ul class="lista">
+    {% for p in guias %}{{ l.publicacion(p) }}{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if proyectos.entradas.length %}
+<section class="bloque">
+  <h2>Proyectos de investigación</h2>
+  <p class="nota">Participación como miembro del equipo investigador en proyectos de I+D+i de la Fundación Española de la Nutrición, entre 2018 y 2021.</p>
+  <ul class="simple">
+    {% for p in proyectos.entradas %}<li>{{ p | texto | safe }}</li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<section class="bloque">
+  <h2>Perfiles</h2>
+  <ul class="simple">
+    <li><a href="https://orcid.org/{{ sitio.orcid }}">ORCID {{ sitio.orcid }}</a></li>
+    <li><a href="{{ sitio.dialnet }}">Perfil de autor en Dialnet</a></li>
+  </ul>
+</section>

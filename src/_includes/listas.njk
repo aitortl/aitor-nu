@@ -1,0 +1,108 @@
+{# Piezas comunes de los listados. Un campo vacío no se pinta. #}
+
+{% macro fuente(enlace, texto) %}
+<div class="fuente">{% if enlace %}<a href="{{ enlace }}">{{ texto or "Ver la fuente" }}</a>{% endif %}</div>
+{% endmacro %}
+
+{% macro meta(partes) %}
+{% set llenas = partes | compactar %}
+{% if llenas.length %}<p class="meta">{{ llenas | join(" · ") | safe }}</p>{% endif %}
+{% endmacro %}
+
+{% macro trayectoria(t) %}
+<li>
+  <div class="periodo">{{ t.inicio | periodo(t.fin) }}</div>
+  <div class="cuerpo">
+    <h3>{{ t.entidad }}</h3>
+    {% if t.descripcion %}<p>{{ t.descripcion | texto | safe }}</p>{% endif %}
+    {{ meta([t.detalle | texto]) }}
+  </div>
+  <div class="fuente"></div>
+</li>
+{% endmacro %}
+
+{% macro formacion(f) %}
+<li>
+  <div class="periodo">{{ f.fin | fecha }}</div>
+  <div class="cuerpo">
+    <h3>{{ f.titulo }}</h3>
+    {% if f.entidad or f.descripcion %}<p>{{ [f.entidad, f.descripcion] | frase | texto | safe }}</p>{% endif %}
+    {{ meta([f.detalle | texto]) }}
+  </div>
+  <div class="fuente"></div>
+</li>
+{% endmacro %}
+
+{% macro docencia(d) %}
+<li>
+  <div class="periodo">{{ d.inicio | periodo(d.fin) }}{% if d.horas %}<br><span class="meta">{{ d.horas }} horas</span>{% endif %}</div>
+  <div class="cuerpo">
+    <h3>{{ d.titulo }}</h3>
+    {% if d.entidad or d.descripcion %}<p>{{ [d.entidad, d.descripcion] | frase | texto | safe }}</p>{% endif %}
+    {{ meta([d.detalle | texto]) }}
+  </div>
+  <div class="fuente"></div>
+</li>
+{% endmacro %}
+
+{% macro publicacion(p) %}
+<li>
+  <div class="periodo">{{ p.anio }}</div>
+  <div class="cuerpo">
+    <h3>{{ p.titulo }}</h3>
+    {% if p.autores or p.publicacion %}<p>{% if p.autores %}{{ p.autores }}. {% endif %}{{ p.publicacion | texto | safe }}</p>{% endif %}
+    {{ meta([p.firma | firma]) }}
+  </div>
+  {{ fuente(p.enlace, p.enlace_texto) }}
+</li>
+{% endmacro %}
+
+{% macro ocasion(o) %}
+<li><span>{{ o.fecha | fecha }}</span> {{ o.tipo | capitalizar }} — {{ o.evento }}.{% if o.nota %} {{ o.nota | texto | safe }}{% endif %}{% if o.enlace %} <a href="{{ o.enlace }}">{{ o.enlace_texto or "Ver la fuente" }}</a>{% endif %}</li>
+{% endmacro %}
+
+{% macro comunicacion(c) %}
+<li>
+  <div class="periodo">{{ c | rangoComunicacion }}</div>
+  <div class="cuerpo">
+    <h3>{{ c.titulo }}</h3>
+    {% if c.ocasiones and c.ocasiones.length %}
+      {% if c.descripcion %}<p>{{ c.descripcion | texto | safe }}</p>{% endif %}
+      <ul class="ocasiones">
+        {% for o in c.ocasiones | ordenarPorFecha %}{{ ocasion(o) }}{% endfor %}
+      </ul>
+    {% else %}
+      <p>{% if c.tipo %}{{ c.tipo | capitalizar }} — {% endif %}{{ c.evento }}.{% if c.nota %} {{ c.nota | texto | safe }}{% endif %}</p>
+    {% endif %}
+    {{ meta([c.firma | firma, c.detalle | texto]) }}
+  </div>
+  {{ fuente(c.enlace, c.enlace_texto) }}
+</li>
+{% endmacro %}
+
+{% macro evento(e) %}
+<li>
+  <div class="periodo">{{ e.fecha | fecha }}</div>
+  <div class="cuerpo">
+    <h3>{{ e.nombre }}</h3>
+    {% if e.lugar %}<p>{{ e.lugar }}</p>{% endif %}
+    {{ meta([e.papel | texto]) }}
+  </div>
+  {{ fuente(e.enlace, "Más información") }}
+</li>
+{% endmacro %}
+
+{% macro medio(m) %}
+<li>
+  <div class="periodo">{{ m.fecha | fecha }}</div>
+  <div class="cuerpo">
+    <h3>{{ m.titular }}</h3>
+    {% if m.medio %}<p>{{ m.medio }}</p>{% endif %}
+    {{ meta([m.papel | texto]) }}
+  </div>
+  <div class="fuente">
+    {% if m.enlace %}<a href="{{ m.enlace }}">Ver en {{ m.medio or "el medio" }}</a>{% endif %}
+    {% if m.enlace_archivado %}{% if m.enlace %}<br>{% endif %}<a href="{{ m.enlace_archivado }}">Copia archivada</a>{% endif %}
+  </div>
+</li>
+{% endmacro %}

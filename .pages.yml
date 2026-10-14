@@ -1,0 +1,418 @@
+# Configuración de Pages CMS (https://pagescms.org/docs/configuration/).
+# Cada apartado edita un archivo de src/_data/. Al guardar, Pages CMS hace un commit
+# y GitHub Actions reconstruye y publica la web.
+
+media:
+  - name: imagenes
+    label: Imágenes
+    input: src/img
+    output: /img
+    extensions: [jpg, jpeg, png, webp]
+  - name: documentos
+    label: Documentos
+    input: src/documentos
+    output: /documentos
+    extensions: [pdf]
+
+components:
+  fecha_flexible:
+    type: string
+    pattern:
+      regex: "^(\\d{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\\d|3[01]))?)?)?$"
+      message: "Escribe AAAA, AAAA-MM o AAAA-MM-DD (por ejemplo 2024, 2024-04 o 2024-04-15)."
+    description: "AAAA, AAAA-MM o AAAA-MM-DD. Se muestra con la misma precisión con la que la escribas."
+  firma:
+    type: number
+    label: Posición de firma
+    description: "1 = primer autor, 2 = segundo... Déjalo vacío solo si no está comprobada."
+    options:
+      min: 1
+  enlace:
+    type: string
+    label: Enlace a la fuente
+    description: "Dirección pública de la fuente original. Si no existe, déjalo vacío; no pongas un enlace aproximado."
+    pattern:
+      regex: "^(https?://\\S+)?$"
+      message: "Debe empezar por http:// o https://"
+  texto_con_cursiva:
+    type: text
+    description: "Para poner un título de revista u obra en cursiva, rodéalo de asteriscos: *Título*."
+
+content:
+  - name: portada
+    label: Portada
+    type: file
+    path: src/_data/inicio.yml
+    fields:
+      - name: retrato
+        label: Retrato (foto vertical)
+        type: image
+        options: { media: imagenes }
+      - name: foto_charla
+        label: Segunda foto (Mi historia)
+        type: image
+        options: { media: imagenes }
+      - name: foto_charla_pie
+        label: Pie de la segunda foto
+        type: string
+        description: "Evento y año de la foto."
+      - name: cv
+        label: CV en PDF
+        type: file
+        description: "Mientras esté vacío, no aparece el botón de descarga. Comprueba que no lleva teléfono."
+        options: { media: documentos }
+      - name: cita
+        label: Frase destacada
+        type: text
+      - name: parrafos
+        label: Mi historia (párrafos)
+        type: text
+        list: true
+      - name: cierre
+        label: Párrafo de cierre
+        type: text
+
+  - name: trayectoria
+    label: Trayectoria
+    type: file
+    path: src/_data/trayectoria.yml
+    fields:
+      - name: entradas
+        label: Experiencia
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{entidad} ({inicio} – {fin})"
+        fields:
+          - name: entidad
+            label: Entidad
+            type: string
+            required: true
+          - name: puesto
+            label: Puesto
+            type: string
+            description: "Se muestra en la portada, en 'Dónde estoy ahora'."
+          - name: inicio
+            label: Inicio
+            component: fecha_flexible
+          - name: fin
+            label: Fin
+            component: fecha_flexible
+            description: "Déjalo vacío si sigue en curso: saldrá en 'Ahora'. Al rellenarlo, pasa a 'Antes' y desaparece de la portada."
+          - name: descripcion
+            label: Descripción
+            component: texto_con_cursiva
+          - name: detalle
+            label: Detalle
+            component: texto_con_cursiva
+          - name: portada
+            label: En la portada
+            type: object
+            fields:
+              - name: mostrar
+                label: Mostrar en 'Dónde estoy ahora'
+                type: boolean
+                default: false
+              - name: principal
+                label: Puesto principal (bloque grande)
+                type: boolean
+                default: false
+              - name: nombre
+                label: Nombre en la portada
+                type: string
+                description: "Si lo dejas vacío, se usa la entidad."
+              - name: texto
+                label: Texto en la portada
+                type: text
+
+  - name: formacion
+    label: Formación
+    type: file
+    path: src/_data/formacion.yml
+    fields:
+      - name: entradas
+        label: Titulaciones
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titulo} ({fin})"
+        fields:
+          - name: titulo
+            label: Titulación
+            type: string
+            required: true
+          - name: entidad
+            label: Centro
+            type: string
+          - name: fin
+            label: Año
+            component: fecha_flexible
+          - name: universitaria
+            label: Formación universitaria
+            type: boolean
+            default: false
+            description: "Las universitarias se muestran primero."
+          - name: descripcion
+            label: Descripción
+            component: texto_con_cursiva
+          - name: detalle
+            label: Detalle
+            component: texto_con_cursiva
+
+  - name: reconocimientos
+    label: Reconocimientos, idiomas y herramientas
+    type: file
+    path: src/_data/reconocimientos.yml
+    fields:
+      - name: entradas
+        label: Elementos
+        type: string
+        list: true
+
+  - name: publicaciones
+    label: Publicaciones
+    type: file
+    path: src/_data/publicaciones.yml
+    fields:
+      - name: entradas
+        label: Publicaciones
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titulo} ({anio})"
+        fields:
+          - name: titulo
+            label: Título
+            type: string
+            required: true
+          - name: autores
+            label: Autores
+            type: string
+            description: "Formato Vancouver, p. ej.: Riestra Fernández M, Trabanco LLano A"
+          - name: publicacion
+            label: Referencia
+            component: texto_con_cursiva
+          - name: anio
+            label: Año
+            type: string
+            pattern:
+              regex: "^(\\d{4})?$"
+              message: "Cuatro cifras, o vacío si no está confirmado."
+          - name: tipo
+            label: Tipo
+            type: select
+            required: true
+            options:
+              values:
+                - { name: capitulo, label: Capítulo de libro }
+                - { name: resumen, label: Resumen de ponencia }
+                - { name: guia, label: Guía }
+                - { name: dossier, label: Documento divulgativo }
+          - name: firma
+            component: firma
+          - name: enlace
+            component: enlace
+          - name: enlace_texto
+            label: Texto del enlace
+            type: string
+            description: "P. ej.: Ver en Dialnet"
+
+  - name: proyectos
+    label: Proyectos de investigación
+    type: file
+    path: src/_data/proyectos.yml
+    fields:
+      - name: entradas
+        label: Proyectos
+        type: string
+        list: true
+        description: "Siempre como miembro del equipo. No incluyas importes."
+
+  - name: comunicaciones
+    label: Comunicaciones a congresos
+    type: file
+    path: src/_data/comunicaciones.yml
+    fields:
+      - name: entradas
+        label: Comunicaciones
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titulo} ({fecha})"
+        fields:
+          - name: titulo
+            label: Título
+            type: string
+            required: true
+          - name: fecha
+            label: Fecha
+            component: fecha_flexible
+            description: "Vacía si el trabajo se presentó en varios foros (usa 'Ocasiones')."
+          - name: tipo
+            label: Tipo
+            type: select
+            options:
+              values: [ponencia, póster, comunicación]
+          - name: evento
+            label: Evento
+            type: string
+          - name: nota
+            label: Nota
+            component: texto_con_cursiva
+            description: "P. ej.: Resumen publicado en *Revista*, 71 (Supl. 1)."
+          - name: firma
+            component: firma
+          - name: detalle
+            label: Detalle
+            type: string
+          - name: enlace
+            component: enlace
+          - name: enlace_texto
+            label: Texto del enlace
+            type: string
+          - name: descripcion
+            label: Descripción (solo con varias ocasiones)
+            component: texto_con_cursiva
+          - name: ocasiones
+            label: Ocasiones (mismo trabajo en varios foros)
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{fecha} · {evento}"
+            fields:
+              - name: fecha
+                label: Fecha
+                component: fecha_flexible
+              - name: tipo
+                label: Tipo
+                type: select
+                options:
+                  values: [ponencia, póster, comunicación]
+              - name: evento
+                label: Evento
+                type: string
+              - name: nota
+                label: Nota
+                component: texto_con_cursiva
+              - name: enlace
+                component: enlace
+              - name: enlace_texto
+                label: Texto del enlace
+                type: string
+
+  - name: eventos
+    label: Eventos
+    type: file
+    path: src/_data/eventos.yml
+    fields:
+      - name: entradas
+        label: Eventos
+        description: "Con fecha de hoy o futura salen en 'Próximos eventos'; después pasan solos a 'Eventos anteriores'."
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nombre} ({fecha})"
+        fields:
+          - name: nombre
+            label: Nombre
+            type: string
+            required: true
+          - name: fecha
+            label: Fecha
+            type: date
+            required: true
+            options:
+              format: yyyy-MM-dd
+          - name: lugar
+            label: Lugar
+            type: string
+          - name: papel
+            label: Mi papel
+            type: string
+            description: "P. ej.: Ponente, Moderador, En representación del CODiNuPA."
+          - name: enlace
+            component: enlace
+
+  - name: medios
+    label: En los medios
+    type: file
+    path: src/_data/medios.yml
+    fields:
+      - name: entradas
+        label: Apariciones
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titular} ({medio})"
+        fields:
+          - name: titular
+            label: Titular
+            type: string
+            required: true
+          - name: medio
+            label: Medio
+            type: string
+            description: "Periódico, emisora o cadena."
+          - name: fecha
+            label: Fecha
+            type: date
+            default: ""
+            options:
+              format: yyyy-MM-dd
+          - name: papel
+            label: Mi papel
+            type: string
+            description: "P. ej.: En representación del CODiNuPA."
+          - name: enlace
+            component: enlace
+          - name: enlace_archivado
+            label: Copia archivada
+            type: string
+            description: "Copia en web.archive.org, por si la noticia desaparece."
+            pattern:
+              regex: "^(https://web\\.archive\\.org/\\S+)?$"
+              message: "Debe ser una dirección de web.archive.org"
+
+  - name: docencia
+    label: Docencia
+    type: file
+    path: src/_data/docencia.yml
+    fields:
+      - name: entradas
+        label: Actividad docente
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titulo} ({inicio})"
+        fields:
+          - name: titulo
+            label: Título
+            type: string
+            required: true
+          - name: entidad
+            label: Entidad
+            type: string
+          - name: inicio
+            label: Inicio
+            component: fecha_flexible
+          - name: fin
+            label: Fin
+            component: fecha_flexible
+            description: "Vacío si sigue en curso."
+          - name: horas
+            label: Horas
+            type: number
+          - name: descripcion
+            label: Descripción
+            component: texto_con_cursiva
+          - name: detalle
+            label: Detalle
+            component: texto_con_cursiva

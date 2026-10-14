@@ -1,0 +1,32 @@
+# La formación universitaria se muestra primero; dentro de cada grupo, por año descendente.
+entradas:
+  - titulo: Máster en Condicionantes Genéticos, Nutricionales y Ambientales del Crecimiento y el Desarrollo
+    entidad: Universidad de Santiago de Compostela
+    fin: "2019"
+    universitaria: true
+    descripcion: Sobresaliente.
+    detalle: "Trabajo Fin de Máster: *Dieta y Microbiota*, origen del póster presentado en el SLAN 2021."
+  - titulo: Graduado en Nutrición Humana y Dietética
+    entidad: Universidad del País Vasco (UPV/EHU)
+    fin: "2018"
+    universitaria: true
+    descripcion: Notable, con Matrícula de Honor en Nutrición Humana.
+    detalle: ""
+  - titulo: Certificado de Profesionalidad en Docencia de la Formación Profesional para el Empleo
+    entidad: Servicio Público de Empleo Estatal
+    fin: "2023"
+    universitaria: false
+    descripcion: ""
+    detalle: ""
+  - titulo: Técnico Superior en Dietética
+    entidad: IES Francisco de Vitoria, Vitoria-Gasteiz
+    fin: "2014"
+    universitaria: false
+    descripcion: Prácticas Erasmus+ en Francia.
+    detalle: ""
+  - titulo: Técnico en Cocina y Gastronomía
+    entidad: IES Leopoldo Alas Clarín, Oviedo
+    fin: "2012"
+    universitaria: false
+    descripcion: ""
+    detalle: ""

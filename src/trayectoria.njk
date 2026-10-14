@@ -1,0 +1,50 @@
+---
+layout: base.njk
+titulo: Trayectoria
+descripcion: Experiencia profesional y formación de Aitor Trabanco LLano, Dietista-Nutricionista.
+permalink: /trayectoria/
+---
+{% import "listas.njk" as l %}
+<header class="cabecera">
+  <h1>Trayectoria</h1>
+  <p class="lede">Dónde he trabajado y qué he estudiado, con las fechas tal como figuran en mi currículum.</p>
+</header>
+
+{% set ahora = trayectoria.entradas | enCurso %}
+{% if ahora.length %}
+<section class="bloque">
+  <h2>Ahora</h2>
+  <ul class="lista">
+    {% for t in ahora %}{{ l.trayectoria(t) }}{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% set antes = trayectoria.entradas | terminados %}
+{% if antes.length %}
+<section class="bloque">
+  <h2>Antes</h2>
+  <ul class="lista">
+    {% for t in antes %}{{ l.trayectoria(t) }}{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if formacion.entradas.length %}
+<section class="bloque">
+  <h2>Formación</h2>
+  <ul class="lista">
+    {% for f in formacion.entradas | ordenarPorFecha("fin") %}{% if f.universitaria %}{{ l.formacion(f) }}{% endif %}{% endfor %}
+    {% for f in formacion.entradas | ordenarPorFecha("fin") %}{% if not f.universitaria %}{{ l.formacion(f) }}{% endif %}{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if reconocimientos.entradas.length %}
+<section class="bloque">
+  <h2>Reconocimientos, idiomas y herramientas</h2>
+  <ul class="simple">
+    {% for r in reconocimientos.entradas %}<li>{{ r | texto | safe }}</li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
