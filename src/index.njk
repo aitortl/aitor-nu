@@ -7,7 +7,7 @@ permalink: /
 <section class="portada" aria-label="Presentación">
   <div class="retrato">
     {% if inicio.retrato | existe %}
-    <img src="{{ inicio.retrato }}" alt="Retrato de {{ sitio.nombre }}" loading="eager" fetchpriority="high" sizes="(max-width: 900px) 100vw, 50vw">
+    <img src="{{ inicio.retrato }}" alt="Retrato de {{ sitio.nombre }}" loading="eager" fetchpriority="high" sizes="(max-width: 900px) 100vw, 50vw"{% if inicio.retrato | lower | replace(".png", "") != inicio.retrato | lower %} eleventy:formats="webp,png"{% endif %}>
     {% else %}
     <div class="hueco" aria-hidden="true">
       <svg viewBox="0 0 200 240" fill="currentColor"><circle cx="100" cy="78" r="46"/><path d="M18 240c4-58 38-96 82-96s78 38 82 96z"/></svg>

@@ -5,7 +5,9 @@
   "description": "Web personal de Aitor Trabanco LLano, Dietista-Nutricionista",
   "scripts": {
     "build": "eleventy",
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "limpiar-fotos": "node scripts/limpiar-metadatos.js",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",

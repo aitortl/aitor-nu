@@ -88,10 +88,13 @@ export default function (eleventyConfig) {
   eleventyConfig.addDataExtension("yml,yaml", (contenido) => yaml.load(contenido));
 
   // Las fotos de src/img se reducen y convierten a WebP y JPEG al construir;
-  // los originales no se publican.
+  // los originales no se publican. Un PNG con fondo transparente (como el retrato)
+  // usa PNG en lugar de JPEG como alternativa, para no perder la transparencia.
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     formats: ["webp", "jpeg"],
     widths: [480, 960, 1600],
+    minimumThreshold: 1, // incluye siempre el tamaño original si es menor de 1600 px
+    sharpPngOptions: { palette: true, quality: 85, compressionLevel: 9 },
     urlPath: "/img/",
     outputDir: "./_site/img/",
     defaultAttributes: { loading: "lazy", decoding: "async" },

@@ -137,6 +137,7 @@ footer h2{color:#9CC7C9;font-size:1.15rem;margin:0 0 1.2rem}
   .nav.abierta .enlaces{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--papel);padding:1.2rem var(--lado) 1.6rem;border-bottom:1px solid var(--linea);gap:1rem;font-size:1.1rem}
   .portada{display:block;padding-top:0}
   .retrato{position:relative;width:auto;height:62svh;margin:0 calc(var(--lado) * -1)}
+  .retrato img{object-position:50% 0}
   .retrato::before{background:linear-gradient(0deg,var(--papel) 0%,rgba(251,253,253,.85) 12%,rgba(251,253,253,0) 38%)}
   .hueco{padding-left:0}
   .hueco p{top:4.6rem;right:1.25rem}

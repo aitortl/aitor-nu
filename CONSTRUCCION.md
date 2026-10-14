@@ -82,13 +82,17 @@ no esté resuelto, omite ese dato concreto y deja el resto de la referencia.
 
 No inventes sustitutos para nada de esto:
 
-1. `retrato.jpg` — foto vertical de la portada.
-2. `foto-charla.jpg` — segunda foto, en "Mi historia".
-3. SVG del símbolo (ligadura AT) para la cabecera y el favicon.
-4. `cv-aitor-trabanco-llano.pdf` — decidir si la versión pública lleva teléfono.
+1. ~~Retrato~~ — entregado: `src/img/retrato.png` (PNG con fondo transparente; es el
+   original de partida, la web genera sus propias copias en WebP).
+2. Segunda foto, en "Mi historia" → `src/img/` (JPEG). Si hay eventos pasados o
+   apariciones en medios, ese hueco lo ocupa el carrusel con sus fotos.
+3. SVG del símbolo (ligadura AT) para la cabecera, el favicon y el carrusel →
+   `src/assets/marca/simbolo.svg`.
+4. CV en PDF → `src/documentos/` — decidir si la versión pública lleva teléfono.
 5. Número de colegiado, si el aviso legal lo requiere.
 
-Mientras falten, deja el hueco marcado como en el prototipo.
+Mientras falten, deja el hueco marcado como en el prototipo. Dónde va cada tipo de
+archivo y cómo se tratan las fotos: sección "Imágenes y archivos" de `CLAUDE.md`.
 
 ## Tareas, en orden
 
