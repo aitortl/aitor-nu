@@ -2,6 +2,15 @@
 # Un mismo trabajo presentado en varios foros va en una sola entrada con "ocasiones".
 # En "nota", el texto entre asteriscos (*Revista*) sale en cursiva.
 entradas:
+  - titulo: Estudio piloto en lipedema y obesidad combinando dieta baja en hidratos, órtesis de tejido plano y programa específico de ejercicios
+    fecha: "2026-09"
+    tipo: comunicación
+    evento: 1.er Congreso del Grupo Español de Linfología (GEL), Valencia
+    nota: ""
+    firma: 2
+    detalle: ""
+    enlace: https://atentamarketing.com/congresogel/es/info
+    enlace_texto: Ver el programa
   - titulo: Impacto económico del Dietista-Nutricionista en la sanidad
     descripcion: Trabajo de fin de grado presentado en cinco foros, como ponencia y como póster.
     firma: 1
@@ -15,7 +24,7 @@ entradas:
         enlace_texto: Ver el resumen
       - fecha: "2021-05"
         tipo: póster
-        evento: VII Congreso Nacional de la Sociedad Española de Enfermería y Ciencias de la Salud
+        evento: VII Congreso Nacional de la Sociedad Española de Enfermedad Celíaca (SEEC)
         nota: ""
         enlace: ""
         enlace_texto: ""

@@ -1,10 +1,24 @@
 # Proyectos de investigación: siempre como miembro del equipo. Sin importes.
+# enlace: web del proyecto. enlaces: varios documentos del mismo proyecto.
 entradas:
-  - NUTRIFEN y EDUGASTRO, proyectos propios de la FEN.
-  - Bases dietéticas en residencias infantiles, para la Agencia Madrileña de Atención Social.
-  - Menús en centros docentes públicos y en escuelas infantiles, para la Consejería de Educación de la Comunidad de Madrid.
-  - Protocolo de bases dietético-nutricionales del servicio de restauración, para el IMSERSO.
-  - Guías de menús saludables para varias comunidades autónomas, con FICYE.
-  - Guía sobre leche y productos lácteos para una adecuada hidratación, con INLAC.
-  - Revisión bibliográfica sobre consumo y propiedades nutricionales de los zumos, con Asozumos.
-  - "Día Nacional del Desayuno: organización, infografías y valoración nutricional."
+  - texto: NUTRIFEN, proyecto propio de la Fundación Española de la Nutrición.
+    enlace: https://www.fen.org.es/nutrifen
+  - texto: EDUGASTRO, proyecto propio de la Fundación Española de la Nutrición.
+    enlace: https://edugastro.es/es
+  - texto: Bases dietéticas en residencias infantiles, para la Agencia Madrileña de Atención Social.
+    enlace: ""
+  - texto: Menús en centros docentes públicos y en escuelas infantiles, para la Consejería de Educación de la Comunidad de Madrid.
+    enlace: ""
+  - texto: Protocolo de bases dietético-nutricionales del servicio de restauración, para el IMSERSO.
+    enlace: ""
+  - texto: "Guías de menús saludables para cuatro comunidades autónomas, con FICYE:"
+    enlace: ""
+    enlaces:
+      - texto: Comunidad Valenciana
+        url: https://www.fen.org.es/publicacion/menus-saludables-valencia
+      - texto: Cantabria
+        url: https://www.fen.org.es/publicacion/menus-saludables-cantabria
+      - texto: Islas Baleares
+        url: https://www.fen.org.es/publicacion/menus-saludables-baleares
+      - texto: País Vasco
+        url: https://www.fen.org.es/publicacion/menus-saludables-del-pais-vasco

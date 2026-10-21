@@ -219,6 +219,13 @@ content:
             label: Texto del enlace
             type: string
             description: "P. ej.: Ver en Dialnet"
+          - name: enlace2
+            label: Segundo enlace (opcional)
+            component: enlace
+            description: "P. ej.: la página del libro en la editorial."
+          - name: enlace2_texto
+            label: Texto del segundo enlace
+            type: string
 
   - name: proyectos
     label: Proyectos de investigación
@@ -227,9 +234,30 @@ content:
     fields:
       - name: entradas
         label: Proyectos
-        type: string
-        list: true
         description: "Siempre como miembro del equipo. No incluyas importes."
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{texto}"
+        fields:
+          - name: texto
+            label: Proyecto
+            type: string
+            required: true
+          - name: enlace
+            component: enlace
+            description: "Web del proyecto, si la tiene."
+          - name: enlaces
+            label: Documentos del proyecto (varios enlaces)
+            type: object
+            list: true
+            fields:
+              - name: texto
+                label: Texto del enlace
+                type: string
+              - name: url
+                component: enlace
 
   - name: comunicaciones
     label: Comunicaciones a congresos
@@ -338,6 +366,10 @@ content:
             description: "P. ej.: Ponente, Moderador, En representación del CODiNuPA."
           - name: enlace
             component: enlace
+          - name: enlace_texto
+            label: Texto del enlace
+            type: string
+            description: "P. ej.: Ver la ponencia. Si lo dejas vacío: Más información."
           - name: foto
             label: Foto
             type: image

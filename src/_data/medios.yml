@@ -1,3 +1,27 @@
 # Apariciones en prensa, radio y televisión. También salen en el carrusel de la portada.
 # papel: p. ej. "En representación del CODiNuPA". enlace_archivado: copia en web.archive.org.
-entradas: []
+entradas:
+  - titular: Obesidad en Asturias (Día de la persona con obesidad) y alimentación en Navidad
+    medio: Radio del Principado de Asturias
+    fecha: "2025-12-16"
+    papel: Entrevista de radio, en representación del CODiNuPA como secretario
+    enlace: https://www.rtpa.es/audio:Entrevistas-RPA.-Entrevista-con-Aitor-Trabanco-Llano,-secretario-del-Colegio-Profesional-de-Dietistas--Nutricionistas-de-Asturias._1765874080.html
+    enlace_archivado: https://web.archive.org/web/20261015161918/https://www.rtpa.es/audio:Entrevistas-RPA.-Entrevista-con-Aitor-Trabanco-Llano,-secretario-del-Colegio-Profesional-de-Dietistas--Nutricionistas-de-Asturias._1765874080.html
+    foto: ""
+    foto_alt: ""
+  - titular: "La grasa del jamón serrano: qué aporta y cómo encaja en la dieta"
+    medio: El Español
+    fecha: "2023-09-19"
+    papel: Entrevista de Europa Press como miembro del CODiNuPA, reproducida también por La Razón, El HuffPost y otros medios
+    enlace: https://www.elespanol.com/ciencia/nutricion/20230919/oculta-blanco-jamon-serrano-aviso-nutricionista-aitor-trabanco/795420846_0.html
+    enlace_archivado: https://web.archive.org/web/20261015162206/https://www.elespanol.com/ciencia/nutricion/20230919/oculta-blanco-jamon-serrano-aviso-nutricionista-aitor-trabanco/795420846_0.html
+    foto: ""
+    foto_alt: ""
+  - titular: Legumbres, saludables y sostenibles para el planeta
+    medio: RTVE
+    fecha: "2021-02-08"
+    papel: Entrevista de radio, como portavoz de la Fundación Española de la Nutrición
+    enlace: https://www.rtve.es/play/noticias/20210208/legumbres-saludables-sostenibles-para-planeta/2073777.shtml
+    enlace_archivado: ""
+    foto: ""
+    foto_alt: ""

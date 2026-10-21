@@ -4,19 +4,19 @@ entradas:
     entidad: Universidad de Santiago de Compostela
     fin: "2019"
     universitaria: true
-    descripcion: Sobresaliente.
-    detalle: "Trabajo Fin de Máster: *Dieta y Microbiota*, origen del póster presentado en el SLAN 2021."
+    descripcion: ""
+    detalle: "Nota media: Sobresaliente. TFM: *Dieta y Microbiota*, origen del póster presentado en el SLAN 2021."
   - titulo: Graduado en Nutrición Humana y Dietética
     entidad: Universidad del País Vasco (UPV/EHU)
     fin: "2018"
     universitaria: true
-    descripcion: Notable, con Matrícula de Honor en Nutrición Humana.
-    detalle: ""
+    descripcion: ""
+    detalle: "Nota media: Notable, con Matrícula de Honor en Nutrición Humana. TFG: *Impacto económico del Dietista-Nutricionista en la sanidad*, presentado en el I Congreso de Estudiantes de la UPV/EHU (2018), donde obtuvo el 2.º premio; en la II Jornada Nacional del Profesorado del Grado en Nutrición Humana y Dietética (2019); en el III Congreso de Alimentación, Nutrición y Dietética (2020); en el VII Congreso Nacional de la SEEC (2021) y en el XIX Congreso Latinoamericano de Nutrición (SLAN, 2021)."
   - titulo: Certificado de Profesionalidad en Docencia de la Formación Profesional para el Empleo
-    entidad: Servicio Público de Empleo Estatal
+    entidad: Dicampus
     fin: "2023"
     universitaria: false
-    descripcion: ""
+    descripcion: Expedido por el Servicio Público de Empleo Estatal (SEPE).
     detalle: ""
   - titulo: Técnico Superior en Dietética
     entidad: IES Francisco de Vitoria, Vitoria-Gasteiz

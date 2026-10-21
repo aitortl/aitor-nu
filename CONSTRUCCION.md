@@ -86,8 +86,8 @@ No inventes sustitutos para nada de esto:
    original de partida, la web genera sus propias copias en WebP).
 2. Segunda foto, en "Mi historia" → `src/img/` (JPEG). Si hay eventos pasados o
    apariciones en medios, ese hueco lo ocupa el carrusel con sus fotos.
-3. SVG del símbolo (ligadura AT) para la cabecera, el favicon y el carrusel →
-   `src/assets/marca/simbolo.svg`.
+3. ~~Símbolo de marca~~ — entregado: kit de marca en `src/assets/marca/` (símbolo,
+   favicon, icono de iOS e imagen para redes).
 4. CV en PDF → `src/documentos/` — decidir si la versión pública lleva teléfono.
 5. Número de colegiado, si el aviso legal lo requiere.
 

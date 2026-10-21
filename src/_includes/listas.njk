@@ -53,7 +53,10 @@
     {% if p.autores or p.publicacion %}<p>{% if p.autores %}{{ p.autores }}. {% endif %}{{ p.publicacion | texto | safe }}</p>{% endif %}
     {{ meta([p.firma | firma]) }}
   </div>
-  {{ fuente(p.enlace, p.enlace_texto) }}
+  <div class="fuente">
+    {% if p.enlace %}<a href="{{ p.enlace }}">{{ p.enlace_texto or "Ver la fuente" }}</a>{% endif %}
+    {% if p.enlace2 %}{% if p.enlace %}<br>{% endif %}<a href="{{ p.enlace2 }}">{{ p.enlace2_texto or "Ver la fuente" }}</a>{% endif %}
+  </div>
 </li>
 {% endmacro %}
 
@@ -88,7 +91,7 @@
     {% if e.lugar %}<p>{{ e.lugar }}</p>{% endif %}
     {{ meta([e.papel | texto]) }}
   </div>
-  {{ fuente(e.enlace, "Más información") }}
+  {{ fuente(e.enlace, e.enlace_texto or "Más información") }}
 </li>
 {% endmacro %}
 

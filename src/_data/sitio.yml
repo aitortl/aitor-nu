@@ -6,7 +6,8 @@ profesion: Dietista-Nutricionista
 lema: Clínica e investigación con mirada didáctica
 correo: contacto@aitor.nu
 ciudad: Oviedo, Asturias
+colegiado: AS00043   # n.º de colegiado en el CODiNuPA
 linkedin: https://www.linkedin.com/in/aitortl
 orcid: 0000-0002-8152-4214
 dialnet: https://dialnet.unirioja.es/servlet/autor?codigo=7227733
-simbolo: /assets/marca/simbolo.svg   # SVG de la ligadura AT; mientras no exista se muestra el hueco
+simbolo: /assets/marca/simbolo.svg   # ligadura AT, del kit de marca definitivo

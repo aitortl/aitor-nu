@@ -1,24 +1,31 @@
 # Actividad docente. Sin fecha de fin = en curso.
 entradas:
   - titulo: Nutrición, alimentación y hábitos saludables
-    entidad: Femxa y Fórmate
-    inicio: "2024"
+    entidad: Femxa
+    inicio: "2024-04"
     fin: ""
     horas:
     descripcion: Formación profesional para el empleo en modalidad online.
-    detalle: Diseño de contenidos y materiales, planificación didáctica, impartición, tutorización y evaluación del alumnado.
+    detalle: Diseño de contenidos y materiales para teleformación, planificación didáctica, impartición y tutorización en e-learning, evaluación y acompañamiento del alumnado, y actualización científica de los contenidos.
+  - titulo: Nutrición, alimentación y seguridad alimentaria
+    entidad: Fórmate
+    inicio: "2024-04"
+    fin: "2025-12"
+    horas:
+    descripcion: "Formación profesional para el empleo en modalidad online: nutrición, alimentación y hábitos saludables; seguridad alimentaria; conservación y manipulación de alimentos; gestión de crisis sanitarias; diseño de menús y gestión de alérgenos."
+    detalle: Diseño de contenidos y materiales para teleformación, planificación didáctica, impartición y tutorización en e-learning, evaluación y acompañamiento del alumnado, y actualización científica de los contenidos.
   - titulo: Nutrición y alimentación
     entidad: Dicampus
     inicio: "2024"
     fin: "2024"
     horas:
     descripcion: Formación profesional para el empleo en modalidad online.
-    detalle: ""
+    detalle: Diseño de contenidos y materiales para teleformación, planificación didáctica, impartición y tutorización en e-learning, evaluación y acompañamiento del alumnado, y actualización científica de los contenidos.
   - titulo: Tutor de prácticas del Grado en Nutrición Humana y Dietética
     entidad: Universidad del País Vasco (UPV/EHU)
     inicio: "2021-04"
     fin: "2021-06"
-    horas: 375
+    horas:
     descripcion: ""
     detalle: ""
   - titulo: Tecnología culinaria y nutrición · Mitos y errores en la alimentación
@@ -39,10 +46,10 @@ entradas:
     entidad: Agencia Madrileña de Atención Social
     inicio: "2019-03"
     fin: "2019-03"
-    horas: 10
+    horas:
     descripcion: ""
     detalle: ""
-  - titulo: Docencia especializada en másteres y cursos
+  - titulo: Docencia especializada en másteres y cursos, y acompañamiento de estudiantes en prácticas
     entidad: Fundación Española de la Nutrición
     inicio: "2018"
     fin: "2021"

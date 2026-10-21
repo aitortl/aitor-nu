@@ -61,8 +61,9 @@ preferencia general.
 
 - **Un solo color de acento.** No introduzcas colores nuevos sin preguntar.
 - La portada es deliberadamente expresiva; el resto de la web es sobrio.
-- El símbolo de marca es la ligadura AT. Mientras no esté el SVG definitivo, deja el
-  hueco marcado; **no lo dibujes de nuevo ni lo aproximes**.
+- El símbolo de marca es la ligadura AT. El definitivo está en `src/assets/marca/`
+  (copiado del kit de marca, junto con el favicon y la imagen para redes):
+  **no lo redibujes, modifiques ni aproximes**.
 - No uses logotipos de terceros (hospital, FINBA, ISPA, universidades, editoriales).
 
 ## Reglas de contenido

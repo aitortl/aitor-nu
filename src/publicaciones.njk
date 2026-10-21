@@ -7,7 +7,7 @@ permalink: /publicaciones/
 {% import "listas.njk" as l %}
 <header class="cabecera">
   <h1>Publicaciones</h1>
-  <p class="lede">Cada referencia indica mi posición de firma y enlaza con la fuente original, para que cualquiera pueda comprobarla.</p>
+  <p class="lede">Soy coautor de un capítulo en la obra de Dietoterapia dirigida por la SEEN y de guías y documentos divulgativos elaborados con la Fundación Española de la Nutrición. He participado, como miembro del equipo, en proyectos de investigación y he presentado mis trabajos en congresos.</p>
 </header>
 
 {% set capitulos = publicaciones.entradas | deTipo("capitulo") | ordenarPorFecha("anio") %}
@@ -34,7 +34,6 @@ permalink: /publicaciones/
 {% if guias.length %}
 <section class="bloque">
   <h2>Documentos divulgativos y guías</h2>
-  <p class="nota">Documentos técnicos y divulgativos elaborados con la Fundación Española de la Nutrición para distintas entidades. No son artículos en revista indexada.</p>
   <ul class="lista">
     {% for p in guias %}{{ l.publicacion(p) }}{% endfor %}
   </ul>
@@ -44,9 +43,9 @@ permalink: /publicaciones/
 {% if proyectos.entradas.length %}
 <section class="bloque">
   <h2>Proyectos de investigación</h2>
-  <p class="nota">Participación como miembro del equipo investigador en proyectos de I+D+i de la Fundación Española de la Nutrición, entre 2018 y 2021.</p>
   <ul class="simple">
-    {% for p in proyectos.entradas %}<li>{{ p | texto | safe }}</li>{% endfor %}
+    {% for p in proyectos.entradas %}<li>{% if p.enlace %}<a href="{{ p.enlace }}">{{ p.texto | texto | safe }}</a>{% else %}{{ p.texto | texto | safe }}{% endif %}
+      {%- if p.enlaces and p.enlaces.length %} {% for e in p.enlaces %}<a href="{{ e.url }}">{{ e.texto }}</a>{{ ", " if not loop.last and loop.revindex > 2 else (" y " if loop.revindex == 2 else ".") }}{% endfor %}{% endif %}</li>{% endfor %}
   </ul>
 </section>
 {% endif %}

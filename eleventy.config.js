@@ -103,6 +103,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/documentos": "documentos" });
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
+  // Iconos que los navegadores buscan en la raíz del sitio.
+  eleventyConfig.addPassthroughCopy({ "src/assets/marca/favicon.ico": "favicon.ico" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/marca/apple-touch-icon.png": "apple-touch-icon.png" });
 
   // Fechas
   eleventyConfig.addFilter("fecha", fechaCorta);

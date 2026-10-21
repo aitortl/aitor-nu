@@ -1,4 +1,12 @@
 # Eventos. Con fecha de hoy o futura salen en "Próximos eventos";
-# los pasados salen también en el carrusel de la portada (con su foto o con el símbolo de marca).
 # después pasan solos a "Eventos anteriores". Sin ninguno, el bloque no aparece.
-entradas: []
+# Los pasados salen también en el carrusel de la portada (con su foto o con el símbolo de marca).
+entradas:
+  - nombre: 10.ª Jornada sobre mieloma múltiple (CEMMp)
+    fecha: "2025-09-04"
+    lugar: Colegio de Médicos de Madrid
+    papel: "Ponente: «Nutrición y Ejercicio»"
+    enlace: https://www.youtube.com/watch?v=CINQp23kYH8&t=5166s
+    enlace_texto: Ver la ponencia
+    foto: ""
+    foto_alt: ""

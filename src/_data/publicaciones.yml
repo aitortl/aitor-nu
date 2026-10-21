@@ -4,15 +4,17 @@
 entradas:
   - titulo: Dietoterapia en la dislipemia
     autores: Riestra Fernández M, Trabanco LLano A
-    publicacion: "En: Botella Romero F, López-Gómez JJ, Luengo Pérez LM, directores. *Dietoterapia. Bases científicas y aplicación clínica*. Madrid: Editorial Médica Panamericana. Obra dirigida por la SEEN. ISBN 978-84-1106-391-3."
-    anio: ""
+    publicacion: "En: Botella Romero F, López-Gómez JJ, Luengo Pérez LM, directores. *Dietoterapia. Bases científicas y aplicación clínica*. 1.ª ed. Madrid: Editorial Médica Panamericana; 2025. Sección III, cap. 14, p. 155-167. ISBN 978-84-1106-391-3. Obra dirigida por la SEEN."
+    anio: "2025"
     tipo: capitulo
     firma: 2
     enlace: https://dialnet.unirioja.es/servlet/articulo?codigo=10644170
     enlace_texto: Ver en Dialnet
+    enlace2: https://www.medicapanamericana.com/es-ES/libros/dietoterapia
+    enlace2_texto: Ver el libro en la editorial
   - titulo: Impacto económico del Dietista-Nutricionista en la sanidad
     autores: Trabanco LLano A
-    publicacion: "*Revista Española de Nutrición Humana y Dietética*; 24 (Supl. 1)."
+    publicacion: "*Revista Española de Nutrición Humana y Dietética*; 24 (Supl. 1): 55-56."
     anio: "2020"
     tipo: resumen
     firma: 1
@@ -23,7 +25,7 @@ entradas:
     publicacion: Asociación Española de Pediatría, Comité de Nutrición y Lactancia Materna. Resultados del Estudio EsNuPI sobre alimentación infantil en España.
     anio: "2021"
     tipo: dossier
-    firma:
+    firma: 2
     enlace: https://www.aeped.es/publicaciones/protocolos/dossier-esnupi-aep-principales-hallazgos
     enlace_texto: Ver en la AEP
   - titulo: Guía de Alimentación Saludable para Personas Mayores
@@ -37,7 +39,7 @@ entradas:
   - titulo: Importancia de los lácteos para una adecuada hidratación
     autores: ""
     publicacion: Fundación Española de la Nutrición e Interprofesional Láctea (INLAC).
-    anio: ""
+    anio: "2022"
     tipo: guia
     firma: 1
     enlace: https://www.fen.org.es/publicacion/Gu%C3%ADa-la-importancia-de-los-l%C3%A1cteos-para-una-adecuada-hidrataci%C3%B3n

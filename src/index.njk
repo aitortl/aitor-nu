@@ -18,6 +18,7 @@ permalink: /
   <div class="texto-portada">
     <h1 class="nombre">{% for parte in sitio.nombre_partes %}<span class="l{{ loop.index }}">{{ parte }}</span>{% endfor %}</h1>
     <p class="profesion">{{ sitio.profesion }}</p>
+    {% if sitio.colegiado %}<p class="colegiado">Colegiado n.º {{ sitio.colegiado }} · CODiNuPA</p>{% endif %}
     <p class="lema">{{ sitio.lema }}</p>
     <div class="acciones">
       <a class="boton" href="mailto:{{ sitio.correo }}">Escríbeme</a>
@@ -27,8 +28,7 @@ permalink: /
 </section>
 
 <section class="historia" aria-labelledby="t-historia">
-  <h2 id="t-historia">Mi historia</h2>
-  <p class="cita">{{ inicio.cita }}</p>
+  <h2 class="cita" id="t-historia">{{ inicio.cita }}</h2>
   <div class="relato">
     {% for parrafo in inicio.parrafos %}
     <p>{{ parrafo | texto | safe }}</p>
