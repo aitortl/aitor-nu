@@ -7,6 +7,9 @@ lema: Clínica e investigación con mirada didáctica
 correo: contacto@aitor.nu
 ciudad: Oviedo, Asturias
 colegiado: AS00043   # n.º de colegiado en el CODiNuPA
+# Contador de visitas GoatCounter (sin cookies). Código de la cuenta, p. ej. "aitor-nu".
+# Vacío = sin contador. Solo se activa en la web publicada, nunca en local.
+goatcounter: "aitortl"
 linkedin: https://www.linkedin.com/in/aitortl
 orcid: 0000-0002-8152-4214
 dialnet: https://dialnet.unirioja.es/servlet/autor?codigo=7227733

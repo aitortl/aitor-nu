@@ -101,5 +101,7 @@ preferencia general.
   `prefers-reduced-motion`.
 - Contraste mínimo 4,5:1 en texto.
 - El nombre completo debe ser el `<h1>` real de la portada, no solo una imagen.
-- Nada de rastreadores ni analítica sin preguntar antes.
+- Nada de rastreadores ni analítica sin preguntar antes. Única analítica autorizada:
+  **GoatCounter**, sin cookies (código en `src/_data/sitio.yml`; solo se activa en la web
+  publicada). Si cambia, actualiza también la política de privacidad.
 - No añadas dependencias nuevas sin explicar para qué.

@@ -1,12 +1,75 @@
 ---
 layout: base.njk
 titulo: Privacidad
+descripcion: Política de privacidad de aitor.nu. La web no usa cookies ni formularios.
 permalink: /privacidad/
 ---
 <header class="cabecera">
   <h1>Privacidad</h1>
+  {% if sitio.goatcounter %}
+  <p class="lede">Esta web no usa cookies ni tiene formularios. Cuenta las visitas de forma anónima, sin guardar datos que te identifiquen. Aquí se explica qué datos se tratan y qué derechos tienes.</p>
+  {% else %}
+  <p class="lede">Esta web no usa cookies, no tiene formularios y no mide las visitas. Aquí se explica qué datos se tratan aun así y qué derechos tienes.</p>
+  {% endif %}
 </header>
 
-<section class="bloque">
-  <div class="vacio"><strong>Texto en preparación</strong>Este apartado se publicará en breve.</div>
+<section class="bloque prosa">
+  <h2>Responsable</h2>
+  <p>El responsable del tratamiento de los datos es {{ sitio.nombre }}. Contacto: <a href="mailto:{{ sitio.correo }}">{{ sitio.correo }}</a>.</p>
+</section>
+
+<section class="bloque prosa">
+  <h2>Qué datos se tratan</h2>
+  <ul>
+    {% if sitio.goatcounter %}
+    <li><strong>Al visitar la web</strong>, un contador de visitas (GoatCounter) registra de forma agregada la página que visitas, la web desde la que llegas, el navegador, el sistema operativo, el tamaño de pantalla, el idioma y el país o región aproximados. No guarda tu dirección IP ni instala cookies u otros datos en tu dispositivo. Para no contar dos veces la misma visita usa, como máximo durante 8 horas, un identificador aleatorio que solo existe en memoria.</li>
+    <li>No hay botones de redes sociales ni contenidos incrustados de otras webs. Las tipografías se sirven desde la propia web.</li>
+    {% else %}
+    <li><strong>Al visitar la web</strong> no recojo ningún dato. No hay cookies, ni herramientas de analítica, ni botones de redes sociales, ni contenidos incrustados de otras webs. Las tipografías se sirven desde la propia web.</li>
+    {% endif %}
+    <li><strong>Al escribirme</strong> a {{ sitio.correo }} trato los datos que tú decidas enviarme: tu dirección de correo, tu nombre y el contenido del mensaje.</li>
+  </ul>
+</section>
+
+<section class="bloque prosa">
+  <h2>Para qué y con qué base legal</h2>
+  <p>Uso los datos de tu mensaje solo para leerlo y responderte. La base legal es tu consentimiento, que das al escribirme (artículo 6.1.a del Reglamento General de Protección de Datos). Puedes retirarlo cuando quieras.</p>
+  {% if sitio.goatcounter %}<p>Las estadísticas de visitas solo sirven para saber qué páginas se leen y cómo se llega a la web. No se cruzan con otros datos ni se ceden. La base legal es mi interés legítimo en conocer el uso de la web (artículo 6.1.f del Reglamento).</p>{% endif %}
+</section>
+
+<section class="bloque prosa">
+  <h2>Cuánto tiempo se conservan</h2>
+  <p>Conservo tus mensajes el tiempo necesario para atender tu consulta y, después, un máximo de un año desde la última comunicación, salvo que una obligación legal exija guardarlos más tiempo.</p>
+</section>
+
+<section class="bloque prosa">
+  <h2>Quién más interviene</h2>
+  <p>No cedo tus datos a nadie. Estos proveedores técnicos intervienen en el funcionamiento de la web y del correo:</p>
+  <ul>
+    <li><strong>Alojamiento.</strong> La web está alojada en GitHub Pages, un servicio de GitHub. Como cualquier servidor, registra la dirección IP de quien visita la web con fines de seguridad, y lo hace como responsable de esos datos según su <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement">declaración de privacidad</a>. GitHub puede tratar esos datos en Estados Unidos, al amparo del Marco de Privacidad de Datos UE-EE. UU. y de las cláusulas contractuales tipo de la Comisión Europea.</li>
+    {% if sitio.goatcounter %}<li><strong>Estadísticas de visitas.</strong> GoatCounter, servicio operado desde Irlanda, con servidores en Finlandia y Alemania. Actúa por mi cuenta como encargado del tratamiento. Más información en su <a href="https://www.goatcounter.com/help/privacy">política de privacidad</a>.</li>{% endif %}
+    <li><strong>Correo electrónico.</strong> Los mensajes que me envíes se guardan en el proveedor que presta el servicio de correo de aitor.nu, que actúa por mi cuenta como encargado del tratamiento.</li>
+  </ul>
+</section>
+
+<section class="bloque prosa">
+  <h2>No envíes datos de salud</h2>
+  <p>Esta web no presta atención dietético-nutricional. Por favor, no me envíes por correo informes médicos ni otros datos sobre tu salud. Si lo haces, no los usaré con fines clínicos y los borraré.</p>
+</section>
+
+<section class="bloque prosa">
+  <h2>Tus derechos</h2>
+  <p>Puedes pedirme el acceso a tus datos, su rectificación o supresión, la limitación de su tratamiento, su portabilidad u oponerte a que los trate, escribiendo a <a href="mailto:{{ sitio.correo }}">{{ sitio.correo }}</a>.</p>
+  <p>Si crees que no he atendido bien tu solicitud, puedes presentar una reclamación ante la <a href="https://www.aepd.es/">Agencia Española de Protección de Datos</a>.</p>
+</section>
+
+<section class="bloque prosa">
+  <h2>Cookies</h2>
+  <p>Esta web no instala cookies ni usa tecnologías parecidas para guardar o leer información en tu dispositivo.</p>
+</section>
+
+<section class="bloque prosa">
+  <h2>Cambios en esta política</h2>
+  <p>Si cambia algo de lo que se explica aquí, lo actualizaré en esta misma página.</p>
+  <p class="actualizado">Última actualización: 21 de octubre de 2026.</p>
 </section>

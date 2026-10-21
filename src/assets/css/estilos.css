@@ -174,3 +174,14 @@ footer h2{color:#9CC7C9;font-size:1.15rem;margin:0 0 1.2rem}
 .control:hover{border-color:var(--petroleo)}
 .control:disabled{opacity:.4;cursor:default}
 @media (prefers-reduced-motion:no-preference){.carrusel .pasos{scroll-behavior:smooth}}
+
+/* ---------- Textos legales ---------- */
+.bloque.prosa{padding-top:clamp(2rem,4vh,2.75rem);padding-bottom:clamp(2rem,4vh,2.75rem)}
+.prosa > h2{margin-bottom:1.2rem}
+.prosa > p,.prosa > ul{max-width:70ch;color:var(--pizarra)}
+.prosa > p{margin:0 0 1em}
+.prosa > ul{margin:0;padding-left:1.2rem}
+.prosa li{margin:0 0 .6em}
+.prosa strong{color:var(--tinta);font-weight:600}
+.prosa a{color:var(--profundo);text-decoration:none;border-bottom:1px solid var(--petroleo)}
+.actualizado{margin-top:2rem !important;font-size:.9rem}
