@@ -208,7 +208,7 @@ content:
             options:
               values:
                 - { name: capitulo, label: Capítulo de libro }
-                - { name: resumen, label: Resumen de ponencia }
+                - { name: resumen, label: Resumen de congreso }
                 - { name: guia, label: Guía }
                 - { name: dossier, label: Documento divulgativo }
           - name: firma
@@ -228,7 +228,7 @@ content:
             type: string
 
   - name: proyectos
-    label: Proyectos de investigación
+    label: Participación en proyectos
     type: file
     path: src/_data/proyectos.yml
     fields:

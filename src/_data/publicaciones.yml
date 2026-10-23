@@ -12,6 +12,22 @@ entradas:
     enlace_texto: Ver en Dialnet
     enlace2: https://www.medicapanamericana.com/es-ES/libros/dietoterapia
     enlace2_texto: Ver el libro en la editorial
+  - titulo: ¿Es importante la nutrición en el mieloma múltiple? Análisis clínico y funcional
+    autores: ""
+    publicacion: "*Sangre*; 44 (Supl. 1): 252-253. Resumen E-PO-138 del LXVII Congreso Nacional de la SEHH."
+    anio: "2025"
+    tipo: resumen
+    firma: 1
+    enlace: https://www.revistasangre.com/files/sangre_25_44_supl-1_001-459.pdf#page=252
+    enlace_texto: Ver el suplemento (PDF, 90 MB)
+  - titulo: "Walking football: intervención para mejorar el bienestar en pacientes oncohematológicos"
+    autores: ""
+    publicacion: "*Sangre*; 44 (Supl. 1): 320. Resumen E-PO-263 del LXVII Congreso Nacional de la SEHH."
+    anio: "2025"
+    tipo: resumen
+    firma: 5
+    enlace: https://www.revistasangre.com/files/sangre_25_44_supl-1_001-459.pdf#page=320
+    enlace_texto: Ver el suplemento (PDF, 90 MB)
   - titulo: Impacto económico del Dietista-Nutricionista en la sanidad
     autores: Trabanco LLano A
     publicacion: "*Revista Española de Nutrición Humana y Dietética*; 24 (Supl. 1): 55-56."

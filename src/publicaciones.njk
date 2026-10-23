@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 titulo: Publicaciones
-descripcion: Capítulo de libro, resúmenes, guías y proyectos de investigación de Aitor Trabanco LLano, con posición de firma y enlace a la fuente.
+descripcion: Capítulo de libro, resúmenes de congreso, guías y participación en proyectos de Aitor Trabanco LLano, con posición de firma y enlace a la fuente.
 permalink: /publicaciones/
 ---
 {% import "listas.njk" as l %}
@@ -13,7 +13,7 @@ permalink: /publicaciones/
 {% set capitulos = publicaciones.entradas | deTipo("capitulo") | ordenarPorFecha("anio") %}
 {% if capitulos.length %}
 <section class="bloque">
-  <h2>Capítulo{% if capitulos.length > 1 %}s{% endif %} de libro</h2>
+  <h2>{{ "Capítulos" if capitulos.length > 1 else "Capítulo" }} de libro</h2>
   <ul class="lista">
     {% for p in capitulos %}{{ l.publicacion(p) }}{% endfor %}
   </ul>
@@ -23,7 +23,7 @@ permalink: /publicaciones/
 {% set resumenes = publicaciones.entradas | deTipo("resumen") | ordenarPorFecha("anio") %}
 {% if resumenes.length %}
 <section class="bloque">
-  <h2>Resumen{% if resumenes.length > 1 %}es{% endif %} de ponencia</h2>
+  <h2>{{ "Resúmenes" if resumenes.length > 1 else "Resumen" }} de congreso</h2>
   <ul class="lista">
     {% for p in resumenes %}{{ l.publicacion(p) }}{% endfor %}
   </ul>
@@ -42,7 +42,7 @@ permalink: /publicaciones/
 
 {% if proyectos.entradas.length %}
 <section class="bloque">
-  <h2>Proyectos de investigación</h2>
+  <h2>Participación en proyectos</h2>
   <ul class="simple">
     {% for p in proyectos.entradas %}<li>{% if p.enlace %}<a href="{{ p.enlace }}">{{ p.texto | texto | safe }}</a>{% else %}{{ p.texto | texto | safe }}{% endif %}
       {%- if p.enlaces and p.enlaces.length %} {% for e in p.enlaces %}<a href="{{ e.url }}">{{ e.texto }}</a>{{ ", " if not loop.last and loop.revindex > 2 else (" y " if loop.revindex == 2 else ".") }}{% endfor %}{% endif %}</li>{% endfor %}
