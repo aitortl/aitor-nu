@@ -61,7 +61,7 @@
 {% endmacro %}
 
 {% macro ocasion(o) %}
-<li><span>{{ o.fecha | fecha }}</span> {{ o.tipo | capitalizar }} — {{ o.evento }}.{% if o.nota %} {{ o.nota | texto | safe }}{% endif %}{% if o.enlace %} <a href="{{ o.enlace }}">{{ o.enlace_texto or "Ver la fuente" }}</a>{% endif %}</li>
+<li><span>{{ o.fecha | fecha }}</span> {{ o.tipo | capitalizar }} — {{ o.evento }}.{% if o.nota %} {{ o.nota | texto | safe }}{% endif %}{% if o.enlace %} <a href="{{ o.enlace }}">{{ o.enlace_texto or "Ver la fuente" }}</a>{% endif %}{% if o.poster | existe %} <a href="{{ o.poster }}">Ver el póster (PDF)</a>{% endif %}</li>
 {% endmacro %}
 
 {% macro comunicacion(c) %}
@@ -79,7 +79,10 @@
     {% endif %}
     {{ meta([c.firma | firma, c.detalle | texto]) }}
   </div>
-  {{ fuente(c.enlace, c.enlace_texto) }}
+  <div class="fuente">
+    {% if c.enlace %}<a href="{{ c.enlace }}">{{ c.enlace_texto or "Ver la fuente" }}</a>{% endif %}
+    {% if c.poster | existe %}{% if c.enlace %}<br>{% endif %}<a href="{{ c.poster }}">Ver el póster (PDF)</a>{% endif %}
+  </div>
 </li>
 {% endmacro %}
 

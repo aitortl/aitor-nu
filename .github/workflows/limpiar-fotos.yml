@@ -1,12 +1,12 @@
-# Borra los metadatos (GPS, cámara, autor...) de las fotos subidas desde Pages CMS.
+# Borra los metadatos (GPS, cámara, autor...) de las fotos y PDF subidos desde Pages CMS.
 # Ojo: la versión original sigue en el historial de git. Lo único que lo evita del todo
 # es subir fotos sin ubicación; este paso es una red de seguridad.
-name: Limpiar metadatos de fotos
+name: Limpiar metadatos
 
 on:
   push:
     branches: [main]
-    paths: ["src/img/**"]
+    paths: ["src/img/**", "src/documentos/**"]
 
 permissions:
   contents: write
@@ -19,13 +19,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - run: npm ci
       - run: node scripts/limpiar-metadatos.js
       - name: Guardar las fotos limpias
         run: |
-          if [ -n "$(git status --porcelain src/img)" ]; then
+          if [ -n "$(git status --porcelain src/img src/documentos)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add src/img
-            git commit -m "Borra metadatos de fotos"
+            git add src/img src/documentos
+            git commit -m "Borra metadatos de fotos y documentos"
             git push
           fi

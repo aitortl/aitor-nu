@@ -83,14 +83,14 @@ preferencia general.
 - `src/img/`: fotos de contenido (retrato, eventos, medios). Es la carpeta de subida de
   Pages CMS. Al construir, la web genera copias reducidas en WebP; el original no se
   publica en la web.
-- `src/documentos/`: PDF descargables (CV).
+- `src/documentos/`: PDF descargables (CV y, en `posteres/`, los pósteres de congresos).
 - `src/assets/`: archivos de diseño (estilos, scripts, fuentes y `marca/simbolo.svg`).
 - Ningún archivo de contenido en la raíz del proyecto.
 - Fotos en JPEG; PNG solo si tienen fondo transparente. Sube siempre la versión de
   mejor calidad, nunca una ya comprimida para web.
-- **Los originales quedan visibles en el repositorio público.** Los metadatos (GPS,
-  cámara, autor) se borran solos: al hacer commit en local y, para lo subido desde
-  Pages CMS, con una acción de GitHub. Esta segunda vía deja el original en el
+- **Los originales quedan visibles en el repositorio público.** Los metadatos de fotos
+  y PDF (GPS, cámara, autor, programa) se borran solos: al hacer commit en local y, para
+  lo subido desde Pages CMS, con una acción de GitHub. Esta segunda vía deja el original en el
   historial de git, así que conviene subir fotos sin ubicación.
 - Solo fotos propias o con permiso. Ninguna foto de prensa sin autorización del medio
   y ningún paciente identificable.

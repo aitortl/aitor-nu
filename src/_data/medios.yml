@@ -25,3 +25,27 @@ entradas:
     enlace_archivado: ""
     foto: ""
     foto_alt: ""
+  - titular: ¿Es tan saludable el sushi?
+    medio: La Razón
+    fecha: "2023-06-18"
+    papel: Entrevista en representación del Consejo General de Colegios Oficiales de Dietistas-Nutricionistas
+    enlace: https://www.larazon.es/salud/tan-saludable-sushi_20230618648e4d9c9d4a83000151e60a.html
+    enlace_archivado: ""
+    foto: ""
+    foto_alt: ""
+  - titular: El consumo de más de 2 raciones de lácteos al día aporta el 25 % de las necesidades hídricas
+    medio: Revista Frisona
+    fecha: "2022-06-01"
+    papel: Noticia sobre la guía «Importancia de los lácteos para una adecuada hidratación», como coautor
+    enlace: https://www.revistafrisona.com/Noticia/el-consumo-de-mas-de-2-raciones-de-lacteos-al-dia-aporta-el-25-por-ciento-de-las-necesidades-hidricas
+    enlace_archivado: ""
+    foto: ""
+    foto_alt: ""
+  - titular: El I Congreso de Estudiantes de la UPV/EHU premia ocho TFGs sobre desarrollo sostenible
+    medio: Campusa (UPV/EHU)
+    fecha: "2018-10-26"
+    papel: Noticia del 2.º premio, en el ámbito Prosperidad, por el Trabajo Fin de Grado
+    enlace: https://www.ehu.eus/es/web/campusa/-/upv-ehuko-ikasleen-i-biltzarrak-saritu-ditu-garapen-iraunkorrari-buruzko-zortzi-gral
+    enlace_archivado: ""
+    foto: ""
+    foto_alt: ""

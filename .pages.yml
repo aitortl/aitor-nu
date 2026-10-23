@@ -302,6 +302,11 @@ content:
           - name: enlace_texto
             label: Texto del enlace
             type: string
+          - name: poster
+            label: Póster (PDF)
+            type: file
+            description: "PDF del póster, si se puede publicar. Sin metadatos personales."
+            options: { media: documentos }
           - name: descripcion
             label: Descripción (solo con varias ocasiones)
             component: texto_con_cursiva
@@ -332,6 +337,10 @@ content:
               - name: enlace_texto
                 label: Texto del enlace
                 type: string
+              - name: poster
+                label: Póster (PDF)
+                type: file
+                options: { media: documentos }
 
   - name: eventos
     label: Eventos

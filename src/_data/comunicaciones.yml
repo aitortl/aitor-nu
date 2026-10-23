@@ -1,7 +1,27 @@
 # Comunicaciones a congresos. tipo: ponencia · póster · comunicación
 # Un mismo trabajo presentado en varios foros va en una sola entrada con "ocasiones".
 # En "nota", el texto entre asteriscos (*Revista*) sale en cursiva.
+# poster: PDF del póster en /documentos/posteres/ (enlace "Ver el póster").
 entradas:
+  - titulo: ¿Es importante la nutrición en el mieloma múltiple? Análisis clínico y funcional
+    fecha: "2025-10"
+    tipo: póster
+    evento: LXVII Congreso Nacional de la Sociedad Española de Hematología y Hemoterapia (SEHH), Oviedo
+    nota: ""
+    firma: 1
+    detalle: ""
+    enlace: ""
+    enlace_texto: ""
+    poster: /documentos/posteres/2025-10-sehh-nutricion-mieloma.pdf
+  - titulo: "Walking football: intervención para mejorar el bienestar en pacientes oncohematológicos"
+    fecha: "2025-10"
+    tipo: póster
+    evento: LXVII Congreso Nacional de la Sociedad Española de Hematología y Hemoterapia (SEHH), Oviedo
+    nota: ""
+    firma: 5
+    detalle: ""
+    enlace: ""
+    enlace_texto: ""
   - titulo: Estudio piloto en lipedema y obesidad combinando dieta baja en hidratos, órtesis de tejido plano y programa específico de ejercicios
     fecha: "2026-09"
     tipo: comunicación
@@ -28,6 +48,7 @@ entradas:
         nota: ""
         enlace: ""
         enlace_texto: ""
+        poster: /documentos/posteres/2021-05-seec-impacto-economico.pdf
       - fecha: "2020-11"
         tipo: ponencia
         evento: III Congreso de Alimentación, Nutrición y Dietética
@@ -55,6 +76,7 @@ entradas:
     detalle: "Origen: Trabajo Fin de Máster"
     enlace: https://www.alanrevista.org/ediciones/2021/suplemento-1/art-376/
     enlace_texto: Ver el resumen
+    poster: /documentos/posteres/2021-11-slan-dieta-microbiota.pdf
   - titulo: Bases dietético-nutricionales para los Centros de Menores de la AMAS
     fecha: "2020-11"
     tipo: comunicación
@@ -73,3 +95,4 @@ entradas:
     detalle: ""
     enlace: ""
     enlace_texto: ""
+    poster: /documentos/posteres/2019-06-sen-anibes-zumos.pdf

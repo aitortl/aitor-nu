@@ -1,7 +1,8 @@
 #!/bin/sh
 # Antes de cada commit, borra los metadatos (GPS, cámara, autor...) de las imágenes
-# nuevas o modificadas de src/img y vuelve a añadirlas al commit ya limpias.
-imagenes=$(git diff --cached --name-only --diff-filter=AM -- 'src/img/*' | grep -iE '\.(jpe?g|png|webp)$')
+# de src/img y de los PDF de src/documentos nuevos o modificados, y vuelve a añadirlos
+# al commit ya limpios.
+imagenes=$(git diff --cached --name-only --diff-filter=AM -- 'src/img/*' 'src/documentos/*' | grep -iE '\.(jpe?g|png|webp|pdf)$')
 [ -z "$imagenes" ] && exit 0
 limpias=$(echo "$imagenes" | tr '\n' '\0' | xargs -0 node scripts/limpiar-metadatos.js) || exit 1
 if [ -n "$limpias" ]; then
