@@ -82,35 +82,46 @@ no esté resuelto, omite ese dato concreto y deja el resto de la referencia.
 
 No inventes sustitutos para nada de esto:
 
-1. ~~Retrato~~ — entregado: `src/img/retrato.png` (PNG con fondo transparente; es el
-   original de partida, la web genera sus propias copias en WebP).
-2. Segunda foto, en "Mi historia" → `src/img/` (JPEG). Si hay eventos pasados o
-   apariciones en medios, ese hueco lo ocupa el carrusel con sus fotos.
+1. **Retrato** — provisional: `src/img/retrato.jpeg` (480 px). Falta el original a resolución
+   completa; al sustituirlo con el mismo nombre no hay que cambiar nada más.
+2. **Fotos del carrusel** (eventos y medios de la portada) → `src/img/actividad/`, con el nombre
+   `AAAA-MM-DD-nombre.jpg`. Solo fotos propias o con permiso; nunca de bancos de imágenes, porque
+   el pie de cada foto la atribuye a un evento concreto. Sin foto, la diapositiva muestra el
+   símbolo de marca.
 3. ~~Símbolo de marca~~ — entregado: kit de marca en `src/assets/marca/` (símbolo,
    favicon, icono de iOS e imagen para redes).
-4. CV en PDF → `src/documentos/` — decidir si la versión pública lleva teléfono.
-5. Número de colegiado, si el aviso legal lo requiere.
+4. **CV en PDF** → `src/documentos/`. Decidido: la versión pública **no lleva teléfono**.
+   Pendiente de preparar.
+5. ~~Número de colegiado~~ — publicado en la portada y en el aviso legal.
 
 Mientras falten, deja el hueco marcado como en el prototipo. Dónde va cada tipo de
 archivo y cómo se tratan las fotos: sección "Imágenes y archivos" de `CLAUDE.md`.
 
 ## Tareas, en orden
 
-1. Montar el repositorio y el generador; pasar el prototipo a plantillas y páginas
-   separadas, sin cambiar el diseño.
-2. Sacar los listados a archivos de datos.
+1. ~~Montar el repositorio y el generador; pasar el prototipo a plantillas y páginas
+   separadas, sin cambiar el diseño.~~ Hecho.
+2. ~~Sacar los listados a archivos de datos.~~ Hecho (`src/_data/`).
 3. Configurar Pages CMS. **Consulta su documentación actual** antes de escribir la
-   configuración, en vez de darla por sabida.
-4. Comprobar en móvil, con teclado y con contraste.
+   configuración, en vez de darla por sabida. Configuración hecha (`.pages.yml`);
+   **falta conectar la aplicación al repositorio** cuando el dominio esté activo.
+4. ~~Comprobar en móvil, con teclado y con contraste.~~ Hecho.
 5. Publicar en GitHub Pages y configurar el dominio. Verificar el dominio en GitHub
    **antes** de tocar el DNS, y no modificar los registros de correo.
-6. Redactar aviso legal y privacidad.
+   Publicado en GitHub Pages (`aitortl/aitor-nu`); **falta verificar y conectar `aitor.nu`**.
+   El DNS está detrás de Cloudflare: los registros de GitHub van en modo "DNS only".
+6. ~~Redactar aviso legal y privacidad.~~ Hecho.
+
+Después de conectar el dominio: actualizar las versiones de las acciones de GitHub (aviso de
+retirada de Node.js 20) y dar de alta la web en Google Search Console.
 
 ## Antes de publicar
 
-- [ ] Ninguna etiqueta "pendiente" visible.
-- [ ] Ningún dato que contradiga la ficha canónica.
-- [ ] El buzón `contacto@aitor.nu` está activo.
-- [ ] No aparece el teléfono en ninguna página ni en el CV descargable.
-- [ ] Todos los enlaces externos funcionan.
-- [ ] Aviso legal y privacidad publicados.
+- [x] Ninguna etiqueta "pendiente" visible.
+- [x] Ningún dato que contradiga la ficha canónica (revisada en octubre de 2026).
+- [x] El buzón `contacto@aitor.nu` está activo.
+- [x] No aparece el teléfono en ninguna página. *(Comprobar también el CV cuando se añada.)*
+- [x] Todos los enlaces externos funcionan (revisados en octubre de 2026; LinkedIn bloquea las
+      comprobaciones automáticas, pero funciona en el navegador).
+- [x] Aviso legal y privacidad publicados.
+- [ ] Dominio `aitor.nu` verificado, conectado y con HTTPS.

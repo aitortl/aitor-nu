@@ -379,6 +379,13 @@ content:
             label: Texto del enlace
             type: string
             description: "P. ej.: Ver la ponencia. Si lo dejas vacío: Más información."
+          - name: enlace_archivado
+            label: Copia archivada
+            type: string
+            description: "Copia en web.archive.org, por si la página desaparece."
+            pattern:
+              regex: "^(https://web\\.archive\\.org/\\S+)?$"
+              message: "Debe ser una dirección de web.archive.org"
           - name: foto
             label: Foto
             type: image

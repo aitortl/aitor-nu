@@ -94,7 +94,10 @@
     {% if e.lugar %}<p>{{ e.lugar }}</p>{% endif %}
     {{ meta([e.papel | texto]) }}
   </div>
-  {{ fuente(e.enlace, e.enlace_texto or "Más información") }}
+  <div class="fuente">
+    {% if e.enlace %}<a href="{{ e.enlace }}">{{ e.enlace_texto or "Más información" }}</a>{% endif %}
+    {% if e.enlace_archivado %}{% if e.enlace %}<br>{% endif %}<a href="{{ e.enlace_archivado }}">Copia archivada</a>{% endif %}
+  </div>
 </li>
 {% endmacro %}
 
