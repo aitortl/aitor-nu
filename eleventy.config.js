@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import yaml from "js-yaml";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
@@ -63,6 +64,15 @@ function fechaComunicacion(c) {
 function existe(ruta) {
   if (!ruta) return false;
   return fs.existsSync(path.join(ENTRADA, decodeURI(String(ruta)).replace(/^\//, "")));
+}
+
+// Añade a la ruta de un estilo o script una huella de su contenido ("?v=1a2b3c4d"),
+// para que el navegador descargue la versión nueva en cuanto cambie y no use la de su caché.
+function version(ruta) {
+  const archivo = path.join(ENTRADA, String(ruta).replace(/^\//, ""));
+  if (!fs.existsSync(archivo)) return ruta;
+  const huella = crypto.createHash("sha256").update(fs.readFileSync(archivo)).digest("hex").slice(0, 8);
+  return `${ruta}?v=${huella}`;
 }
 
 // Fotos de eventos pasados y de apariciones en medios, de la más reciente a la más antigua.
@@ -180,6 +190,7 @@ export default function (eleventyConfig) {
   // Material que Aitor aún tiene que aportar: si el archivo no está, se muestra el hueco.
   eleventyConfig.addFilter("existe", existe);
   eleventyConfig.addFilter("carrusel", carrusel);
+  eleventyConfig.addFilter("version", version);
 
   return {
     dir: { input: ENTRADA, includes: "_includes", data: "_data", output: "_site" },
