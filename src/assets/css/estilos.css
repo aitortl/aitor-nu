@@ -166,6 +166,14 @@ footer h2{color:#9CC7C9;font-size:1.15rem;margin:0 0 1.2rem}
 .carrusel .sin-foto{position:absolute;inset:0;display:grid;place-items:center}
 .carrusel .sin-foto .simbolo{position:static;inset:auto;opacity:1}
 .carrusel .sin-foto .simbolo-svg{position:static;width:40%;height:auto;object-fit:contain}
+.solo-texto{background:var(--agua);padding:1.6rem 1.5rem 1.3rem}
+.solo-texto .sello{width:3.5rem;margin-bottom:1.1rem}
+.solo-texto .sello .simbolo-svg{position:static;width:100%;height:auto}
+.solo-texto .sello .simbolo.grande{width:3.5rem;height:2.75rem;font-size:14px}
+.solo-texto .pasos > li{display:flex;flex-direction:column;gap:.5rem}
+.solo-texto .titular{margin:0;font-family:var(--serif);font-size:1.3rem;line-height:1.35;color:var(--profundo)}
+.solo-texto .dato{margin:0;font-size:.9rem;color:var(--pizarra)}
+.solo-texto .controles{margin-top:1.2rem}
 .controles{display:none;align-items:center;gap:.9rem;margin-top:.9rem;font-size:.85rem;color:var(--pizarra)}
 .js .controles{display:flex}
 .js .carrusel .pasos{scrollbar-width:none}

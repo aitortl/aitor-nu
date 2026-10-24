@@ -53,7 +53,7 @@ permalink: /publicaciones/
 <section class="bloque">
   <h2>Perfiles</h2>
   <ul class="simple">
-    <li><a href="https://orcid.org/{{ sitio.orcid }}">ORCID {{ sitio.orcid }}</a></li>
+    {% if sitio.orcid %}<li><a href="https://orcid.org/{{ sitio.orcid }}">ORCID {{ sitio.orcid }}</a></li>{% endif %}
     <li><a href="{{ sitio.dialnet }}">Perfil de autor en Dialnet</a></li>
   </ul>
 </section>

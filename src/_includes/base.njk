@@ -35,8 +35,8 @@
   "url": "{{ sitio.url }}/",
   "email": "mailto:{{ sitio.correo }}",
   "sameAs": [
-    "https://orcid.org/{{ sitio.orcid }}",
-    "{{ sitio.linkedin }}",
+    {% if sitio.orcid %}"https://orcid.org/{{ sitio.orcid }}",
+    {% endif %}"{{ sitio.linkedin }}",
     "{{ sitio.dialnet }}"
   ]
 }
@@ -74,7 +74,7 @@
   <a class="correo" href="mailto:{{ sitio.correo }}">{{ sitio.correo }}</a>
   <ul class="redes">
     <li><a href="{{ sitio.linkedin }}">LinkedIn</a></li>
-    <li><a href="https://orcid.org/{{ sitio.orcid }}">ORCID</a></li>
+    {% if sitio.orcid %}<li><a href="https://orcid.org/{{ sitio.orcid }}">ORCID</a></li>{% endif %}
     {% if cv %}<li><a href="{{ cv }}" download>Descargar CV (PDF)</a></li>{% endif %}
   </ul>
   <div class="legal">

@@ -38,6 +38,20 @@ permalink: /
   {% set fotos = eventos.entradas | carrusel(medios.entradas) %}
   {% if fotos.length %}
   {# Carrusel con eventos pasados y apariciones en medios, de lo más reciente a lo más antiguo. #}
+  {# Si ninguna diapositiva tiene foto, el símbolo queda fijo y pequeño y solo cambia el texto. #}
+  {% set conFoto = fotos | selectattr("foto") | length %}
+  {% if not conFoto %}
+  <div class="foto2 carrusel solo-texto" role="region" aria-roledescription="carrusel" aria-label="Eventos y apariciones en medios">
+    <div class="sello">{% set grande = true %}{% include "simbolo.njk" %}</div>
+    <ul class="pasos" tabindex="0" aria-label="Eventos y apariciones; desplázate con las flechas">
+      {% for f in fotos %}
+      <li aria-roledescription="diapositiva" aria-label="{{ loop.index }} de {{ fotos.length }}">
+        <p class="titular">{{ f.titulo }}</p>
+        <p class="dato">{{ [f.secundario, f.fecha | fecha] | compactar | join(" · ") }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
   <div class="foto2 carrusel" role="region" aria-roledescription="carrusel" aria-label="Eventos y apariciones en medios">
     <ul class="pasos" tabindex="0" aria-label="Fotos; desplázate con las flechas">
       {% for f in fotos %}
@@ -52,11 +66,12 @@ permalink: /
       </li>
       {% endfor %}
     </ul>
+  {% endif %}
     {% if fotos.length > 1 %}
     <div class="controles">
-      <button class="control" type="button" data-anterior aria-label="Foto anterior">←</button>
+      <button class="control" type="button" data-anterior aria-label="{{ "Foto anterior" if conFoto else "Anterior" }}">←</button>
       <span class="cuenta" aria-live="polite">1 de {{ fotos.length }}</span>
-      <button class="control" type="button" data-siguiente aria-label="Foto siguiente">→</button>
+      <button class="control" type="button" data-siguiente aria-label="{{ "Foto siguiente" if conFoto else "Siguiente" }}">→</button>
     </div>
     {% endif %}
   </div>

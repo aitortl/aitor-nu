@@ -11,6 +11,7 @@ colegiado: AS00043   # n.º de colegiado en el CODiNuPA
 # Vacío = sin contador. Solo se activa en la web publicada, nunca en local.
 goatcounter: "aitortl"
 linkedin: https://www.linkedin.com/in/aitortl
-orcid: 0000-0002-8152-4214
+# ORCID: 0000-0002-8152-4214. Vacío = no se muestra (el perfil aún no tiene contenido).
+orcid: ""
 dialnet: https://dialnet.unirioja.es/servlet/autor?codigo=7227733
 simbolo: /assets/marca/simbolo.svg   # ligadura AT, del kit de marca definitivo
