@@ -172,6 +172,10 @@ footer h2{color:#9CC7C9;font-size:1.15rem;margin:0 0 1.2rem}
 .solo-texto .sello .simbolo.grande{width:3.5rem;height:2.75rem;font-size:14px}
 .solo-texto .pasos > li{display:flex;flex-direction:column;gap:.5rem}
 .solo-texto .titular{margin:0;font-family:var(--serif);font-size:1.3rem;line-height:1.35;color:var(--profundo)}
+.solo-texto .titular a,.carrusel figcaption a{text-decoration-thickness:1px;text-underline-offset:4px}
+.solo-texto .titular a:hover,.carrusel figcaption a:hover{color:var(--petroleo);text-decoration-thickness:2px}
+.carrusel .toda{margin:.9rem 0 0;font-size:.9rem}
+.carrusel .toda a{color:var(--petroleo);font-weight:600;text-underline-offset:3px}
 .solo-texto .dato{margin:0;font-size:.9rem;color:var(--pizarra)}
 .solo-texto .controles{margin-top:1.2rem}
 .controles{display:none;align-items:center;gap:.9rem;margin-top:.9rem;font-size:.85rem;color:var(--pizarra)}

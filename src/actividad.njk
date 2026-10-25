@@ -31,7 +31,7 @@ permalink: /actividad/
 
 {% set anteriores = eventos.entradas | pasados %}
 {% if anteriores.length %}
-<section class="bloque">
+<section class="bloque" id="eventos-anteriores">
   <h2>Eventos anteriores</h2>
   <ul class="lista">
     {% for e in anteriores %}{{ l.evento(e) }}{% endfor %}
@@ -40,7 +40,7 @@ permalink: /actividad/
 {% endif %}
 
 {% if medios.entradas.length %}
-<section class="bloque">
+<section class="bloque" id="en-los-medios">
   <h2>En los medios</h2>
   <ul class="lista">
     {% for m in medios.entradas | ordenarPorFecha %}{{ l.medio(m) }}{% endfor %}

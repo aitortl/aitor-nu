@@ -46,7 +46,7 @@ permalink: /
     <ul class="pasos" tabindex="0" aria-label="Eventos y apariciones; desplázate con las flechas">
       {% for f in fotos %}
       <li aria-roledescription="diapositiva" aria-label="{{ loop.index }} de {{ fotos.length }}">
-        <p class="titular">{{ f.titulo }}</p>
+        <p class="titular"><a href="{{ f.enlace }}">{{ f.titulo }}</a></p>
         <p class="dato">{{ [f.secundario, f.fecha | fecha] | compactar | join(" · ") }}</p>
       </li>
       {% endfor %}
@@ -61,7 +61,8 @@ permalink: /
             {% if f.foto %}<img src="{{ f.foto }}" alt="{{ f.alt or '' }}" sizes="(max-width: 900px) 420px, 25vw">
             {% else %}<div class="sin-foto">{% set grande = true %}{% include "simbolo.njk" %}</div>{% endif %}
           </div>
-          <figcaption>{{ [f.titulo, f.secundario, f.fecha | fecha] | compactar | join(" · ") }}</figcaption>
+          {% set resto = [f.secundario, f.fecha | fecha] | compactar | join(" · ") %}
+          <figcaption><a href="{{ f.enlace }}">{{ f.titulo }}</a>{% if resto %} · {{ resto }}{% endif %}</figcaption>
         </figure>
       </li>
       {% endfor %}
@@ -74,6 +75,7 @@ permalink: /
       <button class="control" type="button" data-siguiente aria-label="{{ "Foto siguiente" if conFoto else "Siguiente" }}">→</button>
     </div>
     {% endif %}
+    <p class="toda"><a href="/actividad/">Toda la actividad</a></p>
   </div>
   {% else %}
   <figure class="foto2">

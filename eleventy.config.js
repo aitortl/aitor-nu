@@ -77,13 +77,14 @@ function version(ruta) {
 
 // Fotos de eventos pasados y de apariciones en medios, de la más reciente a la más antigua.
 // Las entradas sin foto se incluyen igualmente: en su lugar se muestra el símbolo de marca.
+// Cada diapositiva enlaza con la noticia o el vídeo; si no hay, con su sección de Actividad.
 function carrusel(eventos, medios) {
   const hoy = hoyEnMadrid();
   const diapositivas = [
     ...(eventos || [])
       .filter((e) => clave(e.fecha) && clave(e.fecha) < hoy)
-      .map((e) => ({ fecha: e.fecha, foto: e.foto, alt: e.foto_alt, titulo: e.nombre, secundario: e.lugar })),
-    ...(medios || []).map((m) => ({ fecha: m.fecha, foto: m.foto, alt: m.foto_alt, titulo: m.titular, secundario: m.medio })),
+      .map((e) => ({ fecha: e.fecha, foto: e.foto, alt: e.foto_alt, titulo: e.nombre, secundario: e.lugar, enlace: e.enlace || "/actividad/#eventos-anteriores" })),
+    ...(medios || []).map((m) => ({ fecha: m.fecha, foto: m.foto, alt: m.foto_alt, titulo: m.titular, secundario: m.medio, enlace: m.enlace || "/actividad/#en-los-medios" })),
   ];
   return diapositivas
     .map((d) => ({ ...d, foto: existe(d.foto) ? d.foto : "" }))
