@@ -199,6 +199,16 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("existe", existe);
   eleventyConfig.addFilter("carrusel", carrusel);
   eleventyConfig.addFilter("version", version);
+
+  // Los enlaces a otras webs se abren en una pestaña nueva, con un aviso para lectores de pantalla.
+  eleventyConfig.addTransform("enlacesExternos", function (html) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return html;
+    return html.replace(/<a\s([^>]*href="https?:\/\/(?!(?:www\.)?aitor\.nu[/"])[^"]*"[^>]*)>([\s\S]*?)<\/a>/g, (todo, atributos, texto) =>
+      /\starget=/.test(` ${atributos}`)
+        ? todo
+        : `<a ${atributos} target="_blank" rel="noopener">${texto}<span class="oculto"> (se abre en una pestaña nueva)</span></a>`,
+    );
+  });
   // "/documentos/posteres/x.pdf" → "/posteres/x/": página donde se ve el póster (ver _data/posteres.js).
   eleventyConfig.addFilter("paginaPoster", (ruta) => `/posteres/${path.basename(decodeURI(String(ruta)), ".pdf")}/`);
 
