@@ -1,7 +1,8 @@
 # Comunicaciones a congresos. tipo: ponencia · póster · comunicación
 # Un mismo trabajo presentado en varios foros va en una sola entrada con "ocasiones".
 # En "nota", el texto entre asteriscos (*Revista*) sale en cursiva.
-# poster: PDF del póster en /documentos/posteres/ (enlace "Ver el póster").
+# poster: PDF del póster en /documentos/posteres/. Cada póster tiene su página en /posteres/<nombre-del-pdf>/,
+# donde se ve en la propia web y se puede descargar.
 entradas:
   - titulo: ¿Es importante la nutrición en el mieloma múltiple? Análisis clínico y funcional
     fecha: "2025-10"
@@ -22,6 +23,7 @@ entradas:
     detalle: ""
     enlace: https://www.revistasangre.com/files/sangre_25_44_supl-1_001-459.pdf#page=320
     enlace_texto: Ver el resumen (PDF, 90 MB)
+    poster: /documentos/posteres/2025-10-sehh-walking-football.pdf
   - titulo: Estudio piloto en lipedema y obesidad combinando dieta baja en hidratos, órtesis de tejido plano y programa específico de ejercicios
     fecha: "2026-09"
     tipo: comunicación

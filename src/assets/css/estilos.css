@@ -197,3 +197,29 @@ footer h2{color:#9CC7C9;font-size:1.15rem;margin:0 0 1.2rem}
 .prosa strong{color:var(--tinta);font-weight:600}
 .prosa a{color:var(--profundo);text-decoration:none;border-bottom:1px solid var(--petroleo)}
 .actualizado{margin-top:2rem !important;font-size:.9rem}
+
+/* ---------- Visor de pósteres (PDF.js) ---------- */
+.cabecera-poster h1{grid-column:1 / -1;font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.15}
+.cabecera-poster .atras{grid-column:1 / -1;margin:0 0 1.2rem;font-size:.95rem}
+.cabecera-poster .atras a,.volver a{display:inline-block;padding:.45rem .9rem;border:1px solid var(--linea);border-radius:2px;color:var(--profundo);font-weight:600;text-decoration:none}
+.cabecera-poster .atras a:hover,.volver a:hover{border-color:var(--petroleo)}
+.cabecera-poster .lede{grid-column:1 / -1;max-width:none}
+.visor-barra{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem;margin-bottom:1rem}
+.visor-zoom{display:flex;gap:.5rem}
+.visor-zoom[hidden]{display:none}
+.control-texto{width:auto;padding:0 .8rem;font-size:.9rem}
+.visor-descarga{color:var(--petroleo);font-weight:600;text-underline-offset:3px}
+.visor-lienzo{overflow-x:auto;border:1px solid var(--linea);background:var(--agua)}
+.visor-pagina{position:relative;background:var(--blanco)}
+.visor-pagina + .visor-pagina{margin-top:1rem}
+.visor-pagina canvas{display:block;width:100%;height:100%}
+.visor-aviso{margin:0;padding:1.5rem;font-size:.95rem}
+.volver{margin:1.5rem 0 0;font-size:.95rem}
+.textLayer{position:absolute;inset:0;overflow:clip;line-height:1;text-align:initial;transform-origin:0 0;-webkit-text-size-adjust:none;text-size-adjust:none;forced-color-adjust:none;z-index:0;--min-font-size:1;--text-scale-factor:calc(var(--total-scale-factor) * var(--min-font-size));--min-font-size-inv:calc(1 / var(--min-font-size))}
+.textLayer :is(span,br){color:transparent;position:absolute;white-space:pre;cursor:text;transform-origin:0 0}
+.textLayer > :not(.markedContent),.textLayer .markedContent span:not(.markedContent){z-index:1;--font-height:0;font-size:calc(var(--text-scale-factor) * var(--font-height));--scale-x:1;--rotate:0deg;transform:rotate(var(--rotate)) scaleX(var(--scale-x)) scale(var(--min-font-size-inv))}
+.textLayer .markedContent{display:contents}
+.textLayer ::selection{background:rgba(14,91,98,.25);color:transparent}
+.textLayer br::selection{background:transparent}
+.textLayer .endOfContent{display:block;position:absolute;inset:100% 0 0;z-index:0;cursor:default;-webkit-user-select:none;user-select:none}
+.textLayer.selecting .endOfContent{top:0}

@@ -1,0 +1,34 @@
+---
+layout: base.njk
+pagination:
+  data: posteres
+  size: 1
+  alias: p
+permalink: "/posteres/{{ p.slug }}/"
+visor: true
+eleventyComputed:
+  titulo: "Póster: {{ p.titulo }}"
+  descripcion: "Póster «{{ p.titulo }}», presentado en {{ p.evento }}."
+---
+<header class="cabecera cabecera-poster">
+  <p class="atras"><a href="/actividad/#comunicaciones" data-atras>← Volver</a></p>
+  <h1>{{ p.titulo }}</h1>
+  <p class="lede">Póster · {{ p.evento }} · {{ p.fecha | fecha }}{% if p.firma %} · {{ p.firma | firma }}{% endif %}</p>
+</header>
+
+<section class="bloque">
+  <div class="visor" data-pdf="{{ p.pdf }}">
+    <div class="visor-barra">
+      <div class="visor-zoom" hidden>
+        <button class="control" type="button" data-zoom="-1" aria-label="Reducir">−</button>
+        <button class="control" type="button" data-zoom="1" aria-label="Ampliar">+</button>
+        <button class="control control-texto" type="button" data-zoom="0">Ajustar</button>
+      </div>
+      <a class="visor-descarga" href="{{ p.pdf }}" download>Descargar PDF ({{ p.megas }} MB)</a>
+    </div>
+    <div class="visor-lienzo" tabindex="0" role="document" aria-label="Póster «{{ p.titulo }}»">
+      <p class="visor-aviso">Si el póster no se muestra, <a href="{{ p.pdf }}">ábrelo en PDF</a>.</p>
+    </div>
+  </div>
+  <p class="volver"><a href="/actividad/#comunicaciones" data-atras>← Volver</a></p>
+</section>

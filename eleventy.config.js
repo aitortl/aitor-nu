@@ -114,6 +114,13 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/documentos": "documentos" });
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
+  // PDF.js (Mozilla) para ver los pósteres en la propia web, con el texto seleccionable.
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/pdfjs-dist/build/pdf.min.mjs": "assets/pdfjs/pdf.min.mjs",
+    "node_modules/pdfjs-dist/build/pdf.worker.min.mjs": "assets/pdfjs/pdf.worker.min.mjs",
+    "node_modules/pdfjs-dist/standard_fonts": "assets/pdfjs/standard_fonts",
+    "node_modules/pdfjs-dist/wasm": "assets/pdfjs/wasm",
+  });
   // Iconos que los navegadores buscan en la raíz del sitio.
   eleventyConfig.addPassthroughCopy({ "src/assets/marca/favicon.ico": "favicon.ico" });
   eleventyConfig.addPassthroughCopy({ "src/assets/marca/apple-touch-icon.png": "apple-touch-icon.png" });
@@ -192,6 +199,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("existe", existe);
   eleventyConfig.addFilter("carrusel", carrusel);
   eleventyConfig.addFilter("version", version);
+  // "/documentos/posteres/x.pdf" → "/posteres/x/": página donde se ve el póster (ver _data/posteres.js).
+  eleventyConfig.addFilter("paginaPoster", (ruta) => `/posteres/${path.basename(decodeURI(String(ruta)), ".pdf")}/`);
 
   return {
     dir: { input: ENTRADA, includes: "_includes", data: "_data", output: "_site" },

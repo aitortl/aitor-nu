@@ -21,7 +21,7 @@ permalink: /actividad/
 {% endif %}
 
 {% if comunicaciones.entradas.length %}
-<section class="bloque">
+<section class="bloque" id="comunicaciones">
   <h2>Comunicaciones a congresos</h2>
   <ul class="lista">
     {% for c in comunicaciones.entradas | ordenarComunicaciones %}{{ l.comunicacion(c) }}{% endfor %}

@@ -85,6 +85,7 @@
 
 <script src="{{ '/assets/js/nav.js' | version }}" defer></script>
 {% if page.url == "/" %}<script src="{{ '/assets/js/carrusel.js' | version }}" defer></script>{% endif %}
+{% if visor %}<script type="module" src="{{ '/assets/js/visor.js' | version }}"></script>{% endif %}
 {% if sitio.goatcounter and construccion.produccion %}<script data-goatcounter="https://{{ sitio.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>{% endif %}
 </body>
 </html>
