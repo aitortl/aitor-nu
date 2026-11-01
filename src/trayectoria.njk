@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 titulo: Trayectoria
-descripcion: Experiencia profesional y formación de Aitor Trabanco LLano, Dietista-Nutricionista.
+descripcion: "Experiencia en nutrición clínica hospitalaria, investigación y docencia, y formación de Aitor Trabanco LLano, dietista-nutricionista."
 permalink: /trayectoria/
 ---
 {% import "listas.njk" as l %}
@@ -42,8 +42,8 @@ permalink: /trayectoria/
 
 {% if reconocimientos.entradas.length %}
 <section class="bloque">
-  <h2>Reconocimientos, idiomas y herramientas</h2>
-  <ul class="simple">
+  <h2>Herramientas, idiomas y reconocimientos</h2>
+  <ul class="simple amplia">
     {% for r in reconocimientos.entradas %}<li>{{ r | texto | safe }}</li>{% endfor %}
   </ul>
 </section>

@@ -24,24 +24,7 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/marca/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-{% if page.url == "/" %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "{{ sitio.nombre }}",
-  "jobTitle": "{{ sitio.profesion }}",
-  "description": "{{ sitio.profesion }}. {{ sitio.lema }}.",
-  "url": "{{ sitio.url }}/",
-  "email": "mailto:{{ sitio.correo }}",
-  "sameAs": [
-    {% if sitio.orcid %}"https://orcid.org/{{ sitio.orcid }}",
-    {% endif %}"{{ sitio.linkedin }}",
-    "{{ sitio.dialnet }}"
-  ]
-}
-</script>
-{% endif %}
+{% if page.url == "/" %}{% perfil sitio, formacion, inicio %}{% endif %}
 </head>
 <body{% if page.url == "/" %} class="es-inicio"{% endif %}>
 <a class="saltar" href="#contenido">Saltar al contenido</a>

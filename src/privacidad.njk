@@ -1,15 +1,15 @@
 ---
 layout: base.njk
 titulo: Privacidad
-descripcion: Política de privacidad de aitor.nu. La web no usa cookies ni formularios.
+descripcion: Política de privacidad de aitor.nu. La web no usa cookies propias ni formularios.
 permalink: /privacidad/
 ---
 <header class="cabecera">
   <h1>Privacidad</h1>
   {% if sitio.goatcounter %}
-  <p class="lede">Esta web no usa cookies ni tiene formularios. Cuenta las visitas de forma anónima, sin guardar datos que te identifiquen. Aquí se explica qué datos se tratan y qué derechos tienes.</p>
+  <p class="lede">Esta web no usa cookies {{ "propias " if sitio.cloudflare }}ni tiene formularios. Cuenta las visitas de forma anónima, sin guardar datos que te identifiquen. Aquí se explica qué datos se tratan y qué derechos tienes.</p>
   {% else %}
-  <p class="lede">Esta web no usa cookies, no tiene formularios y no mide las visitas. Aquí se explica qué datos se tratan aun así y qué derechos tienes.</p>
+  <p class="lede">Esta web no usa cookies{{ " propias" if sitio.cloudflare }}, no tiene formularios y no mide las visitas. Aquí se explica qué datos se tratan aun así y qué derechos tienes.</p>
   {% endif %}
 </header>
 
@@ -27,6 +27,7 @@ permalink: /privacidad/
     {% else %}
     <li><strong>Al visitar la web</strong> no recojo ningún dato. No hay cookies, ni herramientas de analítica, ni botones de redes sociales, ni contenidos incrustados de otras webs. Las tipografías se sirven desde la propia web.</li>
     {% endif %}
+    {% if sitio.cloudflare %}<li><strong>Por seguridad</strong>, las visitas pasan por Cloudflare, que protege el dominio frente a ataques y abusos. Para ello trata tu dirección IP y datos técnicos de la conexión y del navegador, y puede comprobar con un pequeño programa si la visita la hace una persona o un sistema automatizado.</li>{% endif %}
     <li><strong>Al escribirme</strong> a {{ sitio.correo }} trato los datos que tú decidas enviarme: tu dirección de correo, tu nombre y el contenido del mensaje.</li>
   </ul>
 </section>
@@ -47,6 +48,7 @@ permalink: /privacidad/
   <p>No cedo tus datos a nadie. Estos proveedores técnicos intervienen en el funcionamiento de la web y del correo:</p>
   <ul>
     <li><strong>Alojamiento.</strong> La web está alojada en GitHub Pages, un servicio de GitHub. Como cualquier servidor, registra la dirección IP de quien visita la web con fines de seguridad, y lo hace como responsable de esos datos según su <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement">declaración de privacidad</a>. GitHub puede tratar esos datos en Estados Unidos, al amparo del Marco de Privacidad de Datos UE-EE. UU. y de las cláusulas contractuales tipo de la Comisión Europea.</li>
+    {% if sitio.cloudflare %}<li><strong>Red y seguridad.</strong> El dominio pasa por Cloudflare, Inc. (Estados Unidos), que hace de intermediario entre tu navegador y el alojamiento para protegerlo de ataques y abusos. Trata tu dirección IP y datos técnicos de la conexión, y puede hacerlo en Estados Unidos al amparo del Marco de Privacidad de Datos UE-EE. UU. Más información en su <a href="https://www.cloudflare.com/es-es/privacypolicy/">política de privacidad</a>.</li>{% endif %}
     {% if sitio.goatcounter %}<li><strong>Estadísticas de visitas.</strong> GoatCounter, servicio operado desde Irlanda, con servidores en Finlandia y Alemania. Actúa por mi cuenta como encargado del tratamiento. Más información en su <a href="https://www.goatcounter.com/help/privacy">política de privacidad</a>.</li>{% endif %}
     <li><strong>Correo electrónico.</strong> Los mensajes que me envíes se guardan en iCloud Mail, el servicio de correo de Apple. En el Espacio Económico Europeo, la entidad de Apple responsable es Apple Distribution International Limited (Irlanda). Apple guarda los datos, en general, en Estados Unidos y ampara esas transferencias en las cláusulas contractuales tipo de la Comisión Europea, según su <a href="https://www.apple.com/es/legal/privacy/es/">política de privacidad</a>.</li>
   </ul>
@@ -65,11 +67,16 @@ permalink: /privacidad/
 
 <section class="bloque prosa">
   <h2>Cookies</h2>
+  {% if sitio.cloudflare %}
+  <p>Esta web no instala cookies propias ni usa tecnologías parecidas con fines de análisis o publicidad.</p>
+  <p>Cloudflare, el servicio de red y seguridad del dominio, puede instalar cookies técnicas para distinguir las visitas de personas de las de sistemas automatizados (por ejemplo, <code>__cf_bm</code>). Son necesarias para la seguridad del servicio y no requieren tu consentimiento.</p>
+  {% else %}
   <p>Esta web no instala cookies ni usa tecnologías parecidas para guardar o leer información en tu dispositivo.</p>
+  {% endif %}
 </section>
 
 <section class="bloque prosa">
   <h2>Cambios en esta política</h2>
   <p>Si cambia algo de lo que se explica aquí, lo actualizaré en esta misma página.</p>
-  <p class="actualizado">Última actualización: 23 de octubre de 2026.</p>
+  <p class="actualizado">Última actualización: 1 de noviembre de 2026.</p>
 </section>

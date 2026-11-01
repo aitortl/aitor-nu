@@ -23,5 +23,6 @@ export default function () {
       });
     }
   }
-  return posteres;
+  // Del más reciente al más antiguo, como en Actividad; es el orden en que se pasa de uno a otro.
+  return posteres.sort((a, b) => String(b.fecha || "").localeCompare(String(a.fecha || "")));
 }

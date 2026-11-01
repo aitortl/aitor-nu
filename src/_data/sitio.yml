@@ -7,9 +7,16 @@ lema: Clínica e investigación con mirada didáctica
 correo: contacto@aitor.nu
 ciudad: Oviedo, Asturias
 colegiado: AS00043   # n.º de colegiado en el CODiNuPA
+colegio:
+  nombre: Colegio Profesional de Dietistas-Nutricionistas del Principado de Asturias (CODiNuPA)
+  url: https://www.codinupa.es/
+# Áreas que se citan en la portada; van en los datos estructurados para buscadores (knowsAbout).
+temas: [nutrición clínica, obesidad, oncohematología, mieloma múltiple, valoración morfofuncional, cribado nutricional]
 # Contador de visitas GoatCounter (sin cookies). Código de la cuenta, p. ej. "aitor-nu".
 # Vacío = sin contador. Solo se activa en la web publicada, nunca en local.
 goatcounter: "aitortl"
+# true mientras el dominio pase por el proxy de Cloudflare (nube naranja). Cambia la política de privacidad.
+cloudflare: true
 linkedin: https://www.linkedin.com/in/aitortl
 # ORCID: 0000-0002-8152-4214. Vacío = no se muestra (el perfil aún no tiene contenido).
 orcid: ""

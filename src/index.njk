@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 permalink: /
+descripcion: Dietista-nutricionista en el Hospital Universitario de Cabueñes. Nutrición clínica en obesidad y oncohematología, investigación y divulgación.
 ---
 {% set actuales = trayectoria.entradas | enCurso %}
 {% set cv = inicio.cv if (inicio.cv | existe) else "" %}
@@ -28,7 +29,8 @@ permalink: /
 </section>
 
 <section class="historia" aria-labelledby="t-historia">
-  <h2 class="cita" id="t-historia">{{ inicio.cita }}</h2>
+  <h2 class="oculto" id="t-historia">Sobre mí</h2>
+  <p class="cita">{{ inicio.cita }}</p>
   <div class="relato">
     {% for parrafo in inicio.parrafos %}
     <p>{{ parrafo | texto | safe }}</p>
@@ -42,7 +44,7 @@ permalink: /
   {% set conFoto = fotos | selectattr("foto") | length %}
   {% if not conFoto %}
   <div class="foto2 carrusel solo-texto" role="region" aria-roledescription="carrusel" aria-label="Eventos y apariciones en medios">
-    <div class="sello">{% set grande = true %}{% include "simbolo.njk" %}</div>
+    <div class="sello">{% set grande = true %}{% include "simbolo.njk" %}<p class="etiqueta">Eventos y medios</p></div>
     <ul class="pasos" tabindex="0" aria-label="Eventos y apariciones; desplázate con las flechas">
       {% for f in fotos %}
       <li aria-roledescription="diapositiva" aria-label="{{ loop.index }} de {{ fotos.length }}">
@@ -53,6 +55,7 @@ permalink: /
     </ul>
   {% else %}
   <div class="foto2 carrusel" role="region" aria-roledescription="carrusel" aria-label="Eventos y apariciones en medios">
+    <p class="etiqueta">Eventos y medios</p>
     <ul class="pasos" tabindex="0" aria-label="Fotos; desplázate con las flechas">
       {% for f in fotos %}
       <li aria-roledescription="diapositiva" aria-label="{{ loop.index }} de {{ fotos.length }}">
@@ -108,4 +111,5 @@ permalink: /
     <li><h3>{{ t.portada.nombre or t.entidad }}</h3>{% if t.puesto %}<p>{{ t.puesto }}</p>{% endif %}<p class="desde">{{ t.inicio | desdeLargo }}</p></li>
     {% endif %}{% endfor %}
   </ul>
+  <p class="seguir"><a href="/trayectoria/">Ver trayectoria completa →</a></p>
 </section>

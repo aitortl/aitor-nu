@@ -2,7 +2,7 @@ import fs from "node:fs";
 import crypto from "node:crypto";
 import path from "node:path";
 import yaml from "js-yaml";
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import Image, { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 const ENTRADA = "src";
 
@@ -73,6 +73,50 @@ function version(ruta) {
   if (!fs.existsSync(archivo)) return ruta;
   const huella = crypto.createHash("sha256").update(fs.readFileSync(archivo)).digest("hex").slice(0, 8);
   return `${ruta}?v=${huella}`;
+}
+
+// Datos estructurados de la portada (ProfilePage con Person), solo con datos que ya están en la web.
+async function perfil(sitio, formacion, inicio) {
+  const uni = (formacion?.entradas || []).filter((f) => f.universitaria);
+  const [localidad, region] = String(sitio.ciudad || "").split(/,\s*/);
+  let imagen;
+  if (existe(inicio?.retrato)) {
+    const datos = await Image(path.join(ENTRADA, inicio.retrato), { widths: [960], formats: ["jpeg"], urlPath: "/img/", outputDir: "./_site/img/" });
+    imagen = sitio.url + datos.jpeg[0].url;
+  }
+  const persona = {
+    "@type": "Person",
+    "@id": `${sitio.url}/#persona`,
+    name: sitio.nombre,
+    givenName: sitio.nombre_partes?.[0],
+    familyName: sitio.nombre_partes?.slice(1).join(" "),
+    jobTitle: sitio.profesion,
+    description: `${sitio.profesion}. ${sitio.lema}.`,
+    url: `${sitio.url}/`,
+    email: `mailto:${sitio.correo}`,
+    image: imagen,
+    address: localidad ? { "@type": "PostalAddress", addressLocality: localidad, addressRegion: region, addressCountry: "ES" } : undefined,
+    alumniOf: uni.map((f) => ({ "@type": "CollegeOrUniversity", name: f.entidad })),
+    hasCredential: uni.map((f) => ({
+      "@type": "EducationalOccupationalCredential",
+      name: f.titulo,
+      recognizedBy: { "@type": "CollegeOrUniversity", name: f.entidad },
+    })),
+    memberOf: sitio.colegio ? { "@type": "Organization", name: sitio.colegio.nombre, url: sitio.colegio.url } : undefined,
+    identifier: sitio.colegiado ? { "@type": "PropertyValue", propertyID: "Número de colegiado", value: sitio.colegiado } : undefined,
+    knowsAbout: sitio.temas,
+    sameAs: [sitio.orcid && `https://orcid.org/${sitio.orcid}`, sitio.linkedin, sitio.dialnet].filter(Boolean),
+  };
+  const pagina = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    url: `${sitio.url}/`,
+    name: `${sitio.nombre} · ${sitio.profesion}`,
+    inLanguage: "es",
+    mainEntity: persona,
+  };
+  const json = JSON.stringify(pagina, null, 2).replace(/</g, "\\u003c");
+  return `<script type="application/ld+json">\n${json}\n</script>`;
 }
 
 // Fotos de eventos pasados y de apariciones en medios, de la más reciente a la más antigua.
@@ -199,6 +243,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("existe", existe);
   eleventyConfig.addFilter("carrusel", carrusel);
   eleventyConfig.addFilter("version", version);
+  eleventyConfig.addAsyncShortcode("perfil", perfil);
 
   // Los enlaces a otras webs se abren en una pestaña nueva, con un aviso para lectores de pantalla.
   eleventyConfig.addTransform("enlacesExternos", function (html) {

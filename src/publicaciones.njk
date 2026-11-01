@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 titulo: Publicaciones
-descripcion: Capítulo de libro, resúmenes de congreso, guías y participación en proyectos de Aitor Trabanco LLano, con posición de firma y enlace a la fuente.
+descripcion: "Capítulo en la obra de Dietoterapia de la SEEN, resúmenes de congreso, guías divulgativas y participación en proyectos de investigación en nutrición, con enlace a la fuente."
 permalink: /publicaciones/
 ---
 {% import "listas.njk" as l %}
@@ -43,7 +43,7 @@ permalink: /publicaciones/
 {% if proyectos.entradas.length %}
 <section class="bloque">
   <h2>Participación en proyectos</h2>
-  <ul class="simple">
+  <ul class="simple amplia" style="--columnas:3">
     {% for p in proyectos.entradas %}<li>{% if p.enlace %}<a href="{{ p.enlace }}">{{ p.texto | texto | safe }}</a>{% else %}{{ p.texto | texto | safe }}{% endif %}
       {%- if p.enlaces and p.enlaces.length %} {% for e in p.enlaces %}<a href="{{ e.url }}">{{ e.texto }}</a>{{ ", " if not loop.last and loop.revindex > 2 else (" y " if loop.revindex == 2 else ".") }}{% endfor %}{% endif %}</li>{% endfor %}
   </ul>

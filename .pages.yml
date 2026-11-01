@@ -162,7 +162,7 @@ content:
             component: texto_con_cursiva
 
   - name: reconocimientos
-    label: Reconocimientos, idiomas y herramientas
+    label: Herramientas, idiomas y reconocimientos
     type: file
     path: src/_data/reconocimientos.yml
     fields:

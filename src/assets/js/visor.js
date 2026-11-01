@@ -10,15 +10,49 @@ const MAX_PIXELES = 16e6; // límite de tamaño de lienzo en Safari para iPhone
 
 document.querySelectorAll(".visor").forEach(iniciar);
 
-// "Volver": si se llegó desde esta misma web, vuelve a la página anterior en el mismo punto;
-// si no (enlace directo), el enlace lleva a las comunicaciones de Actividad.
+// "Volver" deshace todo el recorrido por los pósteres y regresa a la página desde la que se entró,
+// en el mismo punto. Si se entró con un enlace directo, el enlace lleva a las comunicaciones de Actividad.
+// "pasos" = cuántas páginas de póster se han visto desde que se llegó desde otra página de la web.
+const pasos = calcularPasos();
 document.querySelectorAll("[data-atras]").forEach((enlace) => {
   enlace.addEventListener("click", (e) => {
-    if (document.referrer && new URL(document.referrer).origin === location.origin && history.length > 1) {
+    if (pasos > 0) {
       e.preventDefault();
-      history.back();
+      history.go(-pasos);
     }
   });
+});
+
+function calcularPasos() {
+  if (history.state && typeof history.state.pasos === "number") return guardar(history.state.pasos);
+  let anterior = null;
+  try {
+    if (document.referrer) anterior = new URL(document.referrer);
+  } catch {}
+  const mismaWeb = anterior && anterior.origin === location.origin;
+  let n = 0;
+  if (mismaWeb && anterior.pathname.startsWith("/posteres/")) {
+    let previos = 0;
+    try { previos = Number(sessionStorage.getItem("posteres-pasos")) || 0; } catch {}
+    n = previos > 0 ? previos + 1 : 0;
+  } else if (mismaWeb) {
+    n = 1;
+  }
+  history.replaceState({ ...(history.state || {}), pasos: n }, "");
+  return guardar(n);
+}
+
+function guardar(n) {
+  try { sessionStorage.setItem("posteres-pasos", String(n)); } catch {}
+  return n;
+}
+
+// Flechas del teclado para pasar de póster, salvo cuando el foco está en el póster (allí desplazan).
+document.addEventListener("keydown", (e) => {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  if (e.target.closest && e.target.closest(".visor-lienzo, input, textarea, select, button")) return;
+  const enlace = document.querySelector(`.entre-posteres [data-tecla="${e.key}"]`);
+  if (enlace) location.href = enlace.href;
 });
 
 async function iniciar(visor) {
