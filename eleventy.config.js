@@ -105,7 +105,7 @@ async function perfil(sitio, formacion, inicio) {
     memberOf: sitio.colegio ? { "@type": "Organization", name: sitio.colegio.nombre, url: sitio.colegio.url } : undefined,
     identifier: sitio.colegiado ? { "@type": "PropertyValue", propertyID: "Número de colegiado", value: sitio.colegiado } : undefined,
     knowsAbout: sitio.temas,
-    sameAs: [sitio.orcid && `https://orcid.org/${sitio.orcid}`, sitio.linkedin, sitio.dialnet].filter(Boolean),
+    sameAs: [sitio.orcid && `https://orcid.org/${sitio.orcid}`, sitio.ispa, sitio.linkedin, sitio.dialnet].filter(Boolean),
   };
   const pagina = {
     "@context": "https://schema.org",

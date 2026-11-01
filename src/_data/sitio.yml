@@ -21,4 +21,8 @@ linkedin: https://www.linkedin.com/in/aitortl
 # ORCID: 0000-0002-8152-4214. Vacío = no se muestra (el perfil aún no tiene contenido).
 orcid: ""
 dialnet: https://dialnet.unirioja.es/servlet/autor?codigo=7227733
+# Ficha en el portal de investigación del ISPA-FINBA. Siempre va en los datos para buscadores;
+# mostrar_ispa: true la enseña también en "Perfiles" (cuando tenga publicaciones o proyectos).
+ispa: https://ispa-finba.portalinvestigacion.com/investigadores/2631
+mostrar_ispa: false
 simbolo: /assets/marca/simbolo.svg   # ligadura AT, del kit de marca definitivo

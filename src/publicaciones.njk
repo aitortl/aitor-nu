@@ -54,6 +54,7 @@ permalink: /publicaciones/
   <h2>Perfiles</h2>
   <ul class="simple">
     {% if sitio.orcid %}<li><a href="https://orcid.org/{{ sitio.orcid }}">ORCID {{ sitio.orcid }}</a></li>{% endif %}
+    {% if sitio.ispa and sitio.mostrar_ispa %}<li><a href="{{ sitio.ispa }}">Ficha de investigador en el ISPA-FINBA</a></li>{% endif %}
     <li><a href="{{ sitio.dialnet }}">Perfil de autor en Dialnet</a></li>
   </ul>
 </section>
