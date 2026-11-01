@@ -2,6 +2,24 @@
 # después pasan solos a "Eventos anteriores". Sin ninguno, el bloque no aparece.
 # Los pasados salen también en el carrusel de la portada (con su foto o con el símbolo de marca).
 entradas:
+  - nombre: XVIII Reunión Anual de la Sociedad Asturiana de Hematología y Hemoterapia (SAHH)
+    fecha: "2026-04-17"
+    lugar: Espacio Circus, Oviedo
+    papel: "Ponente de nutrición en la mesa redonda «El hematólogo consulta»"
+    enlace: https://www.sahh.es/fotos/894qrwueah/Programa_definitivo%201.pdf
+    enlace_texto: Ver el programa (PDF)
+    enlace_archivado: https://web.archive.org/web/20261101110749/https://www.sahh.es/fotos/894qrwueah/Programa_definitivo%201.pdf
+    foto: ""
+    foto_alt: ""
+  - nombre: IV Jornadas Multidisciplinares de Endocrinología y Nutrición de la Sociedad Asturiana de Diabetes, Endocrinología, Nutrición y Obesidad (SADENO)
+    fecha: "2025-11-24"
+    lugar: Salón de Actos del Hospital Universitario de Cabueñes, Gijón
+    papel: "Ponente: «Tratamiento dietético en obesidad: claves prácticas para el seguimiento desde enfermería»"
+    enlace: https://sadeno.es/iv-jornadas-multidisciplinares-de-endocrinologia-y-nutricion-2025/
+    enlace_texto: Ver el programa
+    enlace_archivado: https://web.archive.org/web/20261101110631/https://sadeno.es/iv-jornadas-multidisciplinares-de-endocrinologia-y-nutricion-2025/
+    foto: ""
+    foto_alt: ""
   - nombre: 10.ª Jornada sobre mieloma múltiple (CEMMp)
     fecha: "2025-09-04"
     lugar: Colegio de Médicos de Madrid
