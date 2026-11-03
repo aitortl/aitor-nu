@@ -4,6 +4,44 @@
 # poster: PDF del póster en /documentos/posteres/. Cada póster tiene su página en /posteres/<nombre-del-pdf>/,
 # donde se ve en la propia web y se puede descargar.
 entradas:
+  - titulo: "Calidad de vida en mieloma múltiple: sarcopenia, obesidad clínica (criterios Lancet 2025) y obesidad sarcopénica como determinantes del SF-36"
+    fecha: "2026-10"
+    tipo: póster
+    evento: LXVIII Congreso Nacional de la Sociedad Española de Hematología y Hemoterapia (SEHH), Bilbao
+    nota: Resumen publicado en *Sangre*, 45 (Supl. 1).
+    firma: 1
+    detalle: ""
+    enlace: https://365.dataeventservices.net/recursos/314/sangre_26_45_supl-1_compressed_compressed.pdf#page=298
+    enlace_texto: Ver el resumen (PDF, 35 MB)
+    poster: /documentos/posteres/2026-10-sehh-calidad-vida-mieloma.pdf
+  - titulo: "Sarcopenia, estado nutricional y calidad de vida en pacientes con mieloma múltiple: impacto de la intervención nutricional y del ejercicio físico a los 6 meses"
+    fecha: "2026-10"
+    tipo: póster
+    evento: LXVIII Congreso Nacional de la Sociedad Española de Hematología y Hemoterapia (SEHH), Bilbao
+    nota: Resumen publicado en *Sangre*, 45 (Supl. 1).
+    firma: 1
+    detalle: ""
+    enlace: https://365.dataeventservices.net/recursos/314/sangre_26_45_supl-1_compressed_compressed.pdf#page=299
+    enlace_texto: Ver el resumen (PDF, 35 MB)
+    poster: /documentos/posteres/2026-10-sehh-sarcopenia-mieloma.pdf
+  - titulo: "Biomarcadores de fragilidad biológica en mieloma múltiple: utilidad del índice creatinina/cistatina C"
+    fecha: "2026-10"
+    tipo: póster
+    evento: LXVIII Congreso Nacional de la Sociedad Española de Hematología y Hemoterapia (SEHH), Bilbao
+    nota: Resumen publicado en *Sangre*, 45 (Supl. 1).
+    firma: 19
+    detalle: ""
+    enlace: https://365.dataeventservices.net/recursos/314/sangre_26_45_supl-1_compressed_compressed.pdf#page=299
+    enlace_texto: Ver el resumen (PDF, 35 MB)
+  - titulo: "BADMMINTON: del hospital a la comunidad, volver a jugar y volver a pertenecer"
+    fecha: "2026-10"
+    tipo: póster
+    evento: LXVIII Congreso Nacional de la Sociedad Española de Hematología y Hemoterapia (SEHH), Bilbao
+    nota: Resumen publicado en *Sangre*, 45 (Supl. 1).
+    firma: 21
+    detalle: ""
+    enlace: https://365.dataeventservices.net/recursos/314/sangre_26_45_supl-1_compressed_compressed.pdf#page=309
+    enlace_texto: Ver el resumen (PDF, 35 MB)
   - titulo: ¿Es importante la nutrición en el mieloma múltiple? Análisis clínico y funcional
     fecha: "2025-10"
     tipo: póster
