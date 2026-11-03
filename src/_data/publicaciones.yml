@@ -12,6 +12,38 @@ entradas:
     enlace_texto: Ver en Dialnet
     enlace2: https://www.medicapanamericana.com/es-ES/libros/dietoterapia
     enlace2_texto: Ver el libro en la editorial
+  - titulo: "Calidad de vida en mieloma múltiple: sarcopenia, obesidad clínica (criterios Lancet 2025) y obesidad sarcopénica como determinantes del SF-36"
+    autores: ""
+    publicacion: "*Sangre*; 45 (Supl. 1): 297. Resumen E-PO-076 del LXVIII Congreso Nacional de la SEHH."
+    anio: "2026"
+    tipo: resumen
+    firma: 1
+    enlace: https://365.dataeventservices.net/recursos/314/sangre_26_45_supl-1_compressed_compressed.pdf#page=298
+    enlace_texto: Ver el suplemento (PDF, 35 MB)
+  - titulo: "Sarcopenia, estado nutricional y calidad de vida en pacientes con mieloma múltiple: impacto de la intervención nutricional y del ejercicio físico a los 6 meses"
+    autores: ""
+    publicacion: "*Sangre*; 45 (Supl. 1): 298. Resumen E-PO-078 del LXVIII Congreso Nacional de la SEHH."
+    anio: "2026"
+    tipo: resumen
+    firma: 1
+    enlace: https://365.dataeventservices.net/recursos/314/sangre_26_45_supl-1_compressed_compressed.pdf#page=299
+    enlace_texto: Ver el suplemento (PDF, 35 MB)
+  - titulo: "Biomarcadores de fragilidad biológica en mieloma múltiple: utilidad del índice creatinina/cistatina C"
+    autores: ""
+    publicacion: "*Sangre*; 45 (Supl. 1): 298-299. Resumen E-PO-079 del LXVIII Congreso Nacional de la SEHH."
+    anio: "2026"
+    tipo: resumen
+    firma: 19
+    enlace: https://365.dataeventservices.net/recursos/314/sangre_26_45_supl-1_compressed_compressed.pdf#page=299
+    enlace_texto: Ver el suplemento (PDF, 35 MB)
+  - titulo: "BADMMINTON: del hospital a la comunidad, volver a jugar y volver a pertenecer"
+    autores: ""
+    publicacion: "*Sangre*; 45 (Supl. 1): 308-309. Resumen E-PO-096 del LXVIII Congreso Nacional de la SEHH."
+    anio: "2026"
+    tipo: resumen
+    firma: 21
+    enlace: https://365.dataeventservices.net/recursos/314/sangre_26_45_supl-1_compressed_compressed.pdf#page=309
+    enlace_texto: Ver el suplemento (PDF, 35 MB)
   - titulo: ¿Es importante la nutrición en el mieloma múltiple? Análisis clínico y funcional
     autores: ""
     publicacion: "*Sangre*; 44 (Supl. 1): 252-253. Resumen E-PO-138 del LXVII Congreso Nacional de la SEHH."
@@ -35,6 +67,22 @@ entradas:
     tipo: resumen
     firma: 1
     enlace: https://www.renhyd.org/renhyd/article/view/1213
+    enlace_texto: Ver en la revista
+  - titulo: Impacto económico del Dietista-Nutricionista en la sanidad
+    autores: ""
+    publicacion: "*Archivos Latinoamericanos de Nutrición*; 71 (Supl. 1). Resumen del XIX Congreso Latinoamericano de Nutrición (SLAN)."
+    anio: "2021"
+    tipo: resumen
+    firma: 1
+    enlace: https://www.alanrevista.org/ediciones/2021/suplemento-1/art-180
+    enlace_texto: Ver en la revista
+  - titulo: Dieta y Microbiota
+    autores: ""
+    publicacion: "*Archivos Latinoamericanos de Nutrición*; 71 (Supl. 1). Resumen del XIX Congreso Latinoamericano de Nutrición (SLAN)."
+    anio: "2021"
+    tipo: resumen
+    firma: 1
+    enlace: https://www.alanrevista.org/ediciones/2021/suplemento-1/art-376/
     enlace_texto: Ver en la revista
   - titulo: "Dossier EsNuPI AEP: principales hallazgos"
     autores: ""
