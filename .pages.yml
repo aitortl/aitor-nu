@@ -386,6 +386,13 @@ content:
             pattern:
               regex: "^(https://web\\.archive\\.org/\\S+)?$"
               message: "Debe ser una dirección de web.archive.org"
+          - name: enlace2
+            label: Segundo enlace (opcional)
+            component: enlace
+            description: "P. ej.: la página del evento en la agenda del organizador."
+          - name: enlace2_texto
+            label: Texto del segundo enlace
+            type: string
           - name: foto
             label: Foto
             type: image

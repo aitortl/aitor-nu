@@ -97,6 +97,7 @@
   <div class="fuente">
     {% if e.enlace %}<a href="{{ e.enlace }}">{{ e.enlace_texto or "Más información" }}</a>{% endif %}
     {% if e.enlace_archivado %}{% if e.enlace %}<br>{% endif %}<a href="{{ e.enlace_archivado }}">Copia archivada</a>{% endif %}
+    {% if e.enlace2 %}{% if e.enlace or e.enlace_archivado %}<br>{% endif %}<a href="{{ e.enlace2 }}">{{ e.enlace2_texto or "Más información" }}</a>{% endif %}
   </div>
 </li>
 {% endmacro %}

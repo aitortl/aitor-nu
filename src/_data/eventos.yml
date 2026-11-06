@@ -28,13 +28,15 @@ entradas:
     enlace_texto: Ver la ponencia
     foto: ""
     foto_alt: ""
-  - nombre: Mesa redonda «Papel de los hábitos de vida saludables en las enfermedades hematológicas» (Amichen)
+  - nombre: "Mesa redonda «Papel de los hábitos de vida saludables en las enfermedades hematológicas», en las Jornadas del Deporte Solidario: Pacientes Hematológicos (Amichen)"
     fecha: "2026-07-24"
-    lugar: Centro de Cultura Antiguo Instituto, Gijón
+    lugar: Salón de actos del Centro de Cultura Antiguo Instituto, Gijón
     papel: Ponente, como dietista-nutricionista del Hospital Universitario de Cabueñes
     enlace: https://www.elcomercio.es/gijon/gijon-sudara-camiseta-fin-semana-buena-causa-20260721124730-nt.html
     enlace_texto: Ver la noticia
     enlace_archivado: https://web.archive.org/web/20261023105507/https://www.elcomercio.es/gijon/gijon-sudara-camiseta-fin-semana-buena-causa-20260721124730-nt.html
+    enlace2: https://www.gijon.es/es/eventos/mesa-redonda-papel-de-los-habitos-de-vida-saludables-en-las-enfermedades-hematologicas
+    enlace2_texto: Ver en la agenda del Ayuntamiento de Gijón
     foto: ""
     foto_alt: ""
   - nombre: Semana Cultural 2023 del Colegio Nazaret
