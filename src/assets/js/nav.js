@@ -1,4 +1,4 @@
-// Cabecera: fondo sólido al desplazarse, atajos de CV y correo, y menú en móvil.
+// Cabecera: fondo sólido al desplazarse y menú en móvil.
 const nav = document.getElementById("nav");
 const btn = document.getElementById("btnMenu");
 const enInicio = document.body.classList.contains("es-inicio");
@@ -24,13 +24,3 @@ document.addEventListener("keydown", (e) => {
   }
 });
 actualizarNav();
-
-// Atajos de CV y correo en la barra: en la portada, solo cuando ya no se ven sus botones.
-const accionesPortada = document.querySelector(".portada .acciones");
-if (accionesPortada && "IntersectionObserver" in window) {
-  new IntersectionObserver(([e]) => {
-    nav.classList.toggle("con-atajos", !e.isIntersecting && e.boundingClientRect.top < 0);
-  }, { rootMargin: "-70px 0px 0px 0px" }).observe(accionesPortada);
-} else {
-  nav.classList.add("con-atajos");
-}

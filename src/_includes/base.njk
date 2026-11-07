@@ -44,10 +44,6 @@
     <li><a href="{{ item[0] }}"{% if page.url == item[0] %} aria-current="page"{% endif %}>{{ item[1] }}</a></li>
     {% endfor %}
     <li><a href="#contacto">Contacto</a></li>
-    {# Atajos: en escritorio aparecen al bajar (en la portada, cuando ya no se ven los botones de arriba); en móvil, al final del menú. #}
-    {% set cvMenu = inicio.cv if (inicio.cv | existe) else "" %}
-    {% if cvMenu %}<li class="atajo"><a class="atajo-cv" href="{{ cvMenu }}" download>Descargar CV</a></li>{% endif %}
-    <li class="atajo"><a class="boton" href="mailto:{{ sitio.correo }}">Escríbeme</a></li>
   </ul>
 </nav>
 
