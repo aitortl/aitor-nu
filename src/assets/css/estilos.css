@@ -31,6 +31,14 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--profundo)}
 .enlaces a{text-decoration:none;position:relative;padding:.2rem 0}
 .enlaces a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s}
 .enlaces a:hover::after,.enlaces a[aria-current="page"]::after{transform:scaleX(1)}
+.enlaces .atajo{display:flex;align-items:center}
+.enlaces .atajo-cv{font-weight:600}
+.enlaces .boton{padding:.45rem 1rem;font-size:.92rem}
+.enlaces .boton::after{content:none}
+@media (min-width:901px){
+  .js .nav:not(.con-atajos) .atajo{visibility:hidden;opacity:0}
+  .atajo{transition:opacity .25s,visibility .25s}
+}
 .btn-menu{display:none;background:none;border:1px solid currentColor;color:inherit;font:600 .85rem var(--sans);padding:.45rem .9rem;border-radius:2px;cursor:pointer}
 
 /* ---------- Portada ---------- */
@@ -59,7 +67,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--profundo)}
   .es-inicio .nombre .l1{animation-delay:.35s}.es-inicio .nombre .l2{animation-delay:.47s}.es-inicio .nombre .l3{animation-delay:.59s}
   .es-inicio .profesion,.es-inicio .colegiado,.es-inicio .lema,.es-inicio .acciones{animation:aparece .8s ease both;animation-delay:.95s}
 }
-@media (prefers-reduced-motion:reduce){.nav,.marca,.enlaces a::after,.boton{transition:none}}
+@media (prefers-reduced-motion:reduce){.nav,.marca,.enlaces a::after,.boton,.atajo{transition:none}}
 @keyframes revela{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
 @keyframes sube{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
 @keyframes aparece{from{opacity:0}to{opacity:1}}
@@ -137,6 +145,7 @@ footer h2{color:#9CC7C9;font-size:1.15rem;margin:0 0 1.2rem}
   html:not(.js) .marca{opacity:1;transform:none}
   html:not(.js) .enlaces{flex-wrap:wrap;gap:.4rem 1.2rem}
   .nav.abierta{background:var(--papel)}
+  .nav.abierta .enlaces .atajo{align-items:flex-start}
   .nav.abierta .enlaces{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--papel);padding:1.2rem var(--lado) 1.6rem;border-bottom:1px solid var(--linea);gap:1rem;font-size:1.1rem}
   .portada{display:block;padding-top:0}
   .retrato{position:relative;width:auto;height:62svh;margin:0 calc(var(--lado) * -1)}
